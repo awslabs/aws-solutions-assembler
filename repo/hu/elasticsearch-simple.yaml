@@ -1,0 +1,25 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Deployment 
+metadata:
+  name: elasticsearch-simple
+spec:
+  template:
+    tiles:
+      tileAwsElasticSearch740:
+        tileReference: AWS-ElasticSearch-CMD
+        tileVersion: 7.4.0
+        inputs:
+          - name: domainName
+            inputValue: mahjong-es-simple401        
+          
+
+  summary:
+      description: AWS ElasticSerach Example 
+      outputs:
+        - name: Domain Name
+          value: $(tileAwsElasticSearch740.outputs.domainName)
+        - name: Domain Endpoint
+          value: $(tileAwsElasticSearch740.outputs.domainEndpoint)
+
+      notes: []
+    

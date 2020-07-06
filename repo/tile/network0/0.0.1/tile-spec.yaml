@@ -1,0 +1,55 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Tile
+metadata:
+    name: Network0
+    category: Network
+    version: 0.0.1
+spec:
+    inputs:
+        - name: cidr
+          inputType: String
+          description: 'CIDR for VPC'
+          defaultValue: '10.0.0.0/16'
+          require: false
+
+    outputs:
+        - name: baseVpc
+          outputType: CDKObject
+          description: AWS::EC2::VPC
+        - name: vpcId
+          outputType: String
+          description: AWS::EC2::VPC.ID
+        - name: publicSubnet1
+          outputType: String
+          description: AWS::EC2::Subnet
+        - name: publicSubnet2
+          outputType: String
+          description: AWS::EC2::Subnet
+        - name: privateSubnet1
+          outputType: String
+          description: AWS::EC2::Subnet
+        - name: privateSubnet2
+          outputType: String
+          description: AWS::EC2::Subnet
+        - name: publicSubnetId1
+          outputType: String
+          description: AWS::EC2::Subnet.ID
+        - name: publicSubnetId2
+          outputType: String
+          description: AWS::EC2::Subnet.ID
+        - name: privateSubnetId1
+          outputType: String
+          description: AWS::EC2::Subnet.ID
+        - name: privateSubnetId2
+          outputType: String
+          description: AWS::EC2::Subnet.ID
+        - name: isolatedSubnetId1
+          outputType: String
+          description: AWS::EC2::Subnet.ID
+        - name: isolatedSubnetId2
+          outputType: String
+          description: AWS::EC2::Subnet.ID          
+    notes: 
+      - 'Resources: vpc, internet gateway, subnets, nat, route table, EIP'
+
+

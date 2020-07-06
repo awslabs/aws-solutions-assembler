@@ -1,0 +1,232 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+
+    "description": "The schema is a definition for Tile as v1aplha.",
+    "definitions": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "vendorService": {
+                    "type": "string"
+                },
+                "dependentOnVendorService": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "tileRepo": {
+                    "type": "string"
+                },
+                "versionTag": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "license": {
+                    "type": "string"
+                },
+                "released": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "category",
+                "version"
+            ]
+        },
+        "spec": {
+            "type": "object",
+            "properties": {
+                "global": {
+                    "type": "object",
+                    "properties": {
+                        "env": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {"type":"string"},
+                                    "value": {"type": "string"}
+                                }
+                            },
+                            "minItems": 0
+                        }
+                    }
+                },
+                "preRun": {
+                    "type": "object",
+                    "properties": {
+                        "stages": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {"type":"string"},
+                                    "command": {"type": "string"}
+                                }
+                            },
+                            "minItems": 0
+                        }
+                    }
+                },
+                "dependencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "tileReference": {
+                                "type": "string"
+                            },
+                            "tileVersion": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "minItems": 0
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "description": {"type": "string"},
+                            "inputType": {
+                                "type": "string"
+                            },
+                            "dependencies": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "field": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            },
+                            "defaultValue": {"type": "string"},
+                            "defaultValues": {
+                                "type": "array",
+                                "items": { "type": "string" },
+                                "minItems": 0
+                            },
+                            "override": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "field": { "type": "string" }
+                                }
+                            },
+                            "require": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required":["name", "inputType", "require"]
+                    }
+                },
+                "manifests": {
+                    "type": "object",
+                    "properties": {
+                        "manifestType": {"type":"string"},
+                        "namespace": {"type": "string"},
+                        "files": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 0
+                        },
+                        "folders": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 0
+                        }
+                    }
+
+                },
+                "outputs": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": { "type": "string" },
+                            "outputType": { "type": "string"},
+                            "defaultValue": { "type": "string"},
+                            "description": { "type": "string"},
+                            "defaultValueCommand": { "type": "string"}
+                        }
+                    }
+                },
+                "notes:": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 0
+                },
+                "postRun": {
+                    "type": "object",
+                    "properties": {
+                        "stages": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {"type":"string"},
+                                    "command": {"type": "string"}
+                                }
+                            },
+                            "minItems": 0
+                        }
+                      }
+                }
+            },
+            "required":["inputs", "outputs"]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "apiVersion": {
+            "type": "string",
+            "pattern": "^mahjong.io/v1.*$"
+        },
+        "kind": {
+            "const": "Tile"
+        },
+        "metadata": {
+            "$ref": "#/definitions/metadata"
+        },
+        "spec": {
+            "$ref": "#/definitions/spec"
+        }
+
+    }
+}

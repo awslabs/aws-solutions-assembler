@@ -1,0 +1,38 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Deployment 
+metadata:
+  name: eks-spot-simple
+spec:
+  template:
+    tiles:
+      tileEksWithSpot050:
+        tileReference: Eks-with-Spot
+        tileVersion: 0.5.0
+        inputs:
+          - name: cidr
+            inputValue: 192.168.0.0/16
+          - name: clusterName
+            inputValue: mahjong-spot-cluster0
+          - name: clusterVersion
+            inputValue: 1.16
+          - name: keyPair4EC2
+            inputValue: ore-keypair
+          - name: capacityInstance
+            inputValues: 
+              - m5.large
+              - r5.large
+              - c5.large
+  summary:
+    description: 
+    outputs:
+      - name: EKS Cluster Name
+        value: $(tileEksWithSpot050.outputs.clusterName)
+      - name: Master role arn for EKS Cluster
+        value: $(tileEksWithSpot050.outputs.masterRoleARN)
+      - name: The API endpoint EKS Cluster
+        value: $(tileEksWithSpot050.outputs.clusterEndpoint)
+      - name: Instance type of worker node
+        value: $(tileEksWithSpot050.outputs.capacityInstance)
+
+
+    notes: []

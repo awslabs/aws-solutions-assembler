@@ -1,0 +1,191 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Tile
+metadata:
+    name: Eks-with-Spot
+    category: ContainerProvider
+    vendorService: EKS
+    version: 0.5.0
+# Specification
+spec:
+  dependencies:
+    - name: network
+      tileReference: Network0
+      tileVersion: 0.0.1
+  inputs:
+    # String
+    - name: cidr
+      inputType: String
+      require: true
+      override: 
+        name: network
+        field: cidr
+    # CDKObject
+    - name: vpc
+      inputType: CDKObject
+      description: 'Refer to VPC object on Tile - Network0'
+      dependencies:
+        - name: network
+          field: baseVpc
+      require: false
+    # CDKObject[]
+    - name: vpcSubnets
+      inputType: CDKObject[]
+      description: ''
+      dependencies:
+        - name: network
+          field: publicSubnet1
+        - name: network
+          field: publicSubnet2
+        - name: network
+          field: privateSubnet1
+        - name: network
+          field: privateSubnet2
+      require: false
+    # String
+    - name: clusterName
+      inputType: String
+      description: 'EKS Cluster Name'
+      defaultValue: default-eks-cluster
+      require: true
+    # String
+    - name: clusterVersion
+      inputType: String
+      description: 'EKS version'
+      defaultValue: '1.16'
+      require: false
+    # String
+    - name: keyPair4EC2
+      inputType: String
+      description: 'Key Pair for EC2'
+      require: true
+    # String[]
+    - name: capacityInstance
+      inputType: String[]
+      description: 'Instance type for Auto Scaling Group'
+      defaultValues: 
+        - c5.large
+        - m5.large
+        - r5.large
+      require: false
+    - name: maxSizeASG
+      inputType: String
+      description: 'Maximum instances'
+      defaultValue: '6'
+      require: false
+    - name: minSizeASG
+      inputType: String
+      description: 'Minimun instances'
+      defaultValue: '4'
+      require: false
+    - name: desiredCapacityASG
+      inputType: String
+      description: 'Desired instances'
+      defaultValue: '4'
+      require: false
+    - name: cooldownASG
+      inputType: String
+      description: 'Cooldown period'
+      defaultValue: '180'
+      require: false
+    - name: onDemandPercentage
+      inputType: Number
+      description: 'Percentage of on-demand instances'
+      defaultValue: 25
+      require: false
+
+  # Ouptputs represnt output value after launched, for 'ContainerApplication' might need leverage specific command to retrive output.
+  outputs:
+    # String
+    - name: regionOfCluster
+      outputType: String
+      description: AWS::Region
+    # String
+    - name: clusterName
+      outputType: String
+      description: AWS::EKS::Cluster.Name
+    # String
+    - name: clusterVersion
+      outputType: String
+      description: AWS::EKS::Cluster.Version
+    # String
+    - name: clusterArn
+      outputType: String
+      description: AWS::IAM::Role.ARN          
+    # String
+    - name: clusterEndpoint
+      outputType: String
+      description: AWS::EKS::Cluster.Endpoint
+    # String
+    - name: clusterCertificateAuthorityData
+      outputType: String
+      description: AWS::EKS::Cluster.clusterCertificateAuthorityData
+    # String
+    - name: masterRoleARN
+      outputType: String
+      description: AWS::IAM::Role.ARN
+    # String
+    - name: autoScalingGroupName
+      outputType: String
+      description: AWS::AutoScaling::AutoScalingGroup.Name
+    # String
+    - name: autoScalingGroupMaxSize
+      outputType: String
+      description: AWS::AutoScaling::AutoScalingGroup.MaxSize
+    # String
+    - name: autoScalingGroupMinSize
+      outputType: String
+      description: AWS::AutoScaling::AutoScalingGroup.MinSize
+    # String
+    - name: autoScalingGroupDesiredCapacity
+      outputType: String
+      description: AWS::AutoScaling::AutoScalingGroup
+    # String
+    - name: nodesRoleARN
+      outputType: String
+      description: AWS::IAM::Role.ARN
+    # String
+    - name: capacityInstance
+      outputType: String
+      description: AWS::Instance.Type
+
+  postRun:
+    stages:
+      - name: UpdateConfigMap
+        command: |
+          cd $TILE_HOME
+          MasterRoleARN=$(echo -n ${D_TBD_EKS_WITH_SPOT_MASTERROLEARN} | sed -e "s#/#\\\/#g")
+          NodeRoleARN=$(echo -n ${D_TBD_EKS_WITH_SPOT_NODESROLEARN} | sed -e "s#/#\\\/#g")
+          
+          sed -e 's/__EKSClusterMasterRoleARN__/'$MasterRoleARN'/g' \
+              -e 's/__NodeGroupRoleARN__/'$NodeRoleARN'/g' \
+              lib/yaml/aws-auth-cm.yaml > lib/yaml/aws-auth-cm-go.yaml
+          aws eks update-kubeconfig --name $D_TBD_EKS_WITH_SPOT_CLUSTERNAME --region $D_TBD_EKS_WITH_SPOT_REGIONOFCLUSTER --role-arn $D_TBD_EKS_WITH_SPOT_MASTERROLEARN --kubeconfig $TILE_HOME/kube.config
+          export KUBECONFIG=$TILE_HOME/kube.config
+          kubectl apply -f  lib/yaml/aws-auth-cm-go.yaml
+      - name: TagSpotInstances
+        command: |
+          # waiting nodes' ready for 5 seconds
+          sleep 10
+          lib/script/tagec2.sh
+      - name: InstallClusterAutoScaler
+        command: |
+          sleep 10
+          sed -e 's/__CLUSTER_NAME__/'$D_TBD_EKS_WITH_SPOT_CLUSTERNAME'/g' \
+              lib/yaml/cluster-autoscaler-autodiscover.yaml > lib/yaml/cluster-autoscaler-autodiscover-go.yaml
+          kubectl apply -f lib/yaml/cluster-autoscaler-autodiscover-starter.yaml
+          kubectl get pods -n kube-system
+          sleep 10
+          kubectl apply -f lib/yaml/cluster-autoscaler-autodiscover-go.yaml
+          kubectl -n kube-system annotate deployment.apps/cluster-autoscaler cluster-autoscaler.kubernetes.io/safe-to-evict="false" --overwrite=true
+          kubectl -n kube-system set image deployment.apps/cluster-autoscaler cluster-autoscaler=us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v$D_TBD_EKS_WITH_SPOT_CLUSTERVERSION.5          
+      - name: InstallHorizontalPodAutoscaler
+        command: |
+          kubectl apply -f lib/yaml/hpa036-components.yaml
+      - name: InstallTerminationHandler
+        command: |
+          kubectl apply -f lib/yaml/termination-handler14-all-resources.yaml
+  # Notes are description list for addtional information.
+  notes:
+    - "Tag public subnets with 'kubernetes.io/role/elb=1'"
+    - "Tag priavte subnets with 'kubernetes.io/role/internal-elb=1'"
+

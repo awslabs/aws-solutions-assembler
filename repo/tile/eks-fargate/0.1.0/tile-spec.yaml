@@ -1,0 +1,73 @@
+# API version
+apiVersion: mahjong.io/v1alpha1
+# Kind of entity
+kind: Tile
+# Metadata
+metadata:
+    # Name of entity
+    name: Eks-Fargate
+    # Category of entity
+    category: ContainerProvider
+    # Vendor
+    vendorService: EKS
+    # Version of entity
+    version: 0.1.0
+# Specification
+spec:
+  # Dependencies represent dependency with other Tile
+  dependencies:
+      # As a reference name 
+    - name: network
+      # Tile name
+      tileReference: Network0
+      # Tile version
+      tileVersion: 0.0.1
+  # Inputs are input parameters when lauching 
+  inputs:
+    # String
+    - name: cidr
+      inputType: String
+      require: true
+      override: 
+        name: network
+        field: cidr
+    # CDKObject
+    - name: vpc
+      inputType: CDKObject
+      description: 'Refer to VPC object on Tile - Network0'
+      dependencies:
+          # Reference name in Dependencies
+        - name: network
+          # Filed name in refered Tile
+          field: baseVpc
+      # Input is mandatory or not, true is mandatory and false is optional
+      require: false
+    # String
+    - name: clusterName
+      inputType: String
+      description: ''
+      defaultValue: default-eks-cluster
+      require: true
+
+  # Ouptputs represnt output value after launched, for 'ContainerApplication' might need leverage specific command to retrive output.
+  outputs:
+    # String
+    - name: clusterName
+      outputType: String
+      description: AWS::EKS::Cluster.Name
+    # String
+    - name: clusterArn
+      outputType: String
+      description: AWS::EKS::Cluster.ARN          
+    # String
+    - name: clusterEndpoint
+      outputType: String
+      description: AWS::EKS::Cluster.Endpoint
+    # String
+    - name: masterRoleARN
+      outputType: String
+      description: AWS::IAM::Role.ARN
+
+  # Notes are description list for addtional information.
+  notes: []
+

@@ -1,0 +1,85 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Tile
+metadata:
+    name: Go-Bumblebee-ONLY
+    category: Application
+    version: 0.0.1
+    dependentOnVendorService: EKS
+spec:
+
+  global:
+    env:
+      - name: GITHUB_USER
+        value: cc4i
+      - name: REPO_NAME
+        value: go-bumblebee-tile
+      - name: ACCESS_TOKEN
+         # <tileInstance.outputs.name> / self -> tileInstane of this Tile
+        value: $(self.inputs.accessToken)
+      - name: APP_NAMESPACE
+        value: go-bumblebee
+      - name: ARGOCD_NAMESPACE
+        value: $(self.inputs.argocdNamespace)
+      - name: ARGOCD_USER
+        value: $(self.inputs.argocdUser)
+      - name: ARGOCD_PASSWORD
+        value: $(self.inputs.argocdPassword)
+
+  preRun:
+    stages:
+      - name: CreateRepository
+        command: |
+          curl -H "Authorization: token $ACCESS_TOKEN" --data '{"name":"'$REPO_NAME'"}' https://api.github.com/user/repos
+      - name: SyncConttent2Repository
+        command: |
+          cd $TILE_HOME
+          git clone https://$ACCESS_TOKEN:x-oauth-basic@github.com/$GITHUB_USER/$REPO_NAME.git
+          cd $REPO_NAME
+          cp -r ../kustomize .
+          git add -A
+          git commit -m "first commit"
+          git config --global user.email "robot@codebuild.aws"
+          git config --global user.name "robot"
+          git push -u origin master
+      - name: RegisterWithArgoCD
+        command: |
+          export PATH=$TILE_HOME/apps:$PATH
+          export KUBECONFIG=$WORK_HOME/kube.config
+          kubectl create ns $APP_NAMESPACE || true
+          #nohup kubectl port-forward svc/argocd-server -n $ARGOCD_NAMESPACE 8080:443 &
+          sleep 5
+          cd $TILE_HOME/apps
+          sed -e 's/__User__/'$ARGOCD_USER'/g' \
+              -e 's/__Password__/'$ARGOCD_PASSWORD'/g' ./login-argocd.sh > ./login-argocd-go.sh
+          sed -e 's/__Namespace__/'$APP_NAMESPACE'/g' ./create-app.sh > ./create-app-go.sh
+
+  inputs:
+    - name: accessToken
+      inputType: String
+      require: true
+    - name: argocdNamespace
+      inputType: String
+      require: true
+    - name: argocdUser
+      inputType: String
+      require: true      
+    - name: argocdPassword
+      inputType: String
+      require: true
+
+
+          
+  # Ouptputs represnt output value after launched, for 'ContainerApplication' might need leverage specific command to retrive output.
+  outputs:
+    # FromCommand
+    - name: appRepo
+      outputType: String
+      defaultValue: https://github.com/$GITHUB_USER/$REPO_NAME.git
+      description: Custom::Repo        
+    - name: appNamespace
+      outputType: String
+      defaultValue: go-bumblebee
+      description: Custom::Namespace        
+
+  notes: []
+
