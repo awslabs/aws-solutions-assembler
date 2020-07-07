@@ -1,11 +1,9 @@
 
 # Image URL to use all building/pushing
 DOCKER_IMAGE ?= mahjongs/dice
-DOCKER_TAG_GIT_BRANCH ?= $(shell git rev-parse --abbrev-ref HEAD)
-DOCKER_TAG_GIT_TAG ?= $(shell git describe --tags --abbrev=0)
-GOX ?= $(shell go env GOPATH)/bin/gox
-VERSION ?= ${tag}
-GIT_COMMIT ?= $(shell git rev-list -1 HEAD)
+DOCKER_IMAGE_TAG ?= ${GIT_BRANCH}
+VERSION ?= ${GIT_TAG}
+GIT_COMMIT ?= $(GIT_COMMIT)
 BUILT ?= $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 # Docker Hub username / password
@@ -20,8 +18,15 @@ test: fmt vet
 
 # Build manager binary
 manager: fmt vet
+	echo DOCKER_IMAGE=${DOCKER_IMAGE}
+	echo DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}
+	echo VERSION=${VERSION}
+	echo GIT_COMMIT=${GIT_COMMIT}
+	echo BUILT=${BUILT}
+
 	GO111MODULE=off go get github.com/mitchellh/gox
-	${GOX} -osarch=linux/386 \
+	
+	gox -osarch=linux/386 \
 		  -osarch=linux/amd64 \
 		  -osarch=darwin/386 \
 		  -osarch=darwin/amd64 \
@@ -51,10 +56,10 @@ docker-build:
 		--build-arg VERSION=${VERSION} \
 		--build-arg GIT_COMMIT=`git rev-list -1 HEAD` \
 		--build-arg BUILT=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-		-t ${DOCKER_IMAGE}:${DOCKER_TAG_GIT_BRANCH} .
-	@if [ ${DOCKER_TAG_GIT_BRANCH} = "master" ]; then \
+		-t ${DOCKER_IMAGE}:${DOCKER_IMAGE_TAG} .
+	@if [ ${DOCKER_IMAGE_TAG} = "master" ]; then \
 		echo "Tag image with latest label"; \
-		docker tag ${DOCKER_IMAGE}:${DOCKER_TAG_GIT_BRANCH} ${DOCKER_IMAGE}:latest; \
+		docker tag ${DOCKER_IMAGE}:${DOCKER_IMAGE_TAG} ${DOCKER_IMAGE}:latest; \
 	fi
 	rm -rf probe
 
@@ -63,8 +68,8 @@ docker-build:
 # Push the docker image
 docker-push:
 	#echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
-	docker push ${DOCKER_IMAGE}:${DOCKER_TAG_GIT_BRANCH}
-	@if [ ${DOCKER_TAG_GIT_BRANCH} = "master" ]; then \
+	docker push ${DOCKER_IMAGE}:${DOCKER_IMAGE_TAG}
+	@if [ ${DOCKER_IMAGE_TAG} = "master" ]; then \
 		echo "Push image with latest label"; \
 		docker push ${DOCKER_IMAGE}:latest; \
 	fi
