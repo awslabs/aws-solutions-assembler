@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing
-DOCKER_IMAGE ?= herochinese/dice
+DOCKER_IMAGE ?= mahjongs/dice
 DOCKER_TAG_GIT_BRANCH ?= $(shell git rev-parse --abbrev-ref HEAD)
 DOCKER_TAG_GIT_TAG ?= $(shell git describe --tags --abbrev=0)
 GOX ?= $(shell go env GOPATH)/bin/gox
