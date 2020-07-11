@@ -1,0 +1,187 @@
+name:  Release Mahjong
+on:
+  push:
+    tags:
+      - 'release-v*'
+jobs:
+  prepare-release:
+    name: Run automatic release on trigger ${{ github.ref }}
+    runs-on: ubuntu-latest
+    env:
+      # Whether to create & push image and release assets
+      DRY_RUN: false
+      # The name of the tag as supplied by the GitHub event
+      SOURCE_TAG: ${{ github.ref }}
+      # Name of the GitHub user for Git config
+      GIT_USERNAME: mahjong-ops
+      # E-Mail of the GitHub user for Git config
+      GIT_EMAIL: mahjong-ops@aws.com
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if the published tag is well formed and setup vars
+        run: |
+          set -xue
+          # Target version must match major.minor.patch and optional -rcX suffix
+          # where X must be a number.
+          TARGET_VERSION=${SOURCE_TAG#*release-v}
+          if ! echo ${TARGET_VERSION} | egrep '^[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)*$'; then
+            echo "::error::Target version '${TARGET_VERSION}' is malformed, refusing to continue." >&2
+            exit 1
+          fi
+
+          # The release tag is the source tag, minus the release- prefix
+          RELEASE_TAG="${SOURCE_TAG#*release-}"
+
+          # Ensure that release do not yet exist
+          if git rev-parse ${RELEASE_TAG}; then
+            echo "::error::Release tag ${RELEASE_TAG} already exists in repository. Refusing to continue."
+            exit 1
+          fi
+
+          # Make the variables available in follow-up steps
+          echo "::set-env name=TARGET_VERSION::${TARGET_VERSION}"
+          echo "::set-env name=RELEASE_TAG::${RELEASE_TAG}"
+
+      - name: Check if our release tag has a correct annotation
+        run: |
+          set -ue
+          # Fetch all tag information as well
+          git fetch --prune --tags --force
+
+          echo "=========== BEGIN COMMIT MESSAGE ============="
+          git show ${SOURCE_TAG}
+          echo "============ END COMMIT MESSAGE =============="
+          
+
+      - name: Setup Golang
+        uses: actions/setup-go@v1
+        with:
+          go-version: '1.14.2'
+
+      - name: Setup Git author information
+        run: |
+          set -ue
+          git config --global user.email "${GIT_EMAIL}"
+          git config --global user.name "${GIT_USERNAME}"
+
+
+      - name: Create VERSION information
+        run: |
+          set -ue
+          cd ${GITHUB_WORKSPACE}
+          echo "Bumping version from $(cat VERSION) to ${TARGET_VERSION}"
+          echo "${TARGET_VERSION}" > VERSION
+          git commit -m "Bump version to ${TARGET_VERSION}" VERSION
+
+
+      - name: Create the release tag
+        run: |
+          set -ue
+          echo "Creating release ${RELEASE_TAG}"
+          git tag ${RELEASE_TAG}
+
+      - name: Build Docker image for release
+        env:
+          GIT_TAG: ${RELEASE_TAG}
+          GIT_COMMIT: ${GITHUB_SHA}
+          M_S3_BUCKET_REGION: ${{ secrets.M_S3_BUCKET_REGION }}
+          M_S3_BUCKET: ${{ secrets.M_S3_BUCKET }}
+        run: |
+          set -ue
+          cd ${GITHUB_WORKSPACE}/dice && make docker-build
+        if: ${{ env.DRY_RUN != 'true' }}
+
+      - name: Push docker image to repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_TAG: ${RELEASE_TAG}
+          GIT_COMMIT: ${GITHUB_SHA}
+          M_S3_BUCKET_REGION: ${{ secrets.M_S3_BUCKET_REGION }}
+          M_S3_BUCKET: ${{ secrets.M_S3_BUCKET }}
+        run: |
+          set -ue
+          echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u cc4i --password-stdin
+          cd ${GITHUB_WORKSPACE}/dice && make docker-push-github
+        if: ${{ env.DRY_RUN != 'true' }}
+
+      - name: Build MCTL/CLI for release
+        env:
+          GIT_TAG: ${RELEASE_TAG}
+          GIT_COMMIT: ${GITHUB_SHA}
+          M_S3_BUCKET_REGION: ${{ secrets.M_S3_BUCKET_REGION }}
+          M_S3_BUCKET: ${{ secrets.M_S3_BUCKET }}
+        run: |
+          set -ue
+          cd ${GITHUB_WORKSPACE}/mctl && make all
+          ls -l ${GITHUB_WORKSPACE}/mctl/dist
+        if: ${{ env.DRY_RUN != 'true' }}
+
+
+      - name: Push changes to release branch
+        run: |
+          set -ue
+          git push origin ${RELEASE_TAG}
+
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v1
+        with:
+          version: ${TARGET_VERSION}
+          path: ./CHANGELOG.md
+
+      - name: Create GitHub release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: create_release
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          release_name: ${{ env.RELEASE_TAG }}
+          body: ${{ steps.changelog_reader.outputs.log_entry }}
+          draft: false
+          prerelease: false
+
+      - name: Upload mctl-linux-amd64 binary to release assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./mctl/dist/mctl_linux_amd64.tar.gz
+          asset_name: mctl_linux_amd64.tar.gz
+          asset_content_type: application/octet-stream
+        if: ${{ env.DRY_RUN != 'true' }}
+
+      - name: Upload mctl-darwin-amd64 binary to release assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./mctl/dist/mctl_darwin_amd64.tar.gz
+          asset_name: mctl_darwin_amd64.tar.gz
+          asset_content_type: application/octet-stream
+        if: ${{ env.DRY_RUN != 'true' }}
+
+      - name: Upload mctl-windows-amd64 binary to release assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./mctl/dist/mctl_windows_amd64.exe.tar.gz
+          asset_name: mctl_windows_amd64.exe.tar.gz
+          asset_content_type: application/octet-stream
+        if: ${{ env.DRY_RUN != 'true' }}
+
+
+      - name: Delete original request tag from repository
+        run: |
+          set -ue
+          git push --delete origin ${SOURCE_TAG}
+        if: ${{ always() }}

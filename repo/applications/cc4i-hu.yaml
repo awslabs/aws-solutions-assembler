@@ -1,0 +1,181 @@
+hu:
+  - name: argocd-simple
+    decsription: |
+      Initial Hu - argocd-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: argocd-with-app
+    decsription: |
+      Initial Hu - argocd-with-app
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: argocd-with-existing-eks
+    decsription: |
+      Initial Hu - argocd-with-existing-eks
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: backing-services
+    decsription: |
+      Initial Hu - backing-services
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: eks-fargate-simple
+    decsription: |
+      Initial Hu - eks-fargate-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: eks-plus-mysql
+    decsription: |
+      Initial Hu - eks-plus-mysql
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: eks-simple
+    decsription: |
+      Initial Hu - eks-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: eks-simple-with-region
+    decsription: |
+      Initial Hu - eks-simple-with-region
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: eks-spot-simple
+    decsription: |
+      Initial Hu - eks-spot-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: elasticsearch-simple
+    decsription: |
+      Initial Hu - elasticsearch-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: elastiredis-simple
+    decsription: |
+      Initial Hu - elastiredis-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: go-bumblebee-jazz
+    decsription: |
+      Initial Hu - go-bumblebee-jazz
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: istio-simple
+    decsription: |
+      Initial Hu - istio-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: kms-simple
+    decsription: |
+      Initial Hu - kms-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: microservice-all-in-one
+    decsription: |
+      Initial Hu - microservice-all-in-one
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: microservice-infrastructure
+    decsription: |
+      Initial Hu - microservice-infrastructure
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: microservice-infrastructure-linkerd
+    decsription: |
+      Initial Hu - microservice-infrastructure-linkerd
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: microservice-infrastructure-linkerd-v2
+    decsription: |
+      Initial Hu - microservice-infrastructure-linkerd-v2
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: perfect-microservice-jazz
+    decsription: |
+      Initial Hu - perfect-microservice-jazz
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
+  - name: traefik-simple
+    decsription: |
+      Initial Hu - traefik-simple
+    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
+    tag: 0.1.0
+    folder: tile//0.1.0
+    version: 0.1.0
+    author: cc4i
+    email: builder@aws.com
