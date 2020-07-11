@@ -119,7 +119,11 @@ func (ep *ExecutionPlan) ExecutePlan(ctx context.Context, dryRun bool, out *webs
 }
 
 func (ep *ExecutionPlan) RunPlan(ctx context.Context, dryRun bool, wg *sync.WaitGroup, out *websocket.Conn) error {
-	defer wg.Done()
+	defer func() {
+		if wg != nil {
+			wg.Done()
+		}
+	}()
 	dSid := ctx.Value("d-sid").(string)
 	if aTs, ok := AllTs[dSid]; ok {
 		for e := ep.Plan.Back(); e != nil; e = e.Prev() {
@@ -183,7 +187,6 @@ func (ep *ExecutionPlan) RunPlan(ctx context.Context, dryRun bool, wg *sync.Wait
 			}
 			//
 			setStatus(dSid, stage.Name, Done.DSString())
-
 		}
 	}
 	return nil
@@ -587,6 +590,11 @@ set -xe
 
 // WsTail collect output from stdout/stderr, and also catch up defined output value & persist them.
 func (ep *ExecutionPlan) WsTail(ctx context.Context, reader io.ReadCloser, stageLog *log.Logger, wg *sync.WaitGroup, out *websocket.Conn) {
+	defer func() {
+		if wg != nil {
+			wg.Done()
+		}
+	}()
 	scanner := bufio.NewScanner(reader)
 	scanner.Split(bufio.ScanLines)
 	for scanner.Scan() {
@@ -595,9 +603,6 @@ func (ep *ExecutionPlan) WsTail(ctx context.Context, reader io.ReadCloser, stage
 			stageLog.Printf("%s", buf)
 		}
 		SR(out, buf)
-	}
-	if wg != nil {
-		wg.Done()
 	}
 }
 
