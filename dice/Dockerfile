@@ -53,9 +53,11 @@ LABEL org.label-schema.name="dice-all-in-one" \
       org.label-schema.build-date=$BUILT
 
 # For installed packages
-ENV KUBE_LATEST_VERSION="v1.16.9"
-ENV AWS_IAM_AUTHENTICATOR="0.5.0"
-ENV HELM_VERSION="v3.2.1"
+ENV KUBECTL_VERSION="v1.16.12"
+ENV KUSTOMIZATION_VERSION="3.8.0"
+ENV AWS_IAM_AUTHENTICATOR="0.5.1"
+ENV SEALED_SECRETSCTL_VERSION="0.12.4"
+ENV HELM_VERSION="v3.2.4"
 ENV GLIBC_VER="2.31-r0"
 
 # For Dice
@@ -74,15 +76,15 @@ RUN apk add --no-cache ca-certificates \
         jq \
         nodejs \
         nodejs-npm \
-    && wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
+    && wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
     && wget -q https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v${AWS_IAM_AUTHENTICATOR}/aws-iam-authenticator_${AWS_IAM_AUTHENTICATOR}_linux_amd64 -O  /usr/local/bin/aws-iam-authenticator \
     && chmod +x /usr/local/bin/aws-iam-authenticator \
     && wget -q https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm \
-    && wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.6.1/kustomize_v3.6.1_linux_amd64.tar.gz -O - | tar -xzO kustomize > /usr/local/bin/kustomize \
+    && wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZATION_VERSION}/kustomize_v${KUSTOMIZATION_VERSION}_linux_amd64.tar.gz -O - | tar -xzO kustomize > /usr/local/bin/kustomize \
     && chmod +x /usr/local/bin/kustomize \
-    && wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.4/kubeseal-linux-amd64 -O /usr/local/bin/kubeseal \
+    && wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v${SEALED_SECRETSCTL_VERSION}/kubeseal-linux-amd64 -O /usr/local/bin/kubeseal \
     && chmod +x /usr/local/bin/kubeseal \
     && curl -sL https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub -o /etc/apk/keys/sgerrand.rsa.pub \
     && curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-${GLIBC_VER}.apk \
