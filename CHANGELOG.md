@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [0.12.2] - 2020-07-14
+### Changed
+- Upgrade kubectl to 1.16.12
+- Upgrade aws-iam-authenticator to 0.5.1
+- Upgrade kustomize to 3.8.0
+- Upgrade Helm to 3.2.4
+- Update CDK based framwork to 1.51.0
+- Restruct directory of Hu with versioning
+
+### Fixed
+- Fixed retrieving metadata of Hu from local repo
+
+
 ## [0.12.0] - 2020-07-02
 ### Added
 - Support multiple dependencies in deployment.
