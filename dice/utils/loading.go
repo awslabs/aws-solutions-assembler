@@ -3,6 +3,7 @@ package utils
 import (
 	"bufio"
 	"crypto/tls"
+	"errors"
 	"fmt"
 	log "github.com/sirupsen/logrus"
 	"io/ioutil"
@@ -12,22 +13,21 @@ import (
 	"strings"
 )
 
-type S3Functions interface {
-	LoadTile(tile string, version string) (string, error)
-	LoadTileDev(tile string, version string) (string, error)
+type LoadingFunctions interface {
+	LoadTile(tile string, version string, folder string) (string, error)
 	LoadTileS3(tile string, version string, folder string) (string, error)
+	LoadTileDev(tile string, version string, folder string) (string, error)
+	CleanJunk(folder string)
 	LoadSuper(folder string) (string, error)
-	LoadSuperDev(folder string) (string, error)
 	LoadSuperS3(folder string) (string, error)
-	Decompress(tile string, version string) error
-	LoadTestOutput(tile string) ([]byte, error)
-	CleanJunk()
+	LoadSuperDev(folder string) (string, error)
+	LoadTestOutput(tile string, folder string) ([]byte, error)
 	LoadTileSpec(tile string, version string) ([]byte, error)
-	LoadTileSpecS3(tile string, version string) ([]byte, error)
 	LoadTileSpecDev(tile string, version string) ([]byte, error)
-	LoadHuSpec(hu string) ([]byte, error)
-	LoadHuSpecS3(hu string) ([]byte, error)
-	LoadHuSpecDev(hu string) ([]byte, error)
+	LoadTileSpecS3(tile string, version string) ([]byte, error)
+	LoadHuSpec(hu string, version string) ([]byte, error)
+	LoadHuSpecDev(hu string, version string) ([]byte, error)
+	LoadHuSpecS3(hu string, version string) ([]byte, error)
 }
 
 type HttpClient interface {
@@ -80,6 +80,10 @@ func (dc *DiceConfig) LoadTileS3(tile string, version string, folder string) (st
 	if err != nil {
 		log.Printf("API call was failed from %s with Err: %s. \n", tileUrl, err)
 		return tileSpecFile, err
+	}
+	if resp.StatusCode != http.StatusOK {
+		log.Errorf("response_code=%d, response_status= %s for %s\n", resp.StatusCode, resp.Status, tileUrl)
+		return tileSpecFile, errors.New("failed to load tile :" + tile + "-" + version + " from repo")
 	}
 
 	return tileSpecFile, UnTarGz(destDir, bufio.NewReader(resp.Body))
@@ -158,7 +162,10 @@ func (dc *DiceConfig) LoadSuperS3(folder string) (string, error) {
 		log.Printf("API call was failed from %s with Err: %s. \n", tileUrl, err)
 		return destDir, err
 	}
-
+	if resp.StatusCode != http.StatusOK {
+		log.Errorf("response_code=%d, response_status= %s for %s\n", resp.StatusCode, resp.Status, tileUrl)
+		return destDir, errors.New("failed to load super from repo")
+	}
 	return destDir, UnTarGz(destDir, bufio.NewReader(resp.Body))
 
 }
@@ -220,44 +227,55 @@ func (dc *DiceConfig) LoadTileSpecS3(tile string, version string) ([]byte, error
 		log.Printf("API call was failed from %s with Err: %s. \n", tileUrl, err)
 		return nil, err
 	}
+
+	if resp.StatusCode != http.StatusOK {
+		log.Errorf("response_code=%d, response_status= %s for %s\n", resp.StatusCode, resp.Status, tileUrl)
+		return nil, errors.New("failed to load tile :" + tile + "-" + version + " from repo")
+	}
 	return ioutil.ReadAll(resp.Body)
 }
 
-func (dc *DiceConfig) LoadHuSpec(hu string) ([]byte, error) {
+func (dc *DiceConfig) LoadHuSpec(hu string, version string) ([]byte, error) {
 	if dc.Mode == "dev" {
-		dest, err := dc.LoadHuSpecDev(hu)
+		dest, err := dc.LoadHuSpecDev(hu, version)
 		if err != nil {
-			dest, err = dc.LoadHuSpecS3(hu)
+			dest, err = dc.LoadHuSpecS3(hu, version)
 		}
 		return dest, err
 	} else {
-		return dc.LoadHuSpecS3(hu)
+		return dc.LoadHuSpecS3(hu, version)
 	}
 }
-func (dc *DiceConfig) LoadHuSpecDev(hu string) ([]byte, error) {
+func (dc *DiceConfig) LoadHuSpecDev(hu string, version string) ([]byte, error) {
 	repoDir := dc.LocalRepo
-	srcDir := repoDir + "../hu/"
+	srcDir := repoDir + "../hu/" + strings.ToLower(hu) + "/" + version + "/"
 	huSpecFile := srcDir + strings.ToLower(hu) + ".yaml"
 
 	return ioutil.ReadFile(huSpecFile)
 }
-func (dc *DiceConfig) LoadHuSpecS3(hu string) ([]byte, error) {
-	tileUrl := fmt.Sprintf("https://%s.s3-%s.amazonaws.com/hu/%s.yaml",
+func (dc *DiceConfig) LoadHuSpecS3(hu string, version string) ([]byte, error) {
+	huUrl := fmt.Sprintf("https://%s.s3-%s.amazonaws.com/hu/%s/%s/%s.yaml",
 		dc.BucketName,
 		dc.Region,
+		strings.ToLower(hu),
+		version,
 		strings.ToLower(hu))
 	if Client == nil {
 		initHttpClient()
 	}
-	req, err := http.NewRequest(http.MethodGet, tileUrl, nil)
+	req, err := http.NewRequest(http.MethodGet, huUrl, nil)
 	if err != nil {
-		log.Printf("http.NewRequest was failed from %s with Err: %s. \n", tileUrl, err)
+		log.Printf("http.NewRequest was failed from %s with Err: %s. \n", huUrl, err)
 		return nil, err
 	}
 	resp, err := Client.Do(req)
 	if err != nil {
-		log.Printf("API call was failed from %s with Err: %s. \n", tileUrl, err)
+		log.Printf("API call was failed from %s with Err: %s. \n", huUrl, err)
 		return nil, err
+	}
+	if resp.StatusCode != http.StatusOK {
+		log.Errorf("response_code=%d, response_status= %s for %s\n", resp.StatusCode, resp.Status, huUrl)
+		return nil, errors.New("failed to load Hu :" + hu + "-" + version + " from repo")
 	}
 	return ioutil.ReadAll(resp.Body)
 }

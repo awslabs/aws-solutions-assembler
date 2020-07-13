@@ -206,8 +206,9 @@ func TileSpec(ctx context.Context, c *gin.Context) {
 
 func HuSpec(ctx context.Context, c *gin.Context) {
 	name := c.Param("name")
+	version := c.Param("version")
 
-	buf, err := engine.DiceConfig.LoadHuSpec(name)
+	buf, err := engine.DiceConfig.LoadHuSpec(name, version)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err.Error())
 	} else {
