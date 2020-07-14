@@ -42,19 +42,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run golangci-lint for dice
-        uses: golangci/golangci-lint-action@v1
+        uses: golangci/golangci-lint-action@v1.2.2
         with:
           version: v1.26
           working-directory: ./dice
           args: --timeout 5m
       - name: Run golangci-lint for mctl
-        uses: golangci/golangci-lint-action@v1
+        uses: golangci/golangci-lint-action@v1.2.2
         with:
           version: v1.26
           working-directory: ./mctl
           args: --timeout 5m
       - name: Run golangci-lint for probe
-        uses: golangci/golangci-lint-action@v1
+        uses: golangci/golangci-lint-action@v1.2.2
         with:
           version: v1.26
           working-directory: ./probe
