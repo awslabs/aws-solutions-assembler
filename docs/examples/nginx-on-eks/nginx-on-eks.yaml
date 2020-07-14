@@ -1,0 +1,28 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Deployment
+metadata:
+  name: nginx
+  version: 0.1.0
+spec:
+  template:
+    tiles:
+      tileNginx:
+        tileReference: nginx
+        tileVersion: 0.0.1
+        inputs:
+          - name: clusterName
+            inputValue: nginx-on-eks
+          - name: capacity
+            inputValue: 3
+          - name: capacityInstance
+            inputValue: m5.large
+          - name: version
+            inputValue: 1.17
+
+  summary:
+    description:
+    outputs:
+      - name: Nginx Endpoint
+        value: $(tileNginx.outputs.nginxEndpoint)
+
+    notes: []
