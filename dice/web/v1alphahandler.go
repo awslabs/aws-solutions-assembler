@@ -173,21 +173,62 @@ func Template(ctx context.Context, c *gin.Context) {
 	}
 }
 
-func Metadata(ctx context.Context, c *gin.Context) {
-	what := c.Param("what")
-	switch what {
-	case "tile":
-		if meta, err := utils.TilesMetadata(ctx, engine.DiceConfig.BucketName, engine.DiceConfig.Region); err != nil {
+func HuMetadata(ctx context.Context, c *gin.Context) {
+	name := c.Param("name")
+	version := c.Param("version")
+	if name != "" && version != "" {
+		if meta, err := utils.HuMetadataFromJson(ctx, engine.DiceConfig, name, version); err != nil {
 			c.JSON(http.StatusInternalServerError, err.Error())
 		} else {
 			c.JSON(http.StatusOK, meta)
 		}
-	case "hu":
-		if meta, err := utils.HusMetadata(ctx, engine.DiceConfig.BucketName, engine.DiceConfig.Region); err != nil {
+
+	} else {
+		if meta, err := utils.AllHuFromJson(ctx, engine.DiceConfig); err != nil {
 			c.JSON(http.StatusInternalServerError, err.Error())
 		} else {
 			c.JSON(http.StatusOK, meta)
 		}
+	}
+
+}
+
+func TileMetadata(ctx context.Context, c *gin.Context) {
+	name := c.Param("name")
+	version := c.Param("version")
+	if name != "" && version != "" {
+		if meta, err := utils.TileMetadataFromJson(ctx, engine.DiceConfig, name, version); err != nil {
+			c.JSON(http.StatusInternalServerError, err.Error())
+		} else {
+			c.JSON(http.StatusOK, meta)
+		}
+	} else {
+		if meta, err := utils.AllTileFromJson(ctx, engine.DiceConfig); err != nil {
+			c.JSON(http.StatusInternalServerError, err.Error())
+		} else {
+			c.JSON(http.StatusOK, meta)
+		}
+	}
+
+}
+
+
+func AllHuMetadata(ctx context.Context, c *gin.Context) {
+
+	if meta, err := utils.AllHuMetadata(ctx, engine.DiceConfig); err != nil {
+		c.JSON(http.StatusInternalServerError, err.Error())
+	} else {
+		c.JSON(http.StatusOK, meta)
+	}
+
+}
+
+func AllTileMetadata(ctx context.Context, c *gin.Context) {
+
+	if meta, err := utils.AllTileMetadata(ctx, engine.DiceConfig); err != nil {
+		c.JSON(http.StatusInternalServerError, err.Error())
+	} else {
+		c.JSON(http.StatusOK, meta)
 	}
 
 }
@@ -308,6 +349,41 @@ func Tile(ctx context.Context, c *gin.Context) {
 
 	b, _ := yaml.Marshal(tile)
 	c.String(http.StatusOK, string(b))
+}
+
+// Json2Yaml convert json to yaml
+func Json2Yaml(ctx context.Context, c *gin.Context) {
+	buf, err := c.GetRawData()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	jsonData, err := yaml.JSONToYAML(buf)
+	if err !=nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	} else {
+		c.String(http.StatusOK, string(jsonData))
+	}
+
+
+
+}
+
+// Yaml2Json convert yaml to json
+func Yaml2Json(ctx context.Context, c *gin.Context) {
+	buf, err := c.GetRawData()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	yamlData, err := yaml.YAMLToJSON(buf)
+	if err !=nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	} else {
+		c.String(http.StatusOK, string(yamlData))
+	}
 }
 
 // allowCORS allows cross site access

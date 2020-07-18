@@ -41,7 +41,7 @@ func Router(ctx context.Context) *gin.Engine {
 	// Destroy API through WebSocket
 	r.GET("/v1alpha1/destroy", func(c *gin.Context) {
 		//TODO: delete local cache & print out guide
-		c.String(http.StatusOK, "Coming soon!")
+		c.String(http.StatusOK, "!!!CONSTRUCTION!!!")
 	})
 
 	// Return url of basic templates as per request
@@ -50,23 +50,37 @@ func Router(ctx context.Context) *gin.Engine {
 	})
 
 	// Retrieve metadata from tiles repo
-	r.GET("/v1alpha1/repo/:what", func(c *gin.Context) {
-		Metadata(ctx, c)
+	r.GET("/v1alpha1/repo/hu", func(c *gin.Context) {
+		HuMetadata(ctx, c)
 	})
+	r.GET("/v1alpha1/repo/hu/:name/:version", func(c *gin.Context) {
+		HuMetadata(ctx, c)
+	})
+	r.GET("/v1alpha1/repo/tile", func(c *gin.Context) {
+		TileMetadata(ctx, c)
+	})
+	r.GET("/v1alpha1/repo/tile/:name/:version", func(c *gin.Context) {
+		TileMetadata(ctx, c)
+	})
+	r.GET("/v1alpha1/repo/all/hu", func(c *gin.Context) {
+		AllHuMetadata(ctx, c)
+	})
+	r.GET("/v1alpha1/repo/all/tile", func(c *gin.Context) {
+		AllTileMetadata(ctx, c)
+	})
+
 	// Retrieve detail of specification tile
 	r.GET("/v1alpha1/tile/:name/:version", func(c *gin.Context) {
 		TileSpec(ctx, c)
+	})
+	// Validate Tile specification
+	r.POST("/v1alpha1/tile", func(c *gin.Context) {
+		Tile(ctx, c)
 	})
 	// Retrieve detail of specification hu
 	r.GET("/v1alpha1/hu/:name", func(c *gin.Context) {
 		HuSpec(ctx, c)
 	})
-
-	// Validate Tile specification
-	r.POST("/v1alpha1/tile", func(c *gin.Context) {
-		Tile(ctx, c)
-	})
-
 	// Validate Deployment specification
 	r.POST("/v1alpha1/deployment", func(c *gin.Context) {
 		Deployment(ctx, c)
@@ -92,6 +106,15 @@ func Router(ctx context.Context) *gin.Engine {
 	// List deployments in memory
 	r.GET("/v1alpha1/ts", func(c *gin.Context) {
 		AllTsD(ctx, c)
+	})
+
+	// Json to Yaml
+	r.POST("/v1alpha1/util/json2yaml", func(c *gin.Context) {
+		Json2Yaml(ctx, c)
+	})
+	// Yaml to Json
+	r.POST("/v1alpha1/util/yaml2json", func(c *gin.Context) {
+		Yaml2Json(ctx, c)
 	})
 
 	// Version of Dice
