@@ -359,7 +359,7 @@ func (d *AssembleData) PullTile(ctx context.Context,
 	for _, ov := range parsedTile.Spec.Inputs {
 		if ov.Override.Name != "" {
 			if tileName, ok := tileDependencies[ov.Override.Name]; ok {
-				if val, ok := deploymentInputs[tileName+"-"+ov.Override.Field]; ok {
+				if val, ok := deploymentInputs[parsedTile.Metadata.Name+"-"+ov.Override.Field]; ok {
 					tlo := &v1alpha1.TileInputOverride{
 						Name:  ov.Override.Name,
 						Field: ov.Override.Field,

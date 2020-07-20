@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed retrieving metadata of Hu from local repo
+- Fixed failed to override input value
 
 
 ## [0.12.0] - 2020-07-02

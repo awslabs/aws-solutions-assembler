@@ -212,7 +212,6 @@ func TileMetadata(ctx context.Context, c *gin.Context) {
 
 }
 
-
 func AllHuMetadata(ctx context.Context, c *gin.Context) {
 
 	if meta, err := utils.AllHuMetadata(ctx, engine.DiceConfig); err != nil {
@@ -359,14 +358,12 @@ func Json2Yaml(ctx context.Context, c *gin.Context) {
 		return
 	}
 	jsonData, err := yaml.JSONToYAML(buf)
-	if err !=nil {
+	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	} else {
 		c.String(http.StatusOK, string(jsonData))
 	}
-
-
 
 }
 
@@ -378,7 +375,7 @@ func Yaml2Json(ctx context.Context, c *gin.Context) {
 		return
 	}
 	yamlData, err := yaml.YAMLToJSON(buf)
-	if err !=nil {
+	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	} else {

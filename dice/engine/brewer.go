@@ -678,11 +678,12 @@ func (ep *ExecutionPlan) ExtractValue(ctx context.Context, buf []byte, out *webs
 			}
 		}
 
-		// Pass output values to parent stack
-		parentTileInstances := ParentTileInstance(dSid, tileInstance)
-		for _, parentTileInstance := range parentTileInstances {
+		// Old: Pass output values to parent stack -> //ParentTileInstance(dSid, tileInstance)
+		// 2020-07-20: Changed to pass output values to all family stack
+		allTileInstances := FamilyTileInstance(dSid, tileInstance)
+		for _, aTileInstance := range allTileInstances {
 			if outputs, ok := (*ts.AllOutputsN)[tileInstance]; ok {
-				if parentOutputs, ok := (*ts.AllOutputsN)[parentTileInstance]; ok {
+				if parentOutputs, ok := (*ts.AllOutputsN)[aTileInstance]; ok {
 					for k, v := range *outputs.TsOutputs {
 						(*parentOutputs.TsOutputs)[k] = v
 					}

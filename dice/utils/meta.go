@@ -15,7 +15,6 @@ import (
 	"strings"
 )
 
-
 func HuMetadataFromJson(ctx context.Context, dc *DiceConfig, name string, version string) ([]v1alpha1.HuMetadata, error) {
 
 	huMetadata, err := AllHuFromJson(ctx, dc)
@@ -25,7 +24,7 @@ func HuMetadataFromJson(ctx context.Context, dc *DiceConfig, name string, versio
 
 	var hms []v1alpha1.HuMetadata
 	for _, hm := range huMetadata {
-		if strings.EqualFold(hm.Name, name) && hm.Version==version {
+		if strings.EqualFold(hm.Name, name) && hm.Version == version {
 			hms = append(hms, hm)
 		}
 	}
@@ -127,8 +126,8 @@ func TileMetadataFromJson(ctx context.Context, dc *DiceConfig, name string, vers
 	}
 	var tms []v1alpha1.TileMetadata
 	for _, tm := range tileMetadata {
-		if strings.EqualFold(tm.Name,name) && tm.Version==version {
-			tms=append(tms, tm)
+		if strings.EqualFold(tm.Name, name) && tm.Version == version {
+			tms = append(tms, tm)
 		}
 
 	}
@@ -158,7 +157,6 @@ func AllTileMetadata(ctx context.Context, dc *DiceConfig) ([]v1alpha1.TileMetada
 	}
 	return addDependencies(tiles, meta), err
 }
-
 
 func AllTileFromJson(ctx context.Context, dc *DiceConfig) ([]v1alpha1.TileMetadata, error) {
 	tileMdUrl := fmt.Sprintf("https://%s.s3-%s.amazonaws.com/tile-md.json", dc.BucketName, dc.Region)
