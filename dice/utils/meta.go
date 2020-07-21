@@ -86,10 +86,11 @@ func AllHuMetadata(ctx context.Context, dc *DiceConfig) ([]v1alpha1.HuMetadata, 
 					License:     deploy.Metadata.License,
 					Released:    deploy.Metadata.Released,
 				}
+				// Using map to avoid duplication
+				dup := make(map[string]v1alpha1.TileMetadata)
 				for _, t := range deploy.Spec.Template.Tiles {
 					dt := dependentTiles(tiles, t.TileReference, t.TileVersion)
 					dt[t.TileReference] = t.TileVersion
-					var dtm []v1alpha1.TileMetadata
 					for k, v := range dt {
 						if tile, ok := tiles[k+"-"+v]; ok {
 							tm := v1alpha1.TileMetadata{
@@ -104,10 +105,12 @@ func AllHuMetadata(ctx context.Context, dc *DiceConfig) ([]v1alpha1.HuMetadata, 
 								License:     tile.Metadata.License,
 								Released:    tile.Metadata.Released,
 							}
-							dtm = append(dtm, tm)
+							dup[tile.Metadata.Name] = tm
 						}
 					}
-					hu.Dependencies = dtm
+				}
+				for _, tm := range dup {
+					hu.Dependencies = append(hu.Dependencies, tm)
 				}
 				hus = append(hus, hu)
 
