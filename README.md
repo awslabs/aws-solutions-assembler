@@ -1,11 +1,8 @@
 
 
-# AWS Solutions Assembler
-## Description
-<img src="docs/gopher.png"
-     alt="Builders"
-     style="float: left; margin-left: 10px; margin-bottom: 10px;width: 80px" />
+# AWS Solutions Assembler <img src="docs/gopher.png" alt="Builders" width="80"/>
 
+## Description
 
 
 AWS Solutions Assembler is also known as [Mahjong](./docs/All-Concept.md), which has built-in mechanism to leverage pattern based abstracts to build up any solution. 
