@@ -1,6 +1,6 @@
 
 
-# AWS Solutions Assembler <img src="docs/gopher.png" alt="Builders" width="80"/>
+# <img src="docs/gopher.png" alt="Builders" width="80"/> AWS Solutions Assembler 
 
 ## Description
 
