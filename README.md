@@ -1,8 +1,14 @@
+
+
 # AWS Solutions Assembler
-
-
 ## Description
-AWS Solutions Assembler is also known as [Mahjong](./docs/All-Concept.md), which has built-in mechanism to leverage pattern based abstracts to build up any solution.
+<img src="docs/gopher.png"
+     alt="Builders"
+     style="float: left; margin-left: 10px; margin-bottom: 10px;width: 80px" />
+
+
+
+AWS Solutions Assembler is also known as [Mahjong](./docs/All-Concept.md), which has built-in mechanism to leverage pattern based abstracts to build up any solution. 
 
 Builders can use [Mahjong](./docs/All-Concept.md) to share solutions with the best industry practice. Customers can quickly experience those solutions or build their own.
 
@@ -18,13 +24,13 @@ Builders can use [Mahjong](./docs/All-Concept.md) to share solutions with the be
 
 ```bash
 
-# Run dice as coantainer
+# 1. Run dice as coantainer
 docker run -d -v ~/.aws:/root/.aws -p 9090:9090 docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest
 
-# Kick start browser for first trial (On Darwin)
+# 2. Kick start browser for first trial (On Darwin)
 open http://127.0.0.1:9090/toy
 
-# Paste the solution and send to provision 
+# 3. Paste the solution and send to provision, for example: https://github.com/mahjong-contributions/mahjong-constuct/blob/master/hu/eks-simple/0.1.0/eks-simple.yaml
 
 ```
 
@@ -50,14 +56,7 @@ If you want to share your expertise or build your favorite things from scratch, 
 
 
 ## Referenes
-
-- [Node.js](https://nodejs.org/en/download/) ( ≥ 10.12.0 ) 
-- [AWS CLI 2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) 
-- [CDK](https://github.com/aws/aws-cdk)
-- [aws-iam-authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
-- [Kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
-- [Kustomize](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/INSTALL.md)
-- [Helm](https://helm.sh/docs/intro/install/)
+- [Mahjong contributions](https://github.com/mahjong-contributions)
 
 ## Security
 

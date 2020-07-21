@@ -36,7 +36,7 @@ docker run -it -v ~/local-tiles-repo:/workspace/tiles-repo \
     -v ~/.aws:/root/.aws \
     -e M_MODE=dev \
     -p 9090:9090 \
-    herochinese/dice
+    docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest
 
 ```
 
@@ -44,7 +44,7 @@ docker run -it -v ~/local-tiles-repo:/workspace/tiles-repo \
 
 ```bash
 
-# Generate sample Tile by mctl
+# 1. Generate sample Tile by mctl
 mctl init tile -n sample-tile
 # Or mctl init tile -n <tile name>
 
@@ -57,7 +57,9 @@ export TILE_VERSION=<tile version, eg: 0.1.0>
 mkdir $TILE_FOLDER
 cd $TILE_FOLDER
 cdk init lib
+
 # Step 2: Adding Tile specification YAML as per schema
+
 # Step 3: Moving files to local repo
 mkdir -p ~/local-tiles-repo/$TILE_FOLDER/$TILE_VERSION
 cp -R * ~/local-tiles-repo/$TILE_FOLDER/$TILE_VERSION
@@ -65,7 +67,7 @@ cp -R * ~/local-tiles-repo/$TILE_FOLDER/$TILE_VERSION
 ```
 > Here's the [Tile Schema](../templates/tile-schema.json) as mentioned before. 
 
-4. Kick off deployment to try out  very fisrt Tile once it's ready. 
+4. Kick off deployment to try out very fisrt Tile once it's ready. 
 
 ```bash
 # Create a deployment specification to refer the Tile.
@@ -108,3 +110,13 @@ mctl deploy -f try-my-tile.yaml
 ## Tile with Anything
 
 Building process is going to be almost same and slightly diferent at Step 3. Only need to create folders and add Tile specification without using CDK or mctl, look at Tiles example for further detail.
+
+## Tooling
+
+- [Node.js](https://nodejs.org/en/download/) ( ≥ 10.12.0 ) 
+- [AWS CLI 2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) 
+- [CDK](https://github.com/aws/aws-cdk)
+- [aws-iam-authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
+- [Kubectl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+- [Kustomize](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/INSTALL.md)
+- [Helm](https://helm.sh/docs/intro/install/)
