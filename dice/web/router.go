@@ -78,7 +78,7 @@ func Router(ctx context.Context) *gin.Engine {
 		Tile(ctx, c)
 	})
 	// Retrieve detail of specification hu
-	r.GET("/v1alpha1/hu/:name", func(c *gin.Context) {
+	r.GET("/v1alpha1/hu/:name/:version", func(c *gin.Context) {
 		HuSpec(ctx, c)
 	})
 	// Validate Deployment specification

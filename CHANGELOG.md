@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+
+## [0.12.3] - 2020-07-22
+### Changed
+- Using pre-built metadata of Hu & Tile for API query
+
+### Fixed
+- Fixed API to retrieve metadata of hu
+
 ## [0.12.2] - 2020-07-14
 ### Changed
 - Upgrade kubectl to 1.16.12
