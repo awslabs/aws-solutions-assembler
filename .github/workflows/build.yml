@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI for Mahjong
 
 on:
@@ -42,21 +40,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run golangci-lint for dice
-        uses: golangci/golangci-lint-action@v1.2.1
+        uses: golangci/golangci-lint-action@v2.0.0
         with:
-          version: v1.26
+          version: v1.28
           working-directory: ./dice
           args: --timeout 5m
       - name: Run golangci-lint for mctl
-        uses: golangci/golangci-lint-action@v1.2.1
+        uses: golangci/golangci-lint-action@v2.0.0
         with:
-          version: v1.26
+          version: v1.28
           working-directory: ./mctl
           args: --timeout 5m
       - name: Run golangci-lint for probe
-        uses: golangci/golangci-lint-action@v1.2.1
+        uses: golangci/golangci-lint-action@v2.0.0
         with:
-          version: v1.26
+          version: v1.28
           working-directory: ./probe
           args: --timeout 5m
 
