@@ -17,7 +17,7 @@ var Deploy = &cobra.Command{
 }
 
 func init() {
-	Deploy.PersistentFlags().StringP("filename", "f", "", "that contains the configuration to apply")
+	Deploy.PersistentFlags().StringP("filename", "f", "", "that contains the configuration to be applied")
 	if err := Deploy.MarkPersistentFlagRequired("filename"); err != nil {
 		logger.Warning("%s\n", err)
 	}

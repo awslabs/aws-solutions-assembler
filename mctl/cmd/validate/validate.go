@@ -16,6 +16,13 @@ var Validate = &cobra.Command{
 	},
 }
 
+func init() {
+	Validate.PersistentFlags().StringP("filename", "f", "", "that contains the configuration to be validated")
+	if err := Validate.MarkPersistentFlagRequired("filename"); err != nil {
+		logger.Warning("%s\n", err)
+	}
+}
+
 func validateFunc(c *cobra.Command, args []string) {
 	addr, _ := c.Flags().GetString("addr")
 	filename, _ := c.Flags().GetString("filename")
@@ -37,10 +44,4 @@ func validateFunc(c *cobra.Command, args []string) {
 		}
 	}
 
-}
-func init() {
-	Validate.PersistentFlags().StringP("filename", "f", "", "that contains the configuration to be validated")
-	if err := Validate.MarkFlagRequired("filename"); err != nil {
-		logger.Warning("%s\n", err)
-	}
 }
