@@ -31,7 +31,7 @@ func (d *Data) ParseTile(ctx context.Context) (*Tile, error) {
 	var tile Tile
 	mapSlice := yamlv2.MapSlice{}
 	if err := yamlv2.Unmarshal(*d, &mapSlice); err != nil {
-		log.Errorf("Unmarshal mapSlice yaml error : %s\n", err)
+		log.Errorf("Unmarshal mapSlice of tile with error : %s\n", err)
 		return &tile, errors.New("tile specification was invalid")
 	}
 	// Order for outputs
@@ -63,6 +63,7 @@ func (d *Data) ParseTile(ctx context.Context) (*Tile, error) {
 
 	err := yaml.UnmarshalStrict(*d, &tile)
 	if err != nil {
+		log.Errorf("UnmarshalStrict tile with error : %s\n", err)
 		return &tile, err
 	}
 	//Attache outputs order
@@ -75,7 +76,7 @@ func (d *Data) ParseDeployment(ctx context.Context, ignoreParameter bool) (*Depl
 	var deployment Deployment
 	mapSlice := yamlv2.MapSlice{}
 	if err := yamlv2.Unmarshal(*d, &mapSlice); err != nil {
-		log.Errorf("Unmarshal mapSlice yaml error : %s\n", err)
+		log.Errorf("Unmarshal mapSlice of deployment with error : %s\n", err)
 		return &deployment, errors.New("deployment specification was invalid")
 	}
 
@@ -117,7 +118,7 @@ func (d *Data) ParseDeployment(ctx context.Context, ignoreParameter bool) (*Depl
 	////
 
 	if err := yaml.UnmarshalStrict(*d, &deployment); err != nil {
-		log.Errorf("Unmarshal yaml error : %s\n", err)
+		log.Errorf("UnmarshalStrict deployment with error : %s\n", err)
 		return &deployment, err
 	}
 	//obj, err := runtime.Decode(scheme.Codecs.UniversalDeserializer(), *d)
@@ -141,13 +142,13 @@ func (d *Data) ValidateTile(ctx context.Context, tile *Tile) error {
 	jsonLoader := gojsonschema.NewGoLoader(tile)
 	result, err := gojsonschema.Validate(schemaLoader, jsonLoader)
 	if err != nil {
-		log.Errorf("Failed to load schema : %s\n", err)
+		log.Errorf("Failed to load the schema of tile : %s\n", err)
 		return err
 	}
 	if result.Valid() {
-		log.Printf("The document is valid\n")
+		log.Printf("The document of tile is valid\n")
 	} else {
-		log.Printf("The document is not valid. see errors :\n")
+		log.Printf("The document of tile is not valid. see errors :\n")
 
 		for _, ret := range result.Errors() {
 			// Err implements the ResultError interface
@@ -169,13 +170,13 @@ func (d *Data) ValidateDeployment(ctx context.Context, deployment *Deployment, i
 	jsonLoader := gojsonschema.NewGoLoader(deployment)
 	result, err := gojsonschema.Validate(schemaLoader, jsonLoader)
 	if err != nil {
-		log.Errorf("Failed to load schema : %s\n", err)
+		log.Errorf("Failed to load the schema of deployment : %s\n", err)
 		return err
 	}
 	if result.Valid() {
-		log.Printf("The document is valid\n")
+		log.Printf("The document of deployment is valid\n")
 	} else {
-		log.Printf("The document is not valid. see errors :\n")
+		log.Printf("The document of deployment is not valid. see errors :\n")
 
 		for _, ret := range result.Errors() {
 			// Err implements the ResultError interface
