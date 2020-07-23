@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.12.4] - 2020-07-23
+### Changed
+- Improve performance when parsing yaml
+
+
+### Fixed
+- Fixed potential wrong value referenc when using empty string
+
+
 
 ## [0.12.3] - 2020-07-22
 ### Changed
