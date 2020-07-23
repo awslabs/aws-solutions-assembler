@@ -258,41 +258,21 @@ func ValueRef(dSid string, ref string, ti string) (string, error) {
 				case "inputs":
 					if tileInstance != "self" {
 						if tsStack, ok := at.TsStacksMapN[tileInstance]; ok {
-							for _, input := range tsStack.InputParameters {
-								if field == input.InputName {
-									return input.InputValue, nil
-								}
-							}
-						}
-					} else {
-						//TODO: Any possible value ?! May not right
-						for _, tsStack := range at.TsStacksMapN {
-							for _, input := range tsStack.InputParameters {
-								if field == input.InputName {
-									return input.InputValue, nil
-								}
-							}
-						}
 
+							if input, ok := tsStack.InputParameters[field]; ok {
+								return input.InputValue, nil
+							}
+						}
 					}
 
 				case "outputs":
 					if tileInstance != "self" {
 						if outputs, ok := (*at.AllOutputsN)[tileInstance]; ok {
-							for name, output := range *outputs.TsOutputs {
-								if name == field {
-									return output.OutputValue, nil
-								}
+
+							if output, ok := (*outputs.TsOutputs)[field]; ok {
+								return output.OutputValue, nil
 							}
-						}
-					} else {
-						//TODO: Any possible value ?!
-						for _, outputs := range *at.AllOutputsN {
-							for name, output := range *outputs.TsOutputs {
-								if name == field {
-									return output.OutputValue, nil
-								}
-							}
+
 						}
 					}
 

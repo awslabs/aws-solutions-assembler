@@ -39,13 +39,13 @@ type AssembleCore interface {
 		tileName string,
 		version string,
 		executableOrder int,
-		parentTileInstance []string,
-		rootTileInstances string,
+		parentTileInstances []string,
+		rootTileInstance string,
 		aTs *Ts,
 		override map[string]*v1alpha1.TileInputOverride,
 		region string,
 		profile string,
-		out *websocket.Conn) error
+		out *websocket.Conn) (string, error)
 
 	// ApplyMainTs applies Ts to main CDK app
 	ApplyMainTs(ctx context.Context, aTs *Ts, out *websocket.Conn) error
@@ -194,7 +194,9 @@ func (d *AssembleData) ProcessTiles(ctx context.Context, aTs *Ts, override map[s
 					return err
 				}
 				parentTileInstances = deploy.DependsOn
+				// 2020-07-23 !!! Using first dependent tileInstance to determine rootTileInstance !!!
 				rootTileInstance := RootTileInstance(dSid, parentTileInstances[0])
+				////
 				if IsProcessed(dSid, parentTileInstances) {
 					if _, err := d.PullTile(ctx,
 						tileInstance,

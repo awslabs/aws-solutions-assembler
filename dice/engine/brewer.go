@@ -343,6 +343,7 @@ func (ep *ExecutionPlan) CommandExecutor(ctx context.Context, dryRun bool, cmdTx
 	if !dryRun {
 		return ep.LinuxCommandExecutor(ctx, cmdTxt, stageLog, out)
 	} else {
+
 		testData, err := DiceConfig.LoadTestOutput(ep.CurrentStage.TileName, aTs.DR.SuperFolder)
 		if err != nil {
 			log.Errorf("No testing output for %s\n", ep.CurrentStage.TileName)
@@ -449,14 +450,10 @@ echo $?
 				// Tile without dependency but input parameters
 				if s, ok := at.TsStacksMapN[ep.CurrentStage.Name]; ok && (clusterName == "" || masterRoleARN == "") {
 					if inputParameters, ok := s.InputParameters["clusterName"]; ok {
-						//nolint
 						clusterName = ep.ReplaceAllValueRef(inputParameters.InputValue, dSid, ep.CurrentStage.Name)
-						clusterName = ep.ReplaceAllValueRef(inputParameters.InputValue, dSid, "")
 					}
 					if inputParameters, ok := s.InputParameters["masterRoleARN"]; ok {
-						//nolint
 						masterRoleARN = ep.ReplaceAllValueRef(inputParameters.InputValue, dSid, ep.CurrentStage.Name)
-						masterRoleARN = ep.ReplaceAllValueRef(inputParameters.InputValue, dSid, "")
 					}
 				}
 
@@ -514,7 +511,6 @@ echo $?
 		for i, k := range kvs {
 
 			kvs[i] = ep.ReplaceAllValueRef(k, dSid, ep.CurrentStage.Name) //replace 'self'
-			kvs[i] = ep.ReplaceAllValueRef(k, dSid, "")                   //replace 'anything else'
 		}
 	}
 	// !!! setup probe !!!
@@ -567,7 +563,6 @@ set -xe
 
 	// !!! Replace $(value) to actual value !!!
 	probe.Command = ep.ReplaceAllValueRef(probe.Command, dSid, ep.CurrentStage.Name) //replace 'self'
-	probe.Command = ep.ReplaceAllValueRef(probe.Command, dSid, "")                   //replace 'anything else'
 	////
 
 	err = tp.Execute(file, probe.Command)
@@ -685,14 +680,18 @@ func (ep *ExecutionPlan) ExtractValue(ctx context.Context, buf []byte, out *webs
 			if outputs, ok := (*ts.AllOutputsN)[tileInstance]; ok {
 				if parentOutputs, ok := (*ts.AllOutputsN)[aTileInstance]; ok {
 					for k, v := range *outputs.TsOutputs {
-						(*parentOutputs.TsOutputs)[k] = v
+						// If parent tileInstance has same output name and then ignore
+						if _, ok := (*parentOutputs.TsOutputs)[k]; !ok {
+							(*parentOutputs.TsOutputs)[k] = v
+						} else {
+							// Don't output noise
+							log.Infof("!!![%s.outputs.%s] is existed & ignore value = [%s] from [%s]!!!\n", aTileInstance, k, v.OutputValue, tileInstance)
+						}
 					}
 				}
 			}
 		}
-
 	}
-
 	return nil
 }
 
@@ -788,7 +787,6 @@ echo $?
 	// Replace reference value
 	for i, prc := range ep.CurrentStage.PostRunCommands {
 		ep.CurrentStage.PostRunCommands[i] = ep.ReplaceAllValueRef(prc, dSid, ep.CurrentStage.Name) //replace 'self'
-		ep.CurrentStage.PostRunCommands[i] = ep.ReplaceAllValueRef(prc, dSid, "")                   //replace 'anything else'
 	}
 	// !!! setup probe !!!
 	for i, prc := range ep.CurrentStage.PostRunCommands {
