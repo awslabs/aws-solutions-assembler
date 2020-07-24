@@ -27,7 +27,7 @@ var TilesInRepo = &cobra.Command{
 		addr, _ := c.Flags().GetString("addr")
 		buf, err := cmd.RunGetByVersion(addr, "repo/tile")
 		if err != nil {
-			logger.Warning("%s\n", err)
+			logger.Critical("%s\n", err)
 			return
 		}
 		output, _ := c.Flags().GetString("output")
@@ -41,7 +41,7 @@ var TilesInRepo = &cobra.Command{
 			var tms []TileMetadata
 			err = json.Unmarshal(buf, &tms)
 			if err != nil {
-				logger.Warning("%s\n", err)
+				logger.Critical("%s\n", err)
 				return
 			} else {
 				logger.Info("%s\t\t %s\t\t %s\t\t %s\n", "Name", "Version", "License", "Released")
@@ -63,7 +63,7 @@ var HuInRepo = &cobra.Command{
 		addr, _ := c.Flags().GetString("addr")
 		buf, err := cmd.RunGetByVersion(addr, "repo/hu")
 		if err != nil {
-			logger.Warning("%s\n", err)
+			logger.Critical("%s\n", err)
 			return
 		}
 		output, _ := c.Flags().GetString("output")
@@ -77,7 +77,7 @@ var HuInRepo = &cobra.Command{
 			var tms []TileMetadata
 			err = json.Unmarshal(buf, &tms)
 			if err != nil {
-				logger.Warning("%s\n", err)
+				logger.Critical("%s\n", err)
 				return
 			} else {
 				logger.Info("%s\t\t %s\t\t %s\t\t %s\n", "Name", "Version", "License", "Released")
@@ -100,7 +100,7 @@ var Deployment = &cobra.Command{
 		addr, _ := c.Flags().GetString("addr")
 		buf, err := cmd.RunGetByVersion(addr, "ts")
 		if err != nil {
-			logger.Warning("%s\n", err)
+			logger.Critical("%s\n", err)
 			return
 		}
 		output, _ := c.Flags().GetString("output")
@@ -114,7 +114,7 @@ var Deployment = &cobra.Command{
 		} else {
 			err = json.Unmarshal(buf, &dr)
 			if err != nil {
-				logger.Warning("\n--------- Deployment Records --------- \n%s\n--------- ---------------- ---------\n", string(buf))
+				logger.Critical("\n--------- Deployment Records --------- \n%s\n--------- ---------------- ---------\n", string(buf))
 			} else {
 				logger.Info("--------- Deployment Records --------- \n")
 				logger.Info("Name\t\t Created time\t\t Last update\t\t Folder\t\t Status\n")
@@ -140,6 +140,6 @@ var Repo = &cobra.Command{
 }
 
 func init() {
-	Repo.PersistentFlags().StringP("output", "o", "", "output format: json ")
+	Repo.PersistentFlags().StringP("output", "o", "", "output format (json) ")
 	Repo.AddCommand(TilesInRepo, HuInRepo, Deployment)
 }

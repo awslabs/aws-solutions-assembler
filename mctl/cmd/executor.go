@@ -3,6 +3,7 @@ package cmd
 import (
 	"bufio"
 	"bytes"
+	"errors"
 	"fmt"
 	"github.com/gorilla/websocket"
 	"github.com/kris-nova/logger"
@@ -50,7 +51,9 @@ func Run(addr string, dryRun bool, parallel bool, cmd []byte) error {
 		logger.Warning("failed to connect with Dice: %s \n", err)
 		return err
 	} else {
-		return ExecCommand(cmd, c)
+		err := ExecCommand(cmd, c)
+		c.Close()
+		return err
 	}
 }
 
@@ -81,6 +84,7 @@ func Connect2Dice(addr string, dryRun bool, parallel bool) (*websocket.Conn, err
 }
 
 func ExecCommand(cmd []byte, c *websocket.Conn) error {
+	errMessage := ""
 	if err := c.WriteMessage(websocket.TextMessage, cmd); err != nil {
 		logger.Warning("write error: %s\n", err)
 		return err
@@ -91,8 +95,15 @@ func ExecCommand(cmd []byte, c *websocket.Conn) error {
 			logger.Warning("read error: %s\n", err)
 			return err
 		}
-		if string(message) == "d-done" {
-			return nil
+		strMessage := string(message)
+		if strMessage == "d-done" {
+			if errMessage != "" {
+				return errors.New(errMessage)
+			} else {
+				return nil
+			}
+		} else if strings.HasPrefix(strMessage, "d-error=") {
+			errMessage = strings.TrimPrefix(strMessage, "d-error=")
 		} else {
 			buf, _ := bufio.NewReader(bytes.NewReader(message)).ReadBytes('\n')
 			str := strings.ToLower(string(buf))
