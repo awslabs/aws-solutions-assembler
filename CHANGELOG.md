@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+
+## [0.13.0] - 2020-07-24
+### Added
+- mctl can load specification(yaml) from w3 address
+- mctl can download specification of Hu/Tile from repo 
+
+
+### Changed
+- #12 Dice retrieve STS token from regional endpoint by default, aslo suggest using [v2Token](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
+
+### Fixed 
+- #11 mctl exit with error code when deployment was failed 
+
+
+
 ## [0.12.4] - 2020-07-23
 ### Changed
 - Improve performance when parsing yaml
