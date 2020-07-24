@@ -1,0 +1,35 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Deployment
+metadata:
+  name: MyEKS
+  version: 0.1.0
+spec:
+  template:
+    tiles:
+      MyEKS:
+          tileReference: MyEKS
+          tileVersion: 0.1.0
+          inputs:
+          - name: clusterName
+            inputValue: myeks-cluster
+          - name: capacity
+            inputValue: 3
+          - name: capacityInstance
+            inputValue: m5.large
+          - name: version
+            inputValue: 1.17
+  summary:
+    description:
+    outputs:
+    - name: EKS Cluster Name
+      value: $(MyEKS.outputs.clusterName)
+    - name: Master role arn for EKS Cluster
+      value: $(MyEKS.outputs.masterRoleARN)
+    - name: The API endpoint EKS Cluster
+      value: $(MyEKS.outputs.clusterEndpoint)
+    - name: Instance type of worker node
+      value: $(MyEKS.outputs.capacityInstance)
+    - name: Default capacity of worker node
+      value: $(MyEKS.outputs.capacity)
+
+    notes: []
