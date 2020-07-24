@@ -67,6 +67,9 @@ ENV M_S3_BUCKET_REGION=$M_S3_BUCKET_REGION
 ENV M_S3_BUCKET=$M_S3_BUCKET
 ENV M_LOCAL_TILE_REPO="/workspace/tiles-repo"
 
+# Specific for Dice run job on AWS regions, to force CDK using regional STS endpoints
+ENV AWS_STS_REGIONAL_ENDPOINTS=regional
+
 # Install: bash/git/openssh/curl/nodejs/npm/kubectl/kustomize/kubeseal/awscli/jq
 RUN apk add --no-cache ca-certificates \
         bash \
