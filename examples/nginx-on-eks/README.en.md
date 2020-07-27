@@ -8,7 +8,7 @@ then deploy a Nginx on that EKS cluster
 
 The architecture is as follow:
 
-![simple eks architecture](/nginx-on-eks.svg)
+![simple eks architecture]({{< param "rootUrl" >}}/nginx-on-eks.svg)
 
 ## Prerequisites
 

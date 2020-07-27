@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>设计原则 on 中文</title>
-    <link>/zh/design-principles/</link>
+    <link>https://wchaws.github.io/aws-solutions-assembler/zh/design-principles/</link>
     <description>Recent content in 设计原则 on 中文</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Everything is mine</copyright>
     <lastBuildDate>Sun, 26 Jul 2020 22:54:33 +0800</lastBuildDate>
     
-	<atom:link href="/zh/design-principles/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wchaws.github.io/aws-solutions-assembler/zh/design-principles/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

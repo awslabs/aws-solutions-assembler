@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Examples on English</title>
-    <link>/en/examples/</link>
+    <link>https://wchaws.github.io/aws-solutions-assembler/en/examples/</link>
     <description>Recent content in Examples on English</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Everything is mine</copyright>
     
-	<atom:link href="/en/examples/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wchaws.github.io/aws-solutions-assembler/en/examples/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Simple EKS Cluster</title>
-      <link>/en/examples/simple-eks-cluster/readme/</link>
+      <link>https://wchaws.github.io/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/en/examples/simple-eks-cluster/readme/</guid>
+      <guid>https://wchaws.github.io/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/</guid>
       <description>This example will deploy a simple EKS cluster with existing tile
 Prerequisites  docker cdk aws cli v2 setup aws configuration and credential file mctl  Steps   Make sure your aws cli is well configured, you will see something like below
 $ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.aws/config   Lanuch dice daemon if not existing:</description>
@@ -24,10 +24,10 @@ $ aws configure list Name Value Type Location ---- ----- ---- -------- profile &
     
     <item>
       <title>Nginx on EKS cluster</title>
-      <link>/en/examples/nginx-on-eks/readme/</link>
+      <link>https://wchaws.github.io/aws-solutions-assembler/en/examples/nginx-on-eks/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/en/examples/nginx-on-eks/readme/</guid>
+      <guid>https://wchaws.github.io/aws-solutions-assembler/en/examples/nginx-on-eks/readme/</guid>
       <description>This example will deploy EKS cluster first, then deploy a Nginx on that EKS cluster
 The architecture is as follow:
 Prerequisites  docker cdk aws cli v2 setup aws configuration and credential file mctl  Steps   Make sure your aws cli is well configured, you will see something like below
@@ -36,10 +36,10 @@ $ aws configure list Name Value Type Location ---- ----- ---- -------- profile &
     
     <item>
       <title>EKS cluster from scratch</title>
-      <link>/en/examples/eks-from-scratch/readme/</link>
+      <link>https://wchaws.github.io/aws-solutions-assembler/en/examples/eks-from-scratch/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/en/examples/eks-from-scratch/readme/</guid>
+      <guid>https://wchaws.github.io/aws-solutions-assembler/en/examples/eks-from-scratch/readme/</guid>
       <description>This example will write a tile to deploy a EKS cluster from scratch
 Prerequisites  docker cdk aws cli v2 setup aws configuration and credential file mctl  Steps   Make sure your aws cli is well configured, you will see something like below
 $ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.</description>

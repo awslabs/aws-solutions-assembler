@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>入门 on 中文</title>
-    <link>/zh/getting-started/</link>
+    <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/</link>
     <description>Recent content in 入门 on 中文</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Everything is mine</copyright>
     <lastBuildDate>Mon, 27 Jul 2020 13:06:03 +0800</lastBuildDate>
     
-	<atom:link href="/zh/getting-started/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>环境安装</title>
-      <link>/zh/getting-started/installation/</link>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/installation/</link>
       <pubDate>Mon, 27 Jul 2020 13:46:14 +0800</pubDate>
       
-      <guid>/zh/getting-started/installation/</guid>
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/installation/</guid>
       <description>预装软件  安装 Docker Desktop 安装 AWS CDK 配置 AWS Configuration and Credential setting  配置aws cli凭证 确保aws cli工具配置正确，你可以通过以下命令检查
 $ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.aws/config 执行AWS CDK引导程序 通过命令cdk bootstrap aws://&amp;lt;your aws account&amp;gt;/&amp;lt;aws region&amp;gt;初始化您的CDK组件，例如：
 cdk bootstrap aws://638198787577/us-east-2  该步骤只需要执行一次，以后无需再执行
@@ -27,10 +27,10 @@ cdk bootstrap aws://638198787577/us-east-2  该步骤只需要执行一次，以
     
     <item>
       <title>简单用例</title>
-      <link>/zh/getting-started/simple-usage/</link>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/simple-usage/</link>
       <pubDate>Mon, 27 Jul 2020 13:58:26 +0800</pubDate>
       
-      <guid>/zh/getting-started/simple-usage/</guid>
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/simple-usage/</guid>
       <description>如您所知，麻将作为蓬勃发展中的生态项目已经拥有了诸多优先的贡献者，他们已经构建了广泛的优良架构微服务模块，在麻将中我们称之为“牌”。
 在这里，我们将理解麻将中的牌的定义，使用已有的牌为您交付一套基于优良架构，由您自主定义的AWS EKS环境。
 您只需要定义集群的名称，节点数量和实例类型，K8S版本。麻将将为您快速构建一套已有最小权限原则，跨AZ高可用，数据高可靠等最佳实践元素的环境，当然您也可以不做输入，它将在默认的情况下为您完成最佳实践交付。
@@ -45,10 +45,10 @@ apiVersion: mahjong.io/v1alpha1 kind: Deployment metadata: name: simple-eks vers
     
     <item>
       <title>构建你的“牌”</title>
-      <link>/zh/getting-started/build-your-own-tile/</link>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/build-your-own-tile/</link>
       <pubDate>Mon, 27 Jul 2020 14:14:06 +0800</pubDate>
       
-      <guid>/zh/getting-started/build-your-own-tile/</guid>
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/build-your-own-tile/</guid>
       <description>在使用微服务块“牌”的环节或许您已经发现，我们通过两个操作（定义部署和执行部署）就交付了AWS的VPC，IAM，EKS等多个资源环境，并且他们享有最佳实践。而我们通过10个左右的步骤完成EKS上2048游戏的部署。
 如果我们将2048这样的应用考虑为不同于EKS的另外一个“牌”进行定义.通常这也仅需要几个简单的步骤即可完成。届时我们的团队，包括麻将的生态均可复用您的牌。
 现在，我们构建自己的牌，在入门示例中我们的牌将在EKS上运行NGINX
@@ -62,10 +62,10 @@ $ cd $HOME/ws/local-tiles-repo $ mkdir nginx/0.0.1 创建牌定义文件 创建�
     
     <item>
       <title>构建你的“胡”</title>
-      <link>/zh/getting-started/usage-of-hu/</link>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/usage-of-hu/</link>
       <pubDate>Mon, 27 Jul 2020 14:22:16 +0800</pubDate>
       
-      <guid>/zh/getting-started/usage-of-hu/</guid>
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/usage-of-hu/</guid>
       <description>使用麻将，我们可以将多个牌进行组合编排，形成一个完整解决方案的交付架构，在麻将中，我们将它称为“胡”，我们可以使用自己开发的牌配合社区中已有的牌进行自己想要的完整环境组合，重要的是，除了提供您自主实现的灵活度，他们同样拥有最佳实践和快速加速的关键因素。
 构思您自己的微服务组合 了解社区现有资源 “胡” 当您构思自己的胡，您可以查看社区的贡献列表，他们均是通过检验的最佳实践。以上是部分流行的组件列表
    Hu Version Description     Simple EKS v0.1.0 Quick launch with few lines of yaml.   EKS with Spot instance v0.1.0 Quick launch EKS cluster with mixed spot and on-demand instances, as well as handling spot termination, cluster auto scaler and HPA.   Simple ArgoCD v0.1.0 Setup ArgoCD on EKS with simple configuration.   Basic CD with ArgoCD v0.</description>

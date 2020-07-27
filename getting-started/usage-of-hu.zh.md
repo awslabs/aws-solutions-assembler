@@ -43,12 +43,12 @@ weight: 40
 
 在入门环节，我们将通过自己开发的NGINX牌，组合已有的两张牌：aws redis牌，aws Aurora牌组合在一起构建典型的三层架构环境。我们可以通过下图了解麻将的工作机制：
 
-![](/dice-mctl.png)
+![]({{< param "rootUrl" >}}/dice-mctl.png)
 
 以下是NGINX+redis+mysql三层架构示例下的架构图：
 
 
-![nginx+redis+mysql architecture](/images/xxx.svg)
+![nginx+redis+mysql architecture]({{< param "rootUrl" >}}/images/xxx.svg)
 
 
 ### 创建一个胡repo

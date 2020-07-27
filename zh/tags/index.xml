@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 中文</title>
-    <link>/zh/tags/</link>
+    <link>https://wchaws.github.io/aws-solutions-assembler/zh/tags/</link>
     <description>Recent content in Tags on 中文</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Everything is mine</copyright>
     
-	<atom:link href="/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wchaws.github.io/aws-solutions-assembler/zh/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

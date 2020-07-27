@@ -5,7 +5,7 @@ weight: 1
 
 This example will deploy a simple EKS cluster with existing tile
 
-![simple eks architecture](/simple-eks.svg)
+![simple eks architecture]({{< param "rootUrl" >}}/simple-eks.svg)
 
 ## Prerequisites
 

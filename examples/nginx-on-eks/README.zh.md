@@ -7,7 +7,7 @@ weight: 2
 
 以下是架构图：
 
-![simple eks architecture](/nginx-on-eks.svg)
+![simple eks architecture]({{< param "rootUrl" >}}/nginx-on-eks.svg)
 
 ## 预装软件
 

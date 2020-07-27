@@ -31,7 +31,7 @@ weight: 30
 
 以下是NGINX示例下的架构图：
 
-![nginx-on-eks](/nginx-on-eks.svg)
+![nginx-on-eks]({{< param "rootUrl" >}}/nginx-on-eks.svg)
 
 ### 创建一个Nginx的“牌”文件夹
 创建一个本地文件夹作为Tile Repo，以便您可以立即开发和测试Tile。如果无法从此本地存储库加载Tile，Dice将尝试从公共Tile存储库加载Tile。

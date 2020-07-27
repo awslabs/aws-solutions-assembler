@@ -3,206 +3,206 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/en/examples/simple-eks-cluster/readme/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/examples/simple-eks-cluster/readme/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/examples/simple-eks-cluster/readme/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/examples/simple-eks-cluster/readme/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/"
                 />
   </url>
   
   <url>
-    <loc>/en/examples/nginx-on-eks/readme/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/examples/nginx-on-eks/readme/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/examples/nginx-on-eks/readme/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/examples/nginx-on-eks/readme/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/examples/nginx-on-eks/readme/"
                 />
   </url>
   
   <url>
-    <loc>/en/examples/eks-from-scratch/readme/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/examples/eks-from-scratch/readme/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/examples/eks-from-scratch/readme/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/examples/eks-from-scratch/readme/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/examples/eks-from-scratch/readme/"
                 />
   </url>
   
   <url>
-    <loc>/en/getting-started/installation/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/getting-started/installation/</loc>
     <lastmod>2020-07-27T13:46:14+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/getting-started/installation/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/installation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/getting-started/installation/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/getting-started/installation/"
                 />
   </url>
   
   <url>
-    <loc>/en/getting-started/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/getting-started/</loc>
     <lastmod>2020-07-27T13:06:03+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/getting-started/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/getting-started/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/getting-started/"
                 />
   </url>
   
   <url>
-    <loc>/en/design-principles/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/design-principles/</loc>
     <lastmod>2020-07-26T22:54:33+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/design-principles/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/design-principles/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/design-principles/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/design-principles/"
                 />
   </url>
   
   <url>
-    <loc>/en/getting-started/build-your-own-tile/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/getting-started/build-your-own-tile/</loc>
     <lastmod>2020-07-27T14:13:55+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/getting-started/build-your-own-tile/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/build-your-own-tile/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/getting-started/build-your-own-tile/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/getting-started/build-your-own-tile/"
                 />
   </url>
   
   <url>
-    <loc>/en/examples/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/examples/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/examples/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/examples/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/examples/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/examples/"
                 />
   </url>
   
   <url>
-    <loc>/en/spec/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/spec/</loc>
     <lastmod>2020-07-27T16:23:31+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/spec/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/spec/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/spec/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/spec/"
                 />
   </url>
   
   <url>
-    <loc>/en/getting-started/usage-of-hu/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/getting-started/usage-of-hu/</loc>
     <lastmod>2020-07-27T14:22:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/getting-started/usage-of-hu/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/usage-of-hu/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/getting-started/usage-of-hu/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/getting-started/usage-of-hu/"
                 />
   </url>
   
   <url>
-    <loc>/en/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/</loc>
     <lastmod>2020-07-27T16:23:31+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/"
                 />
   </url>
   
   <url>
-    <loc>/en/getting-started/simple-usage/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/getting-started/simple-usage/</loc>
     <lastmod>2020-07-27T13:56:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/getting-started/simple-usage/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/simple-usage/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/getting-started/simple-usage/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/getting-started/simple-usage/"
                 />
   </url>
   
   <url>
-    <loc>/en/categories/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/categories/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/categories/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/categories/"
                 />
   </url>
   
   <url>
-    <loc>/en/tags/</loc>
+    <loc>https://wchaws.github.io/aws-solutions-assembler/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="/zh/tags/"
+                href="https://wchaws.github.io/aws-solutions-assembler/zh/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/"
+                href="https://wchaws.github.io/aws-solutions-assembler/en/tags/"
                 />
   </url>
   
