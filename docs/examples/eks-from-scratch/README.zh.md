@@ -1,8 +1,11 @@
-# EKS cluster from scratch
+---
+title: 从零构建EKS集群
+weight: 3
+---
 
 本例将会从零写一个“牌”（组建）来部署EKS集群
 
-![simple eks architecture](../simple-eks-cluster/simple-eks.svg)
+![simple eks architecture](/simple-eks.svg)
 
 ## 预装软件
 

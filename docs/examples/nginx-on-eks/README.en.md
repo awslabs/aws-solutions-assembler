@@ -1,15 +1,14 @@
 ---
 title: Nginx on EKS cluster
+weight: 2
 ---
-
-# Nginx on EKS cluster
 
 This example will deploy EKS cluster first,
 then deploy a Nginx on that EKS cluster
 
 The architecture is as follow:
 
-![simple eks architecture](./nginx-on-eks.svg)
+![simple eks architecture](/nginx-on-eks.svg)
 
 ## Prerequisites
 
@@ -215,7 +214,8 @@ The architecture is as follow:
     cdk bootstrap aws://638198787577/us-east-2
     ```
 
-    > :warning: This step only need to process once
+    {{% notice note %}}This step only need to process once
+    {{% /notice %}}
 
 9. Deploy to AWS: `mctl deploy -f ./nginx-on-eks.yaml`. If everything works fine you will get this:
 

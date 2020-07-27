@@ -1,12 +1,11 @@
 ---
 title: EKS cluster from scratch
+weight: 3
 ---
-
-# EKS cluster from scratch
 
 This example will write a tile to deploy a EKS cluster from scratch
 
-![simple eks architecture](../simple-eks-cluster/simple-eks.svg)
+![simple eks architecture](/simple-eks.svg)
 
 ## Prerequisites
 

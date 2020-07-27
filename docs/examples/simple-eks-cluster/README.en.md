@@ -1,12 +1,11 @@
 ---
 title: Simple EKS Cluster
+weight: 1
 ---
-
-# Simple EKS Cluster
 
 This example will deploy a simple EKS cluster with existing tile
 
-![simple eks architecture](./simple-eks.svg)
+![simple eks architecture](/simple-eks.svg)
 
 ## Prerequisites
 
@@ -42,35 +41,35 @@ This example will deploy a simple EKS cluster with existing tile
     apiVersion: mahjong.io/v1alpha1
     kind: Deployment
     metadata:
-    name: simple-eks
-    version: 0.1.0
+      name: eks-simple
+      version: 0.1.0
     spec:
-    template:
+      template:
         tiles:
-        tileEks0005:
+          tileEks0005:
             tileReference: Eks0
             tileVersion: 0.0.5
             inputs:
-            - name: clusterName
+              - name: clusterName
                 inputValue: mahjong-cluster101
-            - name: capacity
+              - name: capacity
                 inputValue: 3
-            - name: capacityInstance
+              - name: capacityInstance
                 inputValue: m5.large
-            - name: version
+              - name: version
                 inputValue: 1.16
-    summary:
+      summary:
         description:
         outputs:
-        - name: EKS Cluster Name
+          - name: EKS Cluster Name
             value: $(tileEks0005.outputs.clusterName)
-        - name: Master role arn for EKS Cluster
+          - name: Master role arn for EKS Cluster
             value: $(tileEks0005.outputs.masterRoleARN)
-        - name: The API endpoint EKS Cluster
+          - name: The API endpoint EKS Cluster
             value: $(tileEks0005.outputs.clusterEndpoint)
-        - name: Instance type of worker node
+          - name: Instance type of worker node
             value: $(tileEks0005.outputs.capacityInstance)
-        - name: Default capacity of worker node
+          - name: Default capacity of worker node
             value: $(tileEks0005.outputs.capacity)
 
         notes: []
@@ -82,7 +81,8 @@ This example will deploy a simple EKS cluster with existing tile
     cdk bootstrap aws://638198787577/us-east-2
     ```
 
-    > :warning: This step only need to process once
+    {{% notice note %}}This step only need to process once
+    {{% /notice %}}
 
 5. Deploy to AWS: `mctl deploy -f ./simple-eks.yaml`. If everything works fine you will get this:
 
@@ -123,4 +123,5 @@ This example will deploy a simple EKS cluster with existing tile
         kubernetes   ClusterIP   172.20.0.1   <none>        443/TCP   4h41m
         ```
 
-        > :warning: Make sure you have [kubernetes-cli](https://kubernetes.io//docs/tasks/tools/install-kubectl/) installed to be able to use `kubectl`
+       {{% notice note %}}Make sure you have [kubernetes-cli](https://kubernetes.io//docs/tasks/tools/install-kubectl/) installed to be able to use `kubectl`
+       {{% /notice %}}
