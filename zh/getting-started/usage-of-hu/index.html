@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>构建你的“胡” :: 中文</title>
+
+    
+    <link href="/css/nucleus.css?1595842180" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1595842180" rel="stylesheet">
+    <link href="/css/hybrid.css?1595842180" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1595842180" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1595842180" rel="stylesheet">
+    <link href="/css/auto-complete.css?1595842180" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1595842180" rel="stylesheet">
+    <link href="/css/theme.css?1595842180" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1595842180" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1595842180"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/zh/getting-started/usage-of-hu/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src="/gopher.png" style="max-height: 40px;" />
+<span>AWS Solutions Assembler</span>
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1595842180"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1595842180"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/zh";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1595842180"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/getting-started/" title="入门" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/zh/getting-started/">
+          入门
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/installation/" title="环境安装" class="dd-item ">
+        <a href="/zh/getting-started/installation/">
+        环境安装
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/simple-usage/" title="简单用例" class="dd-item ">
+        <a href="/zh/getting-started/simple-usage/">
+        简单用例
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/build-your-own-tile/" title="构建你的“牌”" class="dd-item ">
+        <a href="/zh/getting-started/build-your-own-tile/">
+        构建你的“牌”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/usage-of-hu/" title="构建你的“胡”" class="dd-item active">
+        <a href="/zh/getting-started/usage-of-hu/">
+        构建你的“胡”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/design-principles/" title="设计原则" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/zh/design-principles/">
+          设计原则
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/examples/" title="示例" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/zh/examples/">
+          示例
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/simple-eks-cluster/readme/" title="EKS简易集群" class="dd-item ">
+        <a href="/zh/examples/simple-eks-cluster/readme/">
+        EKS简易集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/nginx-on-eks/readme/" title="EKS集群上部署Nginx" class="dd-item ">
+        <a href="/zh/examples/nginx-on-eks/readme/">
+        EKS集群上部署Nginx
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/eks-from-scratch/readme/" title="从零构建EKS集群" class="dd-item ">
+        <a href="/zh/examples/eks-from-scratch/readme/">
+        从零构建EKS集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/" title="" class="dd-item ">
+        <a href="/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/spec/" title="配置规范" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/zh/spec/">
+          配置规范
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/getting-started/usage-of-hu/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="zh" value="/zh/getting-started/usage-of-hu/" selected>中文</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/zh/'>文档中心</a> > <a href='/zh/getting-started/'>入门</a> > 构建你的“胡”
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#构思您自己的微服务组合">构思您自己的微服务组合</a>
+      <ul>
+        <li><a href="#了解社区现有资源">了解社区现有资源</a></li>
+        <li><a href="#设计您的微服务组合">设计您的微服务组合</a></li>
+        <li><a href="#创建一个胡repo">创建一个胡repo</a></li>
+        <li><a href="#创建胡部署文件">创建胡部署文件</a></li>
+        <li><a href="#完成胡的开发">完成胡的开发</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用您自定义的胡">使用您自定义的胡</a>
+      <ul>
+        <li><a href="#执行麻将部署yaml文件">执行麻将部署yaml文件</a></li>
+        <li><a href="#检查你的niginx部署结果">检查你的Niginx部署结果</a></li>
+        <li><a href="#检查你的redis部署结果">检查你的redis部署结果</a></li>
+        <li><a href="#检查你的aurora部署结果">检查你的Aurora部署结果</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              构建你的“胡”
+            </h1>
+          
+
+        
+
+
+<p>使用麻将，我们可以将多个牌进行组合编排，形成一个完整解决方案的交付架构，在麻将中，我们将它称为“胡”，我们可以使用自己开发的牌配合社区中已有的牌进行自己想要的完整环境组合，重要的是，除了提供您自主实现的灵活度，他们同样拥有最佳实践和快速加速的关键因素。</p>
+<h2 id="构思您自己的微服务组合">构思您自己的微服务组合</h2>
+<h3 id="了解社区现有资源">了解社区现有资源</h3>
+<h4 id="胡">“胡”</h4>
+<p>当您构思自己的胡，您可以查看社区的贡献列表，他们均是通过检验的最佳实践。以上是部分流行的组件列表</p>
+<table>
+<thead>
+<tr>
+<th>Hu</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple EKS</td>
+<td><a href="./templates/eks-simple.yaml">v0.1.0</a></td>
+<td>Quick launch with few lines of yaml.</td>
+</tr>
+<tr>
+<td>EKS with Spot instance</td>
+<td><a href="./templates/eks-spot-simple.yaml">v0.1.0</a></td>
+<td>Quick launch EKS cluster with mixed spot and on-demand instances, as well as handling spot termination, cluster auto scaler and HPA.</td>
+</tr>
+<tr>
+<td>Simple ArgoCD</td>
+<td><a href="./templates/argocd-simple.yaml">v0.1.0</a></td>
+<td>Setup ArgoCD on EKS with simple configuration.</td>
+</tr>
+<tr>
+<td>Basic CD with ArgoCD</td>
+<td><a href="./templates/argocd-with-app.yaml">v0.1.0</a></td>
+<td>Building a modern CD with example applicaiton on GitHub, all you need is a GitHub token.</td>
+</tr>
+<tr>
+<td>Perfect Microservice on EKS</td>
+<td><a href="">v0.1.0</a></td>
+<td>Implement a handy containerized Microsercices architecture on EKS with all major componnets and demo applications.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="牌">“牌”</h4>
+<table>
+<thead>
+<tr>
+<th>Tiles</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic Network</td>
+<td><a href="./tiles-repo/network0/0.0.1">v0.0.1</a></td>
+<td>The classic network pattern cross multiple availibilty zone with public and private subnets, NAT, etc.</td>
+</tr>
+<tr>
+<td>Simple EKS</td>
+<td><a href="./tiles-repo/eks0/0.0.1">v0.0.1</a></td>
+<td>The basic EKS cluster, which uses EKS 1.15 as default version and depends on Network0.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="./tiles-repo/eks0/0.0.5">v0.0.5</a></td>
+<td>Update EKS default version to 1.16 and expose more options.</td>
+</tr>
+<tr>
+<td>EKS on Spot</td>
+<td><a href="./tiles-repo/eks-with-spot/0.5.0">v0.5.0</a></td>
+<td>Provison EKS 1.16 as default and using auto scaling group with mixed spot and normal (4:1) instances. Also has Cluster Autoscaler, Horizontal Pod Autoscaler and Spot Instance Handler setup.</td>
+</tr>
+<tr>
+<td>EFS</td>
+<td><a href="./tiles-repo/efs/0.1.0">v0.1.0</a></td>
+<td>The basic EFS conpoment and based on Network0. EFS is a perfect choice as storage option for Kubernetes.</td>
+</tr>
+<tr>
+<td>ArgoCD</td>
+<td><a href="./tiles-repo/argocd0/1.5.2">v1.5.2</a></td>
+<td>The Argocd0 is basic component to help build up GitOps based CI/CD capability, which depends on Tile - Eks0 &amp; Network0.</td>
+</tr>
+<tr>
+<td>Go-Bumblebee-ONLY</td>
+<td><a href="./tiles-repo/go-bumblebee-only/0.0.1">v0.0.1</a></td>
+<td>This is demo application, which can be deploy to Kubernetes cluster to demostrate rich capabilities.</td>
+</tr>
+<tr>
+<td>Istio</td>
+<td><a href="./tiles-repo/istio0/1.5.4">v1.5.4</a></td>
+<td>Setup Istio 1.6 on EKS with all necessary features. Managed by Istio operator and Egress Gateway was off by default.</td>
+</tr>
+<tr>
+<td>AWS KMS</td>
+<td><a href="./tiles-repo/aws-kms-keygenerator/0.1.0">v0.1.0</a></td>
+<td>Generate both symmetric key and asymmetric key for down stream applications or services</td>
+</tr>
+<tr>
+<td>AWS ElastiCache Redis</td>
+<td><a href="./tiles-repo/aws-elasticache-redis/5.0.6">v5.0.6</a></td>
+<td>Setup a redis cluster with replcation group with flexiable options.</td>
+</tr>
+<tr>
+<td>AWS Aurora Mtsql</td>
+<td><a href="./tiles-repo/aws-aurora-mysql/2.07.2">v2.07.2</a></td>
+<td>Provision a Aurora MySQL cluster and integrated with Secret Manager to automate secret ratation.</td>
+</tr>
+<tr>
+<td>Go-BumbleBee-Jazz</td>
+<td><a href="./tiles-repo/go-bumblebee-jazz/0.7.1">v0.7.1</a></td>
+<td>Modern cloud native application with tipycal features to try out how great your Kubernetes cluster are.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="设计您的微服务组合">设计您的微服务组合</h3>
+<p>在入门环节，我们将通过自己开发的NGINX牌，组合已有的两张牌：aws redis牌，aws Aurora牌组合在一起构建典型的三层架构环境。我们可以通过下图了解麻将的工作机制：</p>
+<p><img src="/dice-mctl.png" alt=""></p>
+<p>以下是NGINX+redis+mysql三层架构示例下的架构图：</p>
+<p><img src="/images/xxx.svg" alt="nginx+redis+mysql architecture"></p>
+<h3 id="创建一个胡repo">创建一个胡repo</h3>
+<p>NGINX+redis+mysql的“胡”文件夹</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd $HOME/ws/local-hu-repo
+$ mkdir nginx+redis+mysql/0.1.0
+</code></pre></div><h3 id="创建胡部署文件">创建胡部署文件</h3>
+<p>胡部署文件可以定义一个或多个牌，麻将会按照我们的部署文件编排进行交付
+创建以下文件<code>nginx-redis-mysql.yaml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
+<span style="color:#66d9ef">kind</span>: Deployment
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: nginx-redis-mysql
+  <span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">0.1.0</span>
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">template</span>:
+    <span style="color:#66d9ef">tiles</span>:
+      <span style="color:#66d9ef">tileNginx</span>:
+        <span style="color:#66d9ef">tileReference</span>: nginx
+        <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">0.0.1</span>
+        <span style="color:#66d9ef">inputs</span>:
+          - <span style="color:#66d9ef">name</span>: clusterName
+            <span style="color:#66d9ef">inputValue</span>: nginx-redis-mysql
+          - <span style="color:#66d9ef">name</span>: capacity
+            <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">3</span>
+          - <span style="color:#66d9ef">name</span>: capacityInstance
+            <span style="color:#66d9ef">inputValue</span>: m5.large
+          - <span style="color:#66d9ef">name</span>: version
+            <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">1.16</span>
+      <span style="color:#66d9ef">tileAWS-ElastiCache-Redis</span>:
+        <span style="color:#66d9ef">tileReference</span>: AWS-ElastiCache-Redis
+        <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">5.0.6</span>
+        <span style="color:#66d9ef">dependsOn</span>:
+          - tileNginx
+        <span style="color:#66d9ef">inputs</span>:
+          - <span style="color:#66d9ef">name</span>: vpc
+            <span style="color:#75715e"># tileInstance.tileName.field</span>
+            <span style="color:#66d9ef">inputValue</span>: $cdk(tileNginx.Network0.baseVpc)
+          - <span style="color:#66d9ef">name</span>: subnetIds
+            <span style="color:#66d9ef">inputValues</span>:
+              - $cdk(tileNginx.Network0.privateSubnetId1)
+              - $cdk(tileNginx.Network0.privateSubnetId2)
+          - <span style="color:#66d9ef">name</span>: redisClusterName
+            <span style="color:#66d9ef">inputValue</span>: mahjong-redis
+      <span style="color:#66d9ef">tileAWS-Aurora-Mysql</span>:
+        <span style="color:#66d9ef">tileReference</span>: AWS-Aurora-Mysql
+        <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">2.07.2</span>
+        <span style="color:#66d9ef">dependsOn</span>:
+          - tileNginx
+        <span style="color:#66d9ef">inputs</span>:
+          - <span style="color:#66d9ef">name</span>: vpc
+            <span style="color:#75715e"># tileInstance.tileName.field</span>
+            <span style="color:#66d9ef">inputValue</span>: $cdk(tileNginx.Network0.baseVpc)
+          - <span style="color:#66d9ef">name</span>: clusterIdentifier
+            <span style="color:#66d9ef">inputValue</span>: mahjong-mysql
+          - <span style="color:#66d9ef">name</span>: masterUser
+            <span style="color:#66d9ef">inputValue</span>: admin
+          - <span style="color:#66d9ef">name</span>: defaultDatabaseName
+            <span style="color:#66d9ef">inputValue</span>: testDb
+
+  <span style="color:#66d9ef">summary</span>:
+    <span style="color:#66d9ef">description</span>:
+    <span style="color:#66d9ef">outputs</span>:
+      - <span style="color:#66d9ef">name</span>: Nginx Endpoint
+        <span style="color:#66d9ef">value</span>: $(tileNginx.outputs.nginxEndpoint)
+      - <span style="color:#66d9ef">name</span>: Redis Endpoint
+        <span style="color:#66d9ef">value</span>: $(tileAWS-ElastiCache-Redis.outputs.redisEndpoint)
+      - <span style="color:#66d9ef">name</span>: RDS DatabaseName
+        <span style="color:#66d9ef">value</span>: $(tileAWS-Aurora-Mysql.outputs.defaultDatabaseName)
+      - <span style="color:#66d9ef">name</span>: RDS Endpoint
+        <span style="color:#66d9ef">value</span>: $(tileAWS-Aurora-Mysql.outputs.clusterEndpoint)
+    <span style="color:#66d9ef">notes</span>: []
+</code></pre></div><h3 id="完成胡的开发">完成胡的开发</h3>
+<p>以上，您已经完成了您自己的胡的开发，胡可以被复用，可以被您定义为您的最佳实践环境。他可以调用任意的牌，组成一个您满意的完整的解决方案架构（例如这个nginx的胡，他调用了您自己创建的nginx的牌，调用了已有的redis和Aurora的牌），麻将的调度层将自动为您调用依赖的牌，并生成CMD命令完成构建，您在胡开发的过程中往往只需要关心您需要什么牌，组成一个什么样的架构&hellip;</p>
+<h2 id="使用您自定义的胡">使用您自定义的胡</h2>
+<h3 id="执行麻将部署yaml文件">执行麻将部署yaml文件</h3>
+<p>部署到AWS<code>mctl deploy -f ./nginx-redis-mysql.yaml</code>。如果一切顺利你讲会的得到一下结果:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mctl deploy -f ./nginx-on-eks.yaml
+
+...
+
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export KUBECONFIG<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx/kube.config
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + KUBECONFIG<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx/kube.config
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export WORK_HOME<span style="color:#f92672">=</span>/workspace/nginx
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + WORK_HOME<span style="color:#f92672">=</span>/workspace/nginx
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export TILE_HOME<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + TILE_HOME<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export NAMESPACE<span style="color:#f92672">=</span>default
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + NAMESPACE<span style="color:#f92672">=</span>default
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + cd /workspace/nginx
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + kubectl apply -f /workspace/nginx/lib/nginx/lib/nginx-on-k8s.yml -n default
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  deployment.apps/mahjong-nginx-deployment unchanged
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  service/nginx-service unchanged
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + sleep <span style="color:#ae81ff">10</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  ++ kubectl get svc nginx-service -o <span style="color:#e6db74">&#39;jsonpath={.status..hostname}&#39;</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + echo <span style="color:#e6db74">&#39;{&#34;nginxEndpoint=a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com&#34;}&#39;</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Extract outputs: <span style="color:#f92672">[</span>nginxEndpoint<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com<span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Nginx Endpoint <span style="color:#f92672">=</span> a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
+</code></pre></div><h3 id="检查你的niginx部署结果">检查你的Niginx部署结果</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+&lt;style&gt;
+    body <span style="color:#f92672">{</span>
+        width: 35em;
+        margin: <span style="color:#ae81ff">0</span> auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    <span style="color:#f92672">}</span>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+&lt;p&gt;If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.&lt;/p&gt;
+
+&lt;p&gt;For online documentation and support please refer to
+&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.org/&#34;</span>&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+Commercial support is available at
+&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.com/&#34;</span>&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you <span style="color:#66d9ef">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><h3 id="检查你的redis部署结果">检查你的redis部署结果</h3>
+<h3 id="检查你的aurora部署结果">检查你的Aurora部署结果</h3>
+<p>好了，现在您可以快速的使用您的架构进行业务的开发，您还可以把您的胡分享给您的小伙伴，让我们一起使用麻将在最佳实践的环境中专注业务的构建自己的系统。</p>
+<p>当然，作为入门级别的实例远不能体现微服务的优势和麻将的强大。请您观看这个例子<a href="https://github.com/mahjong-contributions/mahjong-constuct/tree/master/hu/microservice-all-in-one/0.2.0">microservice-all-in-one</a>来体会更强大的麻将的使用。</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/zh/getting-started/build-your-own-tile/" title="构建你的“牌”"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/zh/design-principles/" title="设计原则" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1595842180"></script>
+    <script src="/js/perfect-scrollbar.min.js?1595842180"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1595842180"></script>
+    <script src="/js/jquery.sticky.js?1595842180"></script>
+    <script src="/js/featherlight.min.js?1595842180"></script>
+    <script src="/js/highlight.pack.js?1595842180"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1595842180"></script>
+    <script src="/js/learn.js?1595842180"></script>
+    <script src="/js/hugo-learn.js?1595842180"></script>
+
+    <link href="/mermaid/mermaid.css?1595842180" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1595842180"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

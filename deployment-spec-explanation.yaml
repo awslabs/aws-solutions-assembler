@@ -1,0 +1,72 @@
+apiVersion: mahjong.io/v1alpha1
+kind: Deployment 
+metadata:
+  name: mahjong
+spec:
+  template:
+    # Category of Tile
+    # - Options:  Network, provisioned through CDK approach.
+    #             Compute, provisioned through CDK approach.
+    #             ContainerProvider, provisioned through CDK approach.
+    #             Storage, provisioned through CDK approach.
+    #             Database, provisioned through CDK approach.
+    #             Application, !!! provisioned through specific approach due to application features. Not defined yet!!!
+    #             ContainerApplication, !!! provisioned through specific approach based on manifest type. !!!
+    #             Analysis, provisioned through CDK approach.
+    #             ML, provisioned through CDK approach.
+    #
+    # - Examples: vpc/ cidr / subnet / internet gateway / NAT / ...
+    category:
+    tiles:
+      - tileReference: 
+        tileVersion: 
+        inputs:
+          - name: 
+            #InputValue/InputValues could be used either one of them.
+            inputValue:    
+          - name: 
+            inputValues: 
+              - ...
+              - ...
+        manifests:
+          namespace: 
+  summary:
+    description: 
+    outputs:
+      - name: 
+        value: 
+   notes: []        
+    # Nework:
+    #       # {{ vpc/ cidr / subnet / internet gateway / NAT / ... }}
+    
+    # Compute:
+    #       # {{ ec2 / spot-ec2 / auto scaling group / elb / ... }}
+      
+    # ContainerProvider:
+    #       # {{ eks / ecs   }}
+    
+    # Storage:
+    #       # {{ EBS / EFS / CSI + EBS CSI + EFS / ...}}
+    
+    # Database:
+    #       # {{ standard RDS / Aurora / Redis / ...}}
+
+    # ContainerApplication:
+    #       # {{ Istio / Argo CD / Grafana / Prometheus / Knative / Kubeflow }}
+    #   - basicDevops:
+    #       # {{ ArgoCD / Argo Roolouts / Flux / Grafana / Prometheus }}
+    #       version: 1.0.0
+    #   - basicServerless:
+    #       # {{ knative }}
+    #       version: 1.0.0
+    #   - basicMisroservice:
+    #       # {{  Istio / Argo CD / Grafana / Prometheus / Thanose }}
+    #       version: 1.0.0
+    #   - basicML:
+    #       #{{ kubeflow }}
+
+    # Application
+    # Analysis
+    # ML
+    # 
+    #

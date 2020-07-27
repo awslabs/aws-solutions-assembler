@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>示例 on 中文</title>
+    <link>/zh/examples/</link>
+    <description>Recent content in 示例 on 中文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Everything is mine</copyright>
+    
+	<atom:link href="/zh/examples/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>EKS简易集群</title>
+      <link>/zh/examples/simple-eks-cluster/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/zh/examples/simple-eks-cluster/readme/</guid>
+      <description>本用例将会利用现有的“牌”（组件）来部署EKS集群
+预装软件  docker cdk aws cli v2 setup aws configuration and credential file mctl  步骤   确保aws cli工具配置正确，你可以通过以下命令检查
+$ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.aws/config   启动Dice后台程序如果你是第一次使用的话:
+$ docker run -d -v ~/.aws:/root/.aws -p 9090:9090 docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest   创建一个YAML配置文件并将其命名为simple-eks.yaml
+apiVersion: mahjong.io/v1alpha1 kind: Deployment metadata: name: eks-simple version: 0.</description>
+    </item>
+    
+    <item>
+      <title>EKS集群上部署Nginx</title>
+      <link>/zh/examples/nginx-on-eks/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/zh/examples/nginx-on-eks/readme/</guid>
+      <description>本例子会首先部署一个EKS集群，并在集群部署好之后在该集群上部署一个Nginx实例
+以下是架构图：
+预装软件  docker cdk aws cli v2 setup aws configuration and credential file mctl  步骤   确保aws cli工具配置正确，你可以通过以下命令检查
+$ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************ABCD shared-credentials-file secret_key ****************ABCD shared-credentials-file region us-west-2 env AWS_DEFAULT_REGION   为你的自定义的“牌”（组建）创建一个工作目录
+$ mkdir -p $HOME/ws/local-tiles-repo   启动Dev模式的Dice后台进程并将本地的工作目录挂载至Docker容器内
+$ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo \ -v ~/.aws:/root/.aws \ -e M_MODE=dev \ -p 9090:9090 \ docker.</description>
+    </item>
+    
+    <item>
+      <title>从零构建EKS集群</title>
+      <link>/zh/examples/eks-from-scratch/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/zh/examples/eks-from-scratch/readme/</guid>
+      <description>本例将会从零写一个“牌”（组建）来部署EKS集群
+预装软件  docker cdk aws cli v2 setup aws configuration and credential file mctl  Steps   确保aws cli工具配置正确，你可以通过以下命令检查
+$ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.aws/config   为你的自定义的“牌”（组建）创建一个工作目录
+$ mkdir -p $HOME/ws/local-tiles-repo   启动Dev模式的Dice后台进程并将本地的工作目录挂载至Docker容器内
+$ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo \ -v ~/.aws:/root/.aws \ -e M_MODE=dev \ -p 9090:9090 \ docker.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/</guid>
+      <description>MyEKS The Tile repreents a basic EKS cluster, which uses EKS 1.16 as default and depends on network Tile. The worker nodes will be managed nodes.
+Dependent Tile  Network0 [ v0.0.1 ]  Inputs  name: cidr name: vpc name: vpcSubnets name: clusterName name: clusterVersion name: capacityInstance name: capacity  Outputs  name: clusterName name: clusterVersion name: clusterArn name: clusterEndpoint name: masterRoleARN name: capacityInstance name: capacity  Notice </description>
+    </item>
+    
+  </channel>
+</rss>

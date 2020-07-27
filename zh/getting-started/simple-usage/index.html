@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>简单用例 :: 中文</title>
+
+    
+    <link href="/css/nucleus.css?1595842180" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1595842180" rel="stylesheet">
+    <link href="/css/hybrid.css?1595842180" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1595842180" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1595842180" rel="stylesheet">
+    <link href="/css/auto-complete.css?1595842180" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1595842180" rel="stylesheet">
+    <link href="/css/theme.css?1595842180" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1595842180" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1595842180"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/zh/getting-started/simple-usage/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src="/gopher.png" style="max-height: 40px;" />
+<span>AWS Solutions Assembler</span>
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1595842180"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1595842180"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/zh";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1595842180"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/getting-started/" title="入门" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/zh/getting-started/">
+          入门
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/installation/" title="环境安装" class="dd-item ">
+        <a href="/zh/getting-started/installation/">
+        环境安装
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/simple-usage/" title="简单用例" class="dd-item active">
+        <a href="/zh/getting-started/simple-usage/">
+        简单用例
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/build-your-own-tile/" title="构建你的“牌”" class="dd-item ">
+        <a href="/zh/getting-started/build-your-own-tile/">
+        构建你的“牌”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/getting-started/usage-of-hu/" title="构建你的“胡”" class="dd-item ">
+        <a href="/zh/getting-started/usage-of-hu/">
+        构建你的“胡”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/design-principles/" title="设计原则" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/zh/design-principles/">
+          设计原则
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/examples/" title="示例" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/zh/examples/">
+          示例
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/simple-eks-cluster/readme/" title="EKS简易集群" class="dd-item ">
+        <a href="/zh/examples/simple-eks-cluster/readme/">
+        EKS简易集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/nginx-on-eks/readme/" title="EKS集群上部署Nginx" class="dd-item ">
+        <a href="/zh/examples/nginx-on-eks/readme/">
+        EKS集群上部署Nginx
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/eks-from-scratch/readme/" title="从零构建EKS集群" class="dd-item ">
+        <a href="/zh/examples/eks-from-scratch/readme/">
+        从零构建EKS集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/" title="" class="dd-item ">
+        <a href="/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/zh/spec/" title="配置规范" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/zh/spec/">
+          配置规范
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/getting-started/simple-usage/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="zh" value="/zh/getting-started/simple-usage/" selected>中文</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/zh/'>文档中心</a> > <a href='/zh/getting-started/'>入门</a> > 简单用例
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#定义--构建服务组件">定义 &amp; 构建服务组件</a>
+      <ul>
+        <li><a href="#了解如何使用麻将">了解如何使用麻将</a></li>
+        <li><a href="#定义您的服务组件">定义您的服务组件</a></li>
+        <li><a href="#部署到aws">部署到AWS</a></li>
+        <li><a href="#麻将已完成部署">麻将已完成部署</a></li>
+      </ul>
+    </li>
+    <li><a href="#验证--使用服务组件">验证 &amp; 使用服务组件</a>
+      <ul>
+        <li><a href="#验证eks">验证EKS</a></li>
+        <li><a href="#使用eks">使用EKS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              简单用例
+            </h1>
+          
+
+        
+
+
+<p>如您所知，麻将作为蓬勃发展中的生态项目已经拥有了诸多优先的贡献者，他们已经构建了广泛的优良架构微服务模块，在麻将中我们称之为“牌”。</p>
+<p>在这里，我们将理解麻将中的牌的定义，使用已有的牌为您交付一套基于优良架构，由您自主定义的AWS EKS环境。</p>
+<p>您只需要定义集群的名称，节点数量和实例类型，K8S版本。麻将将为您快速构建一套已有最小权限原则，跨AZ高可用，数据高可靠等最佳实践元素的环境，当然您也可以不做输入，它将在默认的情况下为您完成最佳实践交付。</p>
+<h2 id="定义--构建服务组件">定义 &amp; 构建服务组件</h2>
+<h3 id="了解如何使用麻将">了解如何使用麻将</h3>
+<p>麻将中的一切编排组件均通过yaml进行编排和定义，这些组件包括</p>
+<h4 id="牌">牌</h4>
+<p>代表一个云组件或多个云组件或资源的组合。 Tile按网络，容器提供者，存储，数据库，应用程序，容器应用程序，分析，ML进行分类。 Application和ContainerApplication通过命令和文件表示，其余类别通过Construct :: CDK表示</p>
+<h4 id="部署">部署</h4>
+<p>部署单元，以及在 牌 范围内定义的所有资源。</p>
+<h4 id="胡">胡</h4>
+<p>高级别的部署单元集合，代表了完整的解决方案，并且包括多个具有特定定义的牌。</p>
+<p><img src="/high-level-arch.png" alt="high-level-arch"></p>
+<h3 id="定义您的服务组件">定义您的服务组件</h3>
+<p>现在，我们通过编写一个部署yaml调用已有的牌部署一个eks服务组件。</p>
+<p>创建一个YAML配置文件并将其命名为<code>simple-eks.yaml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
+    <span style="color:#66d9ef">kind</span>: Deployment
+    <span style="color:#66d9ef">metadata</span>:
+    <span style="color:#66d9ef">name</span>: simple-eks
+    <span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">0.1.0</span>
+    <span style="color:#66d9ef">spec</span>:
+    <span style="color:#66d9ef">template</span>:
+        <span style="color:#66d9ef">tiles</span>:
+        <span style="color:#66d9ef">tileEks0005</span>:
+            <span style="color:#66d9ef">tileReference</span>: Eks0
+            <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">0.0.5</span>
+            <span style="color:#66d9ef">inputs</span>:
+            - <span style="color:#66d9ef">name</span>: clusterName
+                <span style="color:#66d9ef">inputValue</span>: mahjong-cluster101
+            - <span style="color:#66d9ef">name</span>: capacity
+                <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">3</span>
+            - <span style="color:#66d9ef">name</span>: capacityInstance
+                <span style="color:#66d9ef">inputValue</span>: m5.large
+            - <span style="color:#66d9ef">name</span>: version
+                <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">1.16</span>
+    <span style="color:#66d9ef">summary</span>:
+        <span style="color:#66d9ef">description</span>:
+        <span style="color:#66d9ef">outputs</span>:
+        - <span style="color:#66d9ef">name</span>: EKS Cluster Name
+            <span style="color:#66d9ef">value</span>: $(tileEks0005.outputs.clusterName)
+        - <span style="color:#66d9ef">name</span>: Master role arn for EKS Cluster
+            <span style="color:#66d9ef">value</span>: $(tileEks0005.outputs.masterRoleARN)
+        - <span style="color:#66d9ef">name</span>: The API endpoint EKS Cluster
+            <span style="color:#66d9ef">value</span>: $(tileEks0005.outputs.clusterEndpoint)
+        - <span style="color:#66d9ef">name</span>: Instance type of worker node
+            <span style="color:#66d9ef">value</span>: $(tileEks0005.outputs.capacityInstance)
+        - <span style="color:#66d9ef">name</span>: Default capacity of worker node
+            <span style="color:#66d9ef">value</span>: $(tileEks0005.outputs.capacity)
+
+        <span style="color:#66d9ef">notes</span>: []
+</code></pre></div><h3 id="部署到aws">部署到AWS</h3>
+<p>使用<code>mctl deploy -f ./simple-eks.yaml</code>命令将您定义的服务组件部署到aws。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ mctl deploy -f ./simple-eks.yaml
+</code></pre></div><p>如果您正确完成了缓解的安装，你将会的得到以下结果:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+    <span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  EKS Cluster Name <span style="color:#f92672">=</span> mahjong-cluster101
+    <span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Master role arn <span style="color:#66d9ef">for</span> EKS Cluster <span style="color:#f92672">=</span> arn:aws:iam::638198787577:role/Eks0StacktileEks0005-Eks0EksClusterMasterRole76926-D9OV6NASDYGC
+    <span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  The API endpoint EKS Cluster <span style="color:#f92672">=</span> https://8F4AEE06CDA95AA5B9B82016B406F53B.gr7.us-east-2.eks.amazonaws.com
+    <span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Instance type of worker node <span style="color:#f92672">=</span> m5.large
+    <span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Default capacity of worker node <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><h3 id="麻将已完成部署">麻将已完成部署</h3>
+<p>以上，您通过麻将部署了aws eks集群，他享有aws最佳实践，包括安全性，稳定性，可靠性等优良设计</p>
+<p><img src="/simple-eks.svg" alt="eks"></p>
+<h2 id="验证--使用服务组件">验证 &amp; 使用服务组件</h2>
+<h3 id="验证eks">验证EKS</h3>
+<p>一旦完成以上步骤后便可以检查您部署好的集群<code>mahjong-cluster101</code>
+- 从部署日志中找到EKS集群的Master role</p>
+<pre><code>    例如：
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">        arn:aws:iam::638198787577:role/Eks0StacktileEks0005-Eks0EksClusterMasterRole76926-D9OV6NASDYGC
+</code></pre></div><ul>
+<li>
+<p>用以下命令创建保存k8s的登陆配置<code>aws --region &lt;region-code&gt; eks update-kubeconfig --name &lt;cluster_name&gt; --role-arn arn:aws:iam::&lt;aws_account_id&gt;:role/&lt;role_name&gt;</code>.</p>
+<pre><code>  例如：
+</code></pre>
+</li>
+</ul>
+<pre><code>        aws --region us-east-2 eks update-kubeconfig--name mahjong-cluster101 --role-arn arn:aws:iam::638198787577:role/Eks0StacktileEks0005-Eks0EksClusterMasterRole76926-D9OV6NASDYGC
+</code></pre><ul>
+<li>安装eksctl</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">        curl --silent --location <span style="color:#e6db74">&#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_</span><span style="color:#66d9ef">$(</span>uname -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">_amd64.tar.gz&#34;</span> | tar xz -C /tmp
+        sudo mv /tmp/eksctl /usr/local/bin
+</code></pre></div><ul>
+<li>安装kubectl</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">        curl -LO <span style="color:#e6db74">&#34;https://storage.googleapis.com/kubernetes-release/release/</span><span style="color:#66d9ef">$(</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span style="color:#66d9ef">)</span><span style="color:#e6db74">/bin/darwin/amd64/kubectl&#34;</span>
+        chmod +x ./kubectl
+        sudo mv ./kubectl /usr/local/bin/kubectl
+        kubectl version --client
+</code></pre></div><ul>
+<li>检查您的集群</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">        $ kubectl get svc
+        NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>   AGE
+        kubernetes   ClusterIP   172.20.0.1   &lt;none&gt;        443/TCP   4h41m
+</code></pre></div><p>以上，您通过麻将部署了aws eks集群，他享有aws最佳实践，包括安全性，稳定性，可靠性等优良设计</p>
+<h3 id="使用eks">使用EKS</h3>
+<p>部署eks应用</p>
+<ul>
+<li>编辑文件 2048.k8s.yaml</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Service
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: my2048-service
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">ports</span>:
+    - <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">80</span>
+      <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">80</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">app</span>: my2048-k8s
+  <span style="color:#66d9ef">type</span>: LoadBalancer
+---
+<span style="color:#66d9ef">apiVersion</span>: apps/v1
+<span style="color:#66d9ef">kind</span>: Deployment
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: my2048-deployment
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">2</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">matchLabels</span>:
+      <span style="color:#66d9ef">app</span>: my2048-k8s
+  <span style="color:#66d9ef">template</span>:
+    <span style="color:#66d9ef">metadata</span>:
+      <span style="color:#66d9ef">labels</span>:
+        <span style="color:#66d9ef">app</span>: my2048-k8s
+    <span style="color:#66d9ef">spec</span>:
+      <span style="color:#66d9ef">containers</span>:
+        - <span style="color:#66d9ef">image</span>: alexwhen/docker<span style="color:#ae81ff">-2048</span>
+          <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;my2048&#34;</span>
+          <span style="color:#66d9ef">ports</span>:
+            - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">80</span>
+</code></pre></div><ul>
+<li>运行部署命令</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl apply -f 2048.k8s.yaml
+</code></pre></div><ul>
+<li>查看服务信息</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl get service/my2048-service
+</code></pre></div><p>我们将看到如下输出</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">NAME TYPE CLUSTER-IP EXTERNAL-IP PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span> AGE
+my2048-service LoadBalancer 172.20.88.7 a6ba48df2f1774376a8e065336c8bd44-1753238188.us-east-1.elb.amazonaws.com 80:31276/TCP 4d20h
+</code></pre></div><ul>
+<li>访问服务
+在浏览器打开应用的endpoint地址，你可以看到2048的游戏页面。enjoy~</li>
+</ul>
+<p><img src="/2048.png" alt="2048"></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/zh/getting-started/installation/" title="环境安装"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/zh/getting-started/build-your-own-tile/" title="构建你的“牌”" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1595842180"></script>
+    <script src="/js/perfect-scrollbar.min.js?1595842180"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1595842180"></script>
+    <script src="/js/jquery.sticky.js?1595842180"></script>
+    <script src="/js/featherlight.min.js?1595842180"></script>
+    <script src="/js/highlight.pack.js?1595842180"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1595842180"></script>
+    <script src="/js/learn.js?1595842180"></script>
+    <script src="/js/hugo-learn.js?1595842180"></script>
+
+    <link href="/mermaid/mermaid.css?1595842180" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1595842180"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
