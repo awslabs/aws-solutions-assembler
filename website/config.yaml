@@ -7,8 +7,8 @@ copyright: Everything is mine
 publishDir: ../public
 contentDir: ../docs
 staticDir:
-  - ../assets
   - ../docs
+  - ./static/images
 
 defaultContentLanguageInSubdir: true
 DefaultContentLanguage: zh
