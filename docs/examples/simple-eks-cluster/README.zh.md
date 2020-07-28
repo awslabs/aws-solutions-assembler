@@ -1,8 +1,11 @@
-# Simple EKS Cluster
+---
+title: EKS简易集群
+weight: 1
+---
 
 本用例将会利用现有的“牌”（组件）来部署EKS集群
 
-![simple eks architecture](./simple-eks.svg)
+![simple eks architecture]({{< param "rootUrl" >}}/simple-eks.svg)
 
 ## 预装软件
 
@@ -38,35 +41,35 @@
     apiVersion: mahjong.io/v1alpha1
     kind: Deployment
     metadata:
-    name: simple-eks
-    version: 0.1.0
+      name: eks-simple
+      version: 0.1.0
     spec:
-    template:
+      template:
         tiles:
-        tileEks0005:
+          tileEks0005:
             tileReference: Eks0
             tileVersion: 0.0.5
             inputs:
-            - name: clusterName
+              - name: clusterName
                 inputValue: mahjong-cluster101
-            - name: capacity
+              - name: capacity
                 inputValue: 3
-            - name: capacityInstance
+              - name: capacityInstance
                 inputValue: m5.large
-            - name: version
+              - name: version
                 inputValue: 1.16
-    summary:
+      summary:
         description:
         outputs:
-        - name: EKS Cluster Name
+          - name: EKS Cluster Name
             value: $(tileEks0005.outputs.clusterName)
-        - name: Master role arn for EKS Cluster
+          - name: Master role arn for EKS Cluster
             value: $(tileEks0005.outputs.masterRoleARN)
-        - name: The API endpoint EKS Cluster
+          - name: The API endpoint EKS Cluster
             value: $(tileEks0005.outputs.clusterEndpoint)
-        - name: Instance type of worker node
+          - name: Instance type of worker node
             value: $(tileEks0005.outputs.capacityInstance)
-        - name: Default capacity of worker node
+          - name: Default capacity of worker node
             value: $(tileEks0005.outputs.capacity)
 
         notes: []
@@ -78,7 +81,8 @@
     cdk bootstrap aws://638198787577/us-east-2
     ```
 
-    > :warning: 该步骤只需要执行一次，以后无需再执行
+    {{% notice note %}}该步骤只需要执行一次，以后无需再执行
+    {{% /notice %}}
 
 5. 部署到AWS`mctl deploy -f ./simple-eks.yaml`。如果一切顺利你讲会的得到一下结果:
 
@@ -119,4 +123,5 @@
         kubernetes   ClusterIP   172.20.0.1   <none>        443/TCP   4h41m
         ```
 
-        > :warning: 请确保您正确安装了[kubernetes-cli](https://kubernetes.io//docs/tasks/tools/install-kubectl/)
+        {{% notice note %}}请确保您正确安装了[kubernetes-cli](https://kubernetes.io//docs/tasks/tools/install-kubectl/)
+        {{% /notice %}}

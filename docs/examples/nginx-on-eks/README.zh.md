@@ -1,10 +1,13 @@
-# Nginx on EKS cluster
+---
+title: EKS集群上部署Nginx
+weight: 2
+---
 
 本例子会首先部署一个EKS集群，并在集群部署好之后在该集群上部署一个Nginx实例
 
 以下是架构图：
 
-![simple eks architecture](./nginx-on-eks.svg)
+![simple eks architecture]({{< param "rootUrl" >}}/nginx-on-eks.svg)
 
 ## 预装软件
 
@@ -210,7 +213,8 @@
     cdk bootstrap aws://638198787577/us-east-2
     ```
 
-    > :warning: 该步骤只需要执行一次，以后无需再执行
+    {{% notice note %}}该步骤只需要执行一次，以后无需再执行
+    {{% /notice %}}
 
 9. 部署到AWS`mctl deploy -f ./nginx-on-eks.yaml`。如果一切顺利你讲会的得到一下结果:
 

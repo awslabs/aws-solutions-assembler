@@ -1,0 +1,30 @@
+baseURL: https://wchaws.github.io/aws-solutions-assembler/
+title: aws-solutions-assembler
+theme: hugo-theme-learn
+copyright: Everything is mine
+# enableGitInfo: true
+
+publishDir: ../public
+contentDir: ../docs
+staticDir:
+  - ../docs
+  - ./static/images
+
+defaultContentLanguageInSubdir: true
+DefaultContentLanguage: zh
+languageCode: en-us
+languages:
+  en:
+    title: English
+    languageName: English
+    weight: 1
+  zh:
+    title: 中文
+    languageName: 中文
+    weight: 2
+
+params:
+  rootUrl: /aws-solutions-assembler
+  # themeVariant: blue
+  # navigation:
+  #   help: Help
