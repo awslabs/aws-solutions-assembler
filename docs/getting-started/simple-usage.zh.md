@@ -28,7 +28,7 @@ weight: 20
 
 高级别的部署单元集合，代表了完整的解决方案，并且包括多个具有特定定义的牌。
 
-![high-level-arch](/high-level-arch.png)
+![high-level-arch]({{< param "rootUrl" >}}/high-level-arch.png)
 
 ### 定义您的服务组件
 
@@ -94,7 +94,7 @@ weight: 20
 
 以上，您通过麻将部署了aws eks集群，他享有aws最佳实践，包括安全性，稳定性，可靠性等优良设计
 
-![eks](/simple-eks.svg)
+![eks]({{< param "rootUrl" >}}/simple-eks.svg)
 
 ## 验证 & 使用服务组件
 
@@ -197,4 +197,4 @@ my2048-service LoadBalancer 172.20.88.7 a6ba48df2f1774376a8e065336c8bd44-1753238
 - 访问服务
     在浏览器打开应用的endpoint地址，你可以看到2048的游戏页面。enjoy~
 
-![2048](/2048.png)
+![2048]({{< param "rootUrl" >}}/2048.png)

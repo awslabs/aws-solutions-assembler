@@ -5,7 +5,7 @@ weight: 1
 
 本用例将会利用现有的“牌”（组件）来部署EKS集群
 
-![simple eks architecture](/simple-eks.svg)
+![simple eks architecture]({{< param "rootUrl" >}}/simple-eks.svg)
 
 ## 预装软件
 
