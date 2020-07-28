@@ -35,7 +35,7 @@ open http://127.0.0.1:9090/toy
 
 ## User Guide
 
-[English](https://awslabs.github.io/aws-solutions-assembler/en/getting-started/) | [中文](https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/)
+To learn more about AWS Solutions Assembler [go to the complete documentation](https://awslabs.github.io/aws-solutions-assembler/en/getting-started/).
 
 
 ## Hu
@@ -46,11 +46,12 @@ open http://127.0.0.1:9090/toy
 
 ## Develope your own
 
-If you want to share your expertise or build your favorite things from scratch, following guide would be helpful.
+If you want to share your expertise or build your favorite things from scratch, following guides would be helpful.
 
 - [How to build the Tile](./docs/How-to-Build-Tile.md)
 - [How to build the Hu](./docs/How-to-Build-Hu.md) 
 - [All available Hu and Tile](./repo/README.md)
+- [Publish Hu or Tile](./repo/README.md)  
 
 ## What's coming
 

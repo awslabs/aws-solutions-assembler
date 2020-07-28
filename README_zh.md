@@ -35,7 +35,7 @@ open http://127.0.0.1:9090/toy
 
 ## 用户指南
 
-[English](https://awslabs.github.io/aws-solutions-assembler/en/getting-started/) | [中文](https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/)
+进一步了解AWS Solutions Assembler，可以参考[完整文档](https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/)
 
 ## 胡
 
@@ -45,13 +45,14 @@ open http://127.0.0.1:9090/toy
 
 ## 自定义开发
 
-If you want to share your expertise or build your favorite things from scratch, following guide would be helpful.
+如果需要通过AWS Solutions Assembler 构建“胡”或利用现有“牌”构建全新的“胡”，可以参考如下指南：
 
-- [How to build the Tile](./docs/How-to-Build-Tile.md)
-- [How to build the Hu](./docs/How-to-Build-Hu.md) 
-- [All available Hu and Tile](./repo/README.md)
+- [如何开发 “牌”](./docs/How-to-Build-Tile.md)
+- [如何开发 “胡”](./docs/How-to-Build-Hu.md) 
+- [“牌” 和 “胡” 的样例](./repo/README.md)
+- [如何发布 “胡”或“牌”](./repo/README.md)  
 
-## 即将发布
+## 即将发布方案
 
 - [X] Data pipeline on EKS
 - [X] Serverless on EKS
