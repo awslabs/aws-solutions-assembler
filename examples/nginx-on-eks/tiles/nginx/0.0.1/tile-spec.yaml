@@ -1,0 +1,71 @@
+# API version
+apiVersion: mahjong.io/v1alpha1
+# Kind of entity
+kind: Tile
+# Metadata
+metadata:
+    # Name of entity
+    name: nginx
+    # Category of entity
+    category: ContainerApplication
+    # Version of entity
+    version: 0.0.1
+# Specification
+spec:
+  # Dependencies represent dependency with other Tile
+  dependencies:
+    - name: eks
+      # Tile name
+      tileReference: Eks0
+      # Tile version
+      tileVersion: 0.0.5
+
+  inputs:
+    - name: clusterName
+      inputType: String
+      require: true
+      override:
+        name: eks
+        field: clusterName
+    - name: capacity
+      inputType: Number
+      require: false
+      override:
+        name: eks
+        field: capacity
+      defaultValue: 2
+    - name: capacityInstance
+      inputType: String
+      require: false
+      override:
+        name: eks
+        field: capacityInstance
+      defaultValue: c5.xlarge
+    - name: version
+      inputType: String
+      require: false
+      override:
+        name: eks
+        field: version
+      defaultValue: 1.15
+
+  #aws eks --region <region> update-kubeconfig --name <cluster> --role-arn <master role arn> --kubeconfig <config>
+  manifests:
+    # Type of manifest
+    manifestType: K8s
+    namespace: default
+    # manifest list
+    files:
+      - nginx-on-k8s.yml
+
+
+  # Ouptputs represnt output value after launched
+  outputs:
+    # String
+    - name: nginxEndpoint
+      outputType: String
+      defaultValueCommand: kubectl get svc nginx-service -o jsonpath='{.status..hostname}'
+      description: Custom::String
+
+  notes: []
+

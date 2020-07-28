@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文档中心 on 中文</title>
+    <link>https://wchaws.github.io/aws-solutions-assembler/zh/</link>
+    <description>Recent content in 文档中心 on 中文</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Everything is mine</copyright>
+    <lastBuildDate>Mon, 27 Jul 2020 16:23:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://wchaws.github.io/aws-solutions-assembler/zh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>EKS简易集群</title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/examples/simple-eks-cluster/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/examples/simple-eks-cluster/readme/</guid>
+      <description>本用例将会利用现有的“牌”（组件）来部署EKS集群
+预装软件  docker cdk aws cli v2 setup aws configuration and credential file mctl  步骤   确保aws cli工具配置正确，你可以通过以下命令检查
+$ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.aws/config   启动Dice后台程序如果你是第一次使用的话:
+$ docker run -d -v ~/.aws:/root/.aws -p 9090:9090 docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest   创建一个YAML配置文件并将其命名为simple-eks.yaml
+apiVersion: mahjong.io/v1alpha1 kind: Deployment metadata: name: eks-simple version: 0.</description>
+    </item>
+    
+    <item>
+      <title>EKS集群上部署Nginx</title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/</guid>
+      <description>本例子会首先部署一个EKS集群，并在集群部署好之后在该集群上部署一个Nginx实例
+以下是架构图：
+预装软件  docker cdk aws cli v2 setup aws configuration and credential file mctl  步骤   确保aws cli工具配置正确，你可以通过以下命令检查
+$ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************ABCD shared-credentials-file secret_key ****************ABCD shared-credentials-file region us-west-2 env AWS_DEFAULT_REGION   为你的自定义的“牌”（组建）创建一个工作目录
+$ mkdir -p $HOME/ws/local-tiles-repo   启动Dev模式的Dice后台进程并将本地的工作目录挂载至Docker容器内
+$ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo \ -v ~/.aws:/root/.aws \ -e M_MODE=dev \ -p 9090:9090 \ docker.</description>
+    </item>
+    
+    <item>
+      <title>从零构建EKS集群</title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/</guid>
+      <description>本例将会从零写一个“牌”（组建）来部署EKS集群
+预装软件  docker cdk aws cli v2 setup aws configuration and credential file mctl  Steps   确保aws cli工具配置正确，你可以通过以下命令检查
+$ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.aws/config   为你的自定义的“牌”（组建）创建一个工作目录
+$ mkdir -p $HOME/ws/local-tiles-repo   启动Dev模式的Dice后台进程并将本地的工作目录挂载至Docker容器内
+$ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo \ -v ~/.aws:/root/.aws \ -e M_MODE=dev \ -p 9090:9090 \ docker.</description>
+    </item>
+    
+    <item>
+      <title>环境安装</title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/installation/</link>
+      <pubDate>Mon, 27 Jul 2020 13:46:14 +0800</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/installation/</guid>
+      <description>预装软件  安装 Docker Desktop 安装 AWS CDK 配置 AWS Configuration and Credential setting  配置aws cli凭证 确保aws cli工具配置正确，你可以通过以下命令检查
+$ aws configure list Name Value Type Location ---- ----- ---- -------- profile &amp;lt;not set&amp;gt; None None access_key ****************XAWA shared-credentials-file secret_key ****************qEK5 shared-credentials-file region us-east-2 config-file ~/.aws/config 执行AWS CDK引导程序 通过命令cdk bootstrap aws://&amp;lt;your aws account&amp;gt;/&amp;lt;aws region&amp;gt;初始化您的CDK组件，例如：
+cdk bootstrap aws://638198787577/us-east-2  该步骤只需要执行一次，以后无需再执行
+ 运行麻将docker 现在我们以下两步将麻将运行在您的本地环境
+ 为你的微服务组件创建一个工作目录  $ mkdir -p $HOME/ws/local-tiles-repo 启动Dev模式的Dice后台进程并将本地的工作目录挂载至麻将Docker容器内  $ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo \  -v ~/.</description>
+    </item>
+    
+    <item>
+      <title>简单用例</title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/simple-usage/</link>
+      <pubDate>Mon, 27 Jul 2020 13:58:26 +0800</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/simple-usage/</guid>
+      <description>如您所知，麻将作为蓬勃发展中的生态项目已经拥有了诸多优先的贡献者，他们已经构建了广泛的优良架构微服务模块，在麻将中我们称之为“牌”。
+在这里，我们将理解麻将中的牌的定义，使用已有的牌为您交付一套基于优良架构，由您自主定义的AWS EKS环境。
+您只需要定义集群的名称，节点数量和实例类型，K8S版本。麻将将为您快速构建一套已有最小权限原则，跨AZ高可用，数据高可靠等最佳实践元素的环境，当然您也可以不做输入，它将在默认的情况下为您完成最佳实践交付。
+定义 &amp;amp; 构建服务组件 了解如何使用麻将 麻将中的一切编排组件均通过yaml进行编排和定义，这些组件包括
+牌 代表一个云组件或多个云组件或资源的组合。 Tile按网络，容器提供者，存储，数据库，应用程序，容器应用程序，分析，ML进行分类。 Application和ContainerApplication通过命令和文件表示，其余类别通过Construct :: CDK表示
+部署 部署单元，以及在 牌 范围内定义的所有资源。
+胡 高级别的部署单元集合，代表了完整的解决方案，并且包括多个具有特定定义的牌。
+定义您的服务组件 现在，我们通过编写一个部署yaml调用已有的牌部署一个eks服务组件。
+创建一个YAML配置文件并将其命名为simple-eks.yaml
+apiVersion: mahjong.io/v1alpha1 kind: Deployment metadata: name: simple-eks version: 0.1.0 spec: template: tiles: tileEks0005: tileReference: Eks0 tileVersion: 0.0.5 inputs: - name: clusterName inputValue: mahjong-cluster101 - name: capacity inputValue: 3 - name: capacityInstance inputValue: m5.large - name: version inputValue: 1.16 summary: description: outputs: - name: EKS Cluster Name value: $(tileEks0005.</description>
+    </item>
+    
+    <item>
+      <title>构建你的“牌”</title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/build-your-own-tile/</link>
+      <pubDate>Mon, 27 Jul 2020 14:14:06 +0800</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/build-your-own-tile/</guid>
+      <description>在使用微服务块“牌”的环节或许您已经发现，我们通过两个操作（定义部署和执行部署）就交付了AWS的VPC，IAM，EKS等多个资源环境，并且他们享有最佳实践。而我们通过10个左右的步骤完成EKS上2048游戏的部署。
+如果我们将2048这样的应用考虑为不同于EKS的另外一个“牌”进行定义.通常这也仅需要几个简单的步骤即可完成。届时我们的团队，包括麻将的生态均可复用您的牌。
+现在，我们构建自己的牌，在入门示例中我们的牌将在EKS上运行NGINX
+构建自己的微服务块 构思牌的架构 通常，您可以需要构思您的牌属于哪种负载，他在您微服务架构中的作用是什么。 作为麻将的最基本单元，Tile的构建有两种方法。一种方法基于CDK，它是CDK Construct和Tile规范的组合。另一种方法是使用各种工件和Tile规范进行构建，这将让您操纵绝大多数资源。 牌通常由以下组件构成：
+ AWS CDK CMD 命令 K8S Deployment K8S Heml K8S Kustomize 您可能是调用已有的，或是您原创的yaml文件按照麻将框架定义的文件夹结构进行牌的定义  一个好的牌关键因素在于
+ 考虑处理重复部署 考虑可以同时部署多个Tile 管理各种潜在的错误  以下是NGINX示例下的架构图：
+创建一个Nginx的“牌”文件夹 创建一个本地文件夹作为Tile Repo，以便您可以立即开发和测试Tile。如果无法从此本地存储库加载Tile，Dice将尝试从公共Tile存储库加载Tile。
+$ cd $HOME/ws/local-tiles-repo $ mkdir nginx/0.0.1 创建牌定义文件 创建以下文件nginx/0.0.1/tile-spec.yaml
+# API version apiVersion: mahjong.io/v1alpha1 # Kind of entity kind: Tile # Metadata metadata: # Name of entity name: nginx # Category of entity category: ContainerApplication # Version of entity version: 0.</description>
+    </item>
+    
+    <item>
+      <title>构建你的“胡”</title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/usage-of-hu/</link>
+      <pubDate>Mon, 27 Jul 2020 14:22:16 +0800</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/usage-of-hu/</guid>
+      <description>使用麻将，我们可以将多个牌进行组合编排，形成一个完整解决方案的交付架构，在麻将中，我们将它称为“胡”，我们可以使用自己开发的牌配合社区中已有的牌进行自己想要的完整环境组合，重要的是，除了提供您自主实现的灵活度，他们同样拥有最佳实践和快速加速的关键因素。
+构思您自己的微服务组合 了解社区现有资源 “胡” 当您构思自己的胡，您可以查看社区的贡献列表，他们均是通过检验的最佳实践。以上是部分流行的组件列表
+   Hu Version Description     Simple EKS v0.1.0 Quick launch with few lines of yaml.   EKS with Spot instance v0.1.0 Quick launch EKS cluster with mixed spot and on-demand instances, as well as handling spot termination, cluster auto scaler and HPA.   Simple ArgoCD v0.1.0 Setup ArgoCD on EKS with simple configuration.   Basic CD with ArgoCD v0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/all-concept/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/all-concept/</guid>
+      <description>Motivation Bridge gap between builders and customers. Builders are good at technology with deep experience, but customers are good at business and seeking best practice to accelerating their business. They were in different focus in terms of business and technology, and need to have a way to glue them together and coordinate smoothly.
+Share technical &amp;amp; industry best practice across communities. Builders have deep knowledge of various of solutions, but need a way to scale impact in communities easily and effectively.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/</guid>
+      <description>MyEKS The Tile repreents a basic EKS cluster, which uses EKS 1.16 as default and depends on network Tile. The worker nodes will be managed nodes.
+Dependent Tile  Network0 [ v0.0.1 ]  Inputs  name: cidr name: vpc name: vpcSubnets name: clusterName name: clusterVersion name: capacityInstance name: capacity  Outputs  name: clusterName name: clusterVersion name: clusterArn name: clusterEndpoint name: masterRoleARN name: capacityInstance name: capacity  Notice </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/how-to-build-hu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/how-to-build-hu/</guid>
+      <description>How to build a Hu Hu is a full solution and combination of Tiles, key is to build a turn key solution leverage all we have.
+Prerequisite  Install Docker Desktop Install AWS CDK Specify AWS Configuration and Credential setting  Execution Order Writing order in the deployment specification is critical path and depedent Tiles is a small branch at same stage. Dependent Tile will be execute first.
+Using dry run to check out execution plan.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wchaws.github.io/aws-solutions-assembler/zh/how-to-build-tile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wchaws.github.io/aws-solutions-assembler/zh/how-to-build-tile/</guid>
+      <description>How to Build a Tile There&amp;rsquo;s two way to build Tile as fundemental parts of Mahjong. One way is built on CDK, which is a combination of CDK Construct and Tile specification. Other way is build with various artifacts and Tile specification, let you manipulate vast majority resources.
+Prerequisite  Install Docker Desktop Install AWS CDK Specify AWS Configuration and Credential setting  Tile with CDK  Create a local folder as a Tile Repo, so that you can develop and test your Tile instantly.</description>
+    </item>
+    
+  </channel>
+</rss>

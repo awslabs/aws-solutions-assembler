@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/aws-solutions-assembler/images/favicon.png" type="image/png">
+
+    <title>Config Spec :: English</title>
+
+    
+    <link href="/aws-solutions-assembler/css/nucleus.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/fontawesome-all.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/hybrid.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/featherlight.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/perfect-scrollbar.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/auto-complete.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/atom-one-dark-reasonable.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/theme.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/hugo-theme.css?1595930022" rel="stylesheet">
+    
+    
+
+    <script src="/aws-solutions-assembler/js/jquery-3.3.1.min.js?1595930022"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/aws-solutions-assembler/en/spec/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src="/aws-solutions-assembler/gopher.png" style="max-height: 40px;" />
+<span>AWS Solutions Assembler</span>
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/aws-solutions-assembler/js/lunr.min.js?1595930022"></script>
+<script type="text/javascript" src="/aws-solutions-assembler/js/auto-complete.js?1595930022"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/wchaws.github.io\/aws-solutions-assembler\/\/en";
+    
+</script>
+<script type="text/javascript" src="/aws-solutions-assembler/js/search.js?1595930022"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/en/getting-started/" title="Getting Started" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/en/getting-started/">
+          Getting Started
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/en/getting-started/installation/" title="Installation" class="dd-item ">
+        <a href="/aws-solutions-assembler/en/getting-started/installation/">
+        Installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/en/getting-started/build-your-own-tile/" title="Build Your Own Tile" class="dd-item ">
+        <a href="/aws-solutions-assembler/en/getting-started/build-your-own-tile/">
+        Build Your Own Tile
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/en/getting-started/usage-of-hu/" title="Usage of Hu" class="dd-item ">
+        <a href="/aws-solutions-assembler/en/getting-started/usage-of-hu/">
+        Usage of Hu
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/en/getting-started/simple-usage/" title="Simple Usage" class="dd-item ">
+        <a href="/aws-solutions-assembler/en/getting-started/simple-usage/">
+        Simple Usage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/en/design-principles/" title="Design Principles" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/en/design-principles/">
+          Design Principles
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/en/examples/" title="Examples" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/en/examples/">
+          Examples
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/" title="Simple EKS Cluster" class="dd-item ">
+        <a href="/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/">
+        Simple EKS Cluster
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/en/examples/nginx-on-eks/readme/" title="Nginx on EKS cluster" class="dd-item ">
+        <a href="/aws-solutions-assembler/en/examples/nginx-on-eks/readme/">
+        Nginx on EKS cluster
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/en/examples/eks-from-scratch/readme/" title="EKS cluster from scratch" class="dd-item ">
+        <a href="/aws-solutions-assembler/en/examples/eks-from-scratch/readme/">
+        EKS cluster from scratch
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/en/spec/" title="Config Spec" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/aws-solutions-assembler/en/spec/">
+          Config Spec
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="https://wchaws.github.io/aws-solutions-assembler/en/spec/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="zh" value="https://wchaws.github.io/aws-solutions-assembler/zh/spec/">中文</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/aws-solutions-assembler/en/'>Documentation</a> > Config Spec
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#tile-spec">Tile Spec</a></li>
+    <li><a href="#deployment-spec">Deployment Spec</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Config Spec
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="tile-spec">Tile Spec</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># API version</span>
+<span style="color:#75715e"># Dice will inject environment variables, such as $WORK_HOME, $NAMESPACE, $TILE_HOME..., etc.</span>
+<span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
+<span style="color:#75715e"># Kind of entity</span>
+<span style="color:#75715e"># - Options:  Tile, a construct component</span>
+<span style="color:#75715e">#             Deployment, a deployment unit</span>
+<span style="color:#75715e">#             Hu, a prepared deployment unit with architectural design</span>
+<span style="color:#66d9ef">kind</span>:
+<span style="color:#75715e"># Metadata</span>
+<span style="color:#66d9ef">metadata</span>:
+    <span style="color:#75715e"># Name of entity</span>
+    <span style="color:#66d9ef">name</span>:
+    <span style="color:#75715e"># Category of entity</span>
+    <span style="color:#75715e"># - Options:  Network, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Compute, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             ContainerProvider, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Storage, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Database, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Application, !!! provisioned through specific approach due to application features. Not defined yet!!!</span>
+    <span style="color:#75715e">#             ContainerApplication, !!! provisioned through specific approach based on manifest type. !!!</span>
+    <span style="color:#75715e">#             Analysis, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             ML, provisioned through CDK approach.</span>
+    <span style="color:#66d9ef">category</span>:
+
+    <span style="color:#75715e"># Indicate service of contianer vendor when category is ContainerApplication, different vendor require specific</span>
+    <span style="color:#75715e"># parameters to connect with Cluster.</span>
+    <span style="color:#75715e"># - Options:  EKS, AWS Elastic Kubernetes Service, require: Cluster Name, Master Role ARN</span>
+    <span style="color:#75715e">#             ECS, ???</span>
+    <span style="color:#75715e">#             Kops, ???</span>
+    <span style="color:#75715e">#             Kubernetes, ???</span>
+    <span style="color:#66d9ef">vendorService</span>:
+
+    <span style="color:#75715e"># Dependent on what kind of vendor service, to determine what input parameters are required.</span>
+    <span style="color:#75715e"># For example, dependentOnVendorService: EKS, that&#39;s required &#39;clusterName&#39;, &#39;masterRoleARN&#39;</span>
+    <span style="color:#66d9ef">dependentOnVendorService</span>:
+
+    <span style="color:#75715e"># Version of entity</span>
+    <span style="color:#66d9ef">version</span>:
+<span style="color:#75715e"># Specification</span>
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">global</span>:
+    <span style="color:#66d9ef">env</span>:
+      - <span style="color:#66d9ef">name</span>:
+        <span style="color:#66d9ef">value</span>:
+        <span style="color:#66d9ef">value</span>:
+  <span style="color:#66d9ef">preRun</span>:
+    <span style="color:#66d9ef">stages</span>:
+      - <span style="color:#66d9ef">name</span>:
+        <span style="color:#66d9ef">command</span>:
+
+
+  <span style="color:#75715e"># Dependencies represent dependency with other Tile</span>
+  <span style="color:#66d9ef">dependencies</span>:
+      <span style="color:#75715e"># As a reference name</span>
+    - <span style="color:#66d9ef">name</span>:
+      <span style="color:#75715e"># Tile name</span>
+      <span style="color:#66d9ef">tileReference</span>:
+      <span style="color:#75715e"># Tile version</span>
+      <span style="color:#66d9ef">tileVersion</span>:
+  <span style="color:#75715e"># Inputs are input parameters when lauching</span>
+  <span style="color:#66d9ef">inputs</span>:
+      <span style="color:#75715e"># Name of input parameter, with dependency</span>
+    - <span style="color:#66d9ef">name</span>:
+      <span style="color:#75715e"># Type of input parameter</span>
+      <span style="color:#75715e"># - Options:  String/String[], string type, [] indicate the input is array</span>
+      <span style="color:#75715e">#             Number/Number[], number type, [] indicate the input is array</span>
+      <span style="color:#75715e">#             CDKObject/CDKObject[], input is a object refer to a CDK construct, [] indicate the input is array</span>
+      <span style="color:#75715e">#             Base64</span>
+      <span style="color:#66d9ef">inputType</span>:
+      <span style="color:#75715e"># Dependency list, dependency could be more than one list and will orgnized as an array. -&gt; {&#39;&#39;, &#39;&#39;, &#39;&#39;}</span>
+      <span style="color:#66d9ef">dependencies</span>:
+          <span style="color:#75715e"># Reference name in Dependencies</span>
+        - <span style="color:#66d9ef">name</span>:
+          <span style="color:#75715e"># Filed name in refered Tile</span>
+          <span style="color:#66d9ef">field</span>:
+          <span style="color:#75715e"># Override input field of referred dependency if true</span>
+          <span style="color:#75715e"># override: true/false</span>
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">true</span>
+
+    <span style="color:#75715e"># Name of input parameter with default value</span>
+    - <span style="color:#66d9ef">name</span>:
+      <span style="color:#66d9ef">inputType</span>:
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
+      <span style="color:#75715e"># default value of input parameter</span>
+      <span style="color:#66d9ef">defaultValue</span>:
+    - <span style="color:#66d9ef">name</span>:
+      <span style="color:#66d9ef">inputType</span>:
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
+      <span style="color:#66d9ef">override</span>:
+        <span style="color:#66d9ef">name</span>:
+        <span style="color:#66d9ef">field</span>:
+  <span style="color:#66d9ef">manifests</span>:
+    <span style="color:#75715e"># Type of manifest</span>
+    <span style="color:#75715e"># - Options:  K8s, standard k8s manifest: deployment, service, etc.</span>
+    <span style="color:#75715e">#             Helm, helm style manifiest, parsing with &#39;folders&#39;</span>
+    <span style="color:#75715e">#             Kustomize, kustomize style manifest, parsing with &#39;folders&#39;</span>
+    <span style="color:#75715e"># manifest: k8s / Kustomization / Helm</span>
+    <span style="color:#66d9ef">manifestType</span>:
+    <span style="color:#75715e"># manifest list</span>
+    <span style="color:#66d9ef">files</span>:
+      - k8s/install.yaml
+    <span style="color:#75715e"># manifest folder</span>
+    <span style="color:#66d9ef">folders</span>:
+      - kustomization
+    <span style="color:#75715e"># The manifests are dependent on what kind of Kubernetes Cluster.</span>
+    <span style="color:#66d9ef">dependencies</span>:
+      <span style="color:#75715e"># As a reference name, refer to .spec.dependencies</span>
+      - <span style="color:#66d9ef">name</span>: eks
+
+  <span style="color:#75715e"># Ouptputs represnt output value after launched, for &#39;ContainerApplication&#39; might need leverage specific command to retrive output.</span>
+  <span style="color:#66d9ef">outputs</span>:
+      <span style="color:#75715e"># Type of output value</span>
+      <span style="color:#75715e"># - Options:  String, string type</span>
+      <span style="color:#75715e">#             Number, number type</span>
+      <span style="color:#75715e">#             CDKObject, output is a object refer to a CDK construct</span>
+      <span style="color:#75715e">#             FromCommand, output is retrieved by a command, which refer to &#39;defaultValueCommand&#39;</span>
+      <span style="color:#75715e"># Name of output</span>
+    - <span style="color:#66d9ef">name</span>:
+      <span style="color:#66d9ef">outputType</span>:
+      <span style="color:#66d9ef">defaultValue</span>:
+      <span style="color:#75715e"># Description is definition for output, recommend to use CloudFormation, such as AWS::EKS::Cluster,</span>
+      <span style="color:#75715e"># AWS::EKS::Cluster.Endpoint as per convention. For those output wasn&#39;t included in CloudFormation,</span>
+      <span style="color:#75715e"># recommend to use style &#39;Custom::[definition]&#39;</span>
+      <span style="color:#66d9ef">description</span>:
+      <span style="color:#75715e"># Name of output</span>
+    - <span style="color:#66d9ef">name</span>:
+      <span style="color:#75715e"># Type of output</span>
+      <span style="color:#66d9ef">outputType</span>: FromCommand
+      <span style="color:#75715e"># Command to retrieve output</span>
+      <span style="color:#66d9ef">defaultValueCommand</span>:
+      <span style="color:#75715e">#</span>
+      <span style="color:#66d9ef">description</span>: Custom::Password
+
+  <span style="color:#75715e"># Notes are description list for addtional information.</span>
+  <span style="color:#66d9ef">notes</span>: []
+
+</code></pre></div><h2 id="deployment-spec">Deployment Spec</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
+<span style="color:#66d9ef">kind</span>: Deployment
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: mahjong
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">template</span>:
+    <span style="color:#75715e"># Category of Tile</span>
+    <span style="color:#75715e"># - Options:  Network, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Compute, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             ContainerProvider, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Storage, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Database, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             Application, !!! provisioned through specific approach due to application features. Not defined yet!!!</span>
+    <span style="color:#75715e">#             ContainerApplication, !!! provisioned through specific approach based on manifest type. !!!</span>
+    <span style="color:#75715e">#             Analysis, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#             ML, provisioned through CDK approach.</span>
+    <span style="color:#75715e">#</span>
+    <span style="color:#75715e"># - Examples: vpc/ cidr / subnet / internet gateway / NAT / ...</span>
+    <span style="color:#66d9ef">category</span>:
+    <span style="color:#66d9ef">tiles</span>:
+      - <span style="color:#66d9ef">tileReference</span>:
+        <span style="color:#66d9ef">tileVersion</span>:
+        <span style="color:#66d9ef">inputs</span>:
+          - <span style="color:#66d9ef">name</span>:
+            <span style="color:#75715e">#InputValue/InputValues could be used either one of them.</span>
+            <span style="color:#66d9ef">inputValue</span>:
+          - <span style="color:#66d9ef">name</span>:
+            <span style="color:#66d9ef">inputValues</span>:
+              - ...
+              - ...
+        <span style="color:#66d9ef">manifests</span>:
+          <span style="color:#66d9ef">namespace</span>:
+  <span style="color:#66d9ef">summary</span>:
+    <span style="color:#66d9ef">description</span>:
+    <span style="color:#66d9ef">outputs</span>:
+      - <span style="color:#66d9ef">name</span>:
+        <span style="color:#66d9ef">value</span>:
+   <span style="color:#66d9ef">notes</span>: []
+    <span style="color:#75715e"># Nework:</span>
+    <span style="color:#75715e">#       # {{ vpc/ cidr / subnet / internet gateway / NAT / ... }}</span>
+
+    <span style="color:#75715e"># Compute:</span>
+    <span style="color:#75715e">#       # {{ ec2 / spot-ec2 / auto scaling group / elb / ... }}</span>
+
+    <span style="color:#75715e"># ContainerProvider:</span>
+    <span style="color:#75715e">#       # {{ eks / ecs   }}</span>
+
+    <span style="color:#75715e"># Storage:</span>
+    <span style="color:#75715e">#       # {{ EBS / EFS / CSI + EBS CSI + EFS / ...}}</span>
+
+    <span style="color:#75715e"># Database:</span>
+    <span style="color:#75715e">#       # {{ standard RDS / Aurora / Redis / ...}}</span>
+
+    <span style="color:#75715e"># ContainerApplication:</span>
+    <span style="color:#75715e">#       # {{ Istio / Argo CD / Grafana / Prometheus / Knative / Kubeflow }}</span>
+    <span style="color:#75715e">#   - basicDevops:</span>
+    <span style="color:#75715e">#       # {{ ArgoCD / Argo Roolouts / Flux / Grafana / Prometheus }}</span>
+    <span style="color:#75715e">#       version: 1.0.0</span>
+    <span style="color:#75715e">#   - basicServerless:</span>
+    <span style="color:#75715e">#       # {{ knative }}</span>
+    <span style="color:#75715e">#       version: 1.0.0</span>
+    <span style="color:#75715e">#   - basicMisroservice:</span>
+    <span style="color:#75715e">#       # {{  Istio / Argo CD / Grafana / Prometheus / Thanose }}</span>
+    <span style="color:#75715e">#       version: 1.0.0</span>
+    <span style="color:#75715e">#   - basicML:</span>
+    <span style="color:#75715e">#       #{{ kubeflow }}</span>
+
+    <span style="color:#75715e"># Application</span>
+    <span style="color:#75715e"># Analysis</span>
+    <span style="color:#75715e"># ML</span>
+    <span style="color:#75715e">#</span>
+    <span style="color:#75715e">#</span>
+</code></pre></div>
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/aws-solutions-assembler/en/examples/eks-from-scratch/readme/" title="EKS cluster from scratch"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/aws-solutions-assembler/en/getting-started/" title="Getting Started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/aws-solutions-assembler/js/clipboard.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/perfect-scrollbar.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/perfect-scrollbar.jquery.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/jquery.sticky.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/featherlight.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/highlight.pack.js?1595930022"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/aws-solutions-assembler/js/modernizr.custom-3.6.0.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/learn.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/hugo-learn.js?1595930022"></script>
+
+    <link href="/aws-solutions-assembler/mermaid/mermaid.css?1595930022" rel="stylesheet" />
+    <script src="/aws-solutions-assembler/mermaid/mermaid.js?1595930022"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

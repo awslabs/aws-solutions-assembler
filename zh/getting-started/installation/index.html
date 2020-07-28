@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/aws-solutions-assembler/images/favicon.png" type="image/png">
+
+    <title>环境安装 :: 中文</title>
+
+    
+    <link href="/aws-solutions-assembler/css/nucleus.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/fontawesome-all.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/hybrid.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/featherlight.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/perfect-scrollbar.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/auto-complete.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/atom-one-dark-reasonable.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/theme.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/hugo-theme.css?1595930022" rel="stylesheet">
+    
+    
+
+    <script src="/aws-solutions-assembler/js/jquery-3.3.1.min.js?1595930022"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/aws-solutions-assembler/zh/getting-started/installation/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src="/aws-solutions-assembler/gopher.png" style="max-height: 40px;" />
+<span>AWS Solutions Assembler</span>
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/aws-solutions-assembler/js/lunr.min.js?1595930022"></script>
+<script type="text/javascript" src="/aws-solutions-assembler/js/auto-complete.js?1595930022"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/wchaws.github.io\/aws-solutions-assembler\/\/zh";
+    
+</script>
+<script type="text/javascript" src="/aws-solutions-assembler/js/search.js?1595930022"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/getting-started/" title="入门" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/getting-started/">
+          入门
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/installation/" title="环境安装" class="dd-item active">
+        <a href="/aws-solutions-assembler/zh/getting-started/installation/">
+        环境安装
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/simple-usage/" title="简单用例" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/getting-started/simple-usage/">
+        简单用例
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/build-your-own-tile/" title="构建你的“牌”" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/getting-started/build-your-own-tile/">
+        构建你的“牌”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/usage-of-hu/" title="构建你的“胡”" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/getting-started/usage-of-hu/">
+        构建你的“胡”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/design-principles/" title="设计原则" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/design-principles/">
+          设计原则
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/examples/" title="示例" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/examples/">
+          示例
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/simple-eks-cluster/readme/" title="EKS简易集群" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/examples/simple-eks-cluster/readme/">
+        EKS简易集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/" title="EKS集群上部署Nginx" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/">
+        EKS集群上部署Nginx
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/" title="从零构建EKS集群" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/">
+        从零构建EKS集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/" title="" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/spec/" title="配置规范" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/spec/">
+          配置规范
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="https://wchaws.github.io/aws-solutions-assembler/en/getting-started/installation/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="zh" value="https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/installation/" selected>中文</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/aws-solutions-assembler/zh/'>文档中心</a> > <a href='/aws-solutions-assembler/zh/getting-started/'>入门</a> > 环境安装
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#预装软件">预装软件</a></li>
+    <li><a href="#配置aws-cli凭证">配置aws cli凭证</a></li>
+    <li><a href="#执行aws-cdk引导程序">执行AWS CDK引导程序</a></li>
+    <li><a href="#运行麻将docker">运行麻将docker</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              环境安装
+            </h1>
+          
+
+        
+
+
+<h2 id="预装软件">预装软件</h2>
+<ul>
+<li>安装 <a href="https://docs.docker.com/desktop/#download-and-install">Docker Desktop</a></li>
+<li>安装 <a href="https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_install">AWS CDK</a></li>
+<li>配置 <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html">AWS Configuration and Credential</a> setting</li>
+</ul>
+<h2 id="配置aws-cli凭证">配置aws cli凭证</h2>
+<p>确保aws cli工具配置正确，你可以通过以下命令检查</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ aws configure list
+        Name                    Value             Type    Location
+        ----                    -----             ----    --------
+    profile                &lt;not set&gt;             None    None
+    access_key     ****************XAWA shared-credentials-file
+    secret_key     ****************qEK5 shared-credentials-file
+        region                us-east-2      config-file    ~/.aws/config
+</code></pre></div><h2 id="执行aws-cdk引导程序">执行AWS CDK引导程序</h2>
+<p>通过命令<code>cdk bootstrap aws://&lt;your aws account&gt;/&lt;aws region&gt;</code>初始化您的CDK组件，例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    cdk bootstrap aws://638198787577/us-east-2
+</code></pre></div>
+<div class="notices note" ><p>该步骤只需要执行一次，以后无需再执行</p>
+</div>
+
+<h2 id="运行麻将docker">运行麻将docker</h2>
+<p>现在我们以下两步将麻将运行在您的本地环境</p>
+<ol>
+<li>为你的微服务组件创建一个工作目录</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ mkdir -p $HOME/ws/local-tiles-repo
+</code></pre></div><ol start="2">
+<li>启动Dev模式的Dice后台进程并将本地的工作目录挂载至麻将Docker容器内</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -v ~/.aws:/root/.aws <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e M_MODE<span style="color:#f92672">=</span>dev <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -p 9090:9090 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest
+</code></pre></div><p>现在您可以打开 <a href="http://127.0.0.1:9090/toy">http://127.0.0.1:9090/toy</a> 开始使用麻将</p>
+<p>同时，麻将提供了命令行工具。从入门环节开始，我们推荐您使用麻将的命令行工具使用麻将，请在这里下载安装 <a href="https://github.com/awslabs/aws-solutions-assembler/releases">mctl</a></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/aws-solutions-assembler/zh/getting-started/" title="入门"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/aws-solutions-assembler/zh/getting-started/simple-usage/" title="简单用例" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/aws-solutions-assembler/js/clipboard.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/perfect-scrollbar.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/perfect-scrollbar.jquery.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/jquery.sticky.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/featherlight.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/highlight.pack.js?1595930022"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/aws-solutions-assembler/js/modernizr.custom-3.6.0.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/learn.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/hugo-learn.js?1595930022"></script>
+
+    <link href="/aws-solutions-assembler/mermaid/mermaid.css?1595930022" rel="stylesheet" />
+    <script src="/aws-solutions-assembler/mermaid/mermaid.js?1595930022"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="zh" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/aws-solutions-assembler/images/favicon.png" type="image/png">
+
+    <title>从零构建EKS集群 :: 中文</title>
+
+    
+    <link href="/aws-solutions-assembler/css/nucleus.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/fontawesome-all.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/hybrid.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/featherlight.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/perfect-scrollbar.min.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/auto-complete.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/atom-one-dark-reasonable.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/theme.css?1595930022" rel="stylesheet">
+    <link href="/aws-solutions-assembler/css/hugo-theme.css?1595930022" rel="stylesheet">
+    
+    
+
+    <script src="/aws-solutions-assembler/js/jquery-3.3.1.min.js?1595930022"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src="/aws-solutions-assembler/gopher.png" style="max-height: 40px;" />
+<span>AWS Solutions Assembler</span>
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/aws-solutions-assembler/js/lunr.min.js?1595930022"></script>
+<script type="text/javascript" src="/aws-solutions-assembler/js/auto-complete.js?1595930022"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/wchaws.github.io\/aws-solutions-assembler\/\/zh";
+    
+</script>
+<script type="text/javascript" src="/aws-solutions-assembler/js/search.js?1595930022"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/getting-started/" title="入门" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/getting-started/">
+          入门
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/installation/" title="环境安装" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/getting-started/installation/">
+        环境安装
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/simple-usage/" title="简单用例" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/getting-started/simple-usage/">
+        简单用例
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/build-your-own-tile/" title="构建你的“牌”" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/getting-started/build-your-own-tile/">
+        构建你的“牌”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/getting-started/usage-of-hu/" title="构建你的“胡”" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/getting-started/usage-of-hu/">
+        构建你的“胡”
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/design-principles/" title="设计原则" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/design-principles/">
+          设计原则
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/examples/" title="示例" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/examples/">
+          示例
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/simple-eks-cluster/readme/" title="EKS简易集群" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/examples/simple-eks-cluster/readme/">
+        EKS简易集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/" title="EKS集群上部署Nginx" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/">
+        EKS集群上部署Nginx
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/" title="从零构建EKS集群" class="dd-item active">
+        <a href="/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/">
+        从零构建EKS集群
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/aws-solutions-assembler/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/" title="" class="dd-item ">
+        <a href="/aws-solutions-assembler/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-solutions-assembler/zh/spec/" title="配置规范" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-solutions-assembler/zh/spec/">
+          配置规范
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="https://wchaws.github.io/aws-solutions-assembler/en/examples/eks-from-scratch/readme/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="zh" value="https://wchaws.github.io/aws-solutions-assembler/zh/examples/eks-from-scratch/readme/" selected>中文</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/aws-solutions-assembler/zh/'>文档中心</a> > <a href='/aws-solutions-assembler/zh/examples/'>示例</a> > 从零构建EKS集群
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#预装软件">预装软件</a></li>
+    <li><a href="#steps">Steps</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              从零构建EKS集群
+            </h1>
+          
+
+        
+
+
+<p>本例将会从零写一个“牌”（组建）来部署EKS集群</p>
+<p><img src="/aws-solutions-assembler/simple-eks.svg" alt="simple eks architecture"></p>
+<h2 id="预装软件">预装软件</h2>
+<ul>
+<li><a href="https://docs.docker.com/desktop/#download-and-install">docker</a></li>
+<li><a href="https://github.com/aws/aws-cdk">cdk</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">aws cli v2</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html">setup aws configuration and credential file</a></li>
+<li><a href="https://github.com/awslabs/aws-solutions-assembler/releases">mctl</a></li>
+</ul>
+<h2 id="steps">Steps</h2>
+<ol>
+<li>
+<p>确保aws cli工具配置正确，你可以通过以下命令检查</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ aws configure list
+    Name                    Value             Type    Location
+    ----                    -----             ----    --------
+profile                &lt;not set&gt;             None    None
+access_key     ****************XAWA shared-credentials-file
+secret_key     ****************qEK5 shared-credentials-file
+    region                us-east-2      config-file    ~/.aws/config
+</code></pre></div></li>
+<li>
+<p>为你的自定义的“牌”（组建）创建一个工作目录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir -p $HOME/ws/local-tiles-repo
+</code></pre></div></li>
+<li>
+<p>启动Dev模式的Dice后台进程并将本地的工作目录挂载至Docker容器内</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-v ~/.aws:/root/.aws <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-e M_MODE<span style="color:#f92672">=</span>dev <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-p 9090:9090 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest
+
+</code></pre></div></li>
+<li>
+<p>创建一个基于CDK的“牌”</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd $HOME/ws/local-tiles-repo  <span style="color:#75715e"># enter local tiles repository</span>
+$ mctl init tile -d myeks       <span style="color:#75715e"># init a CDK tile template under myeks folder</span>
+2020-07-22T11:33:28+08:00 <span style="color:#f92672">[</span>!<span style="color:#f92672">]</span>  no such flag -filename
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Loading  templates from Tile-Repo started ...
+<span style="color:#75715e">########</span>
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Loading  templates finished.
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks//0.1.0
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/README.md.tp
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/jest.config.js
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/lib
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/lib/index.ts.tp
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/package-lock.json.tp
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/package.json.tp
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/test
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/test/simple.test.ts.tp
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/tile-spec.yaml.tp
+<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Generated file - myeks/0.1.0/tsconfig.json
+$ cd myeks
+$ tree .    <span style="color:#75715e"># check your folder</span>
+.
+└── myeks
+    └── 0.1.0
+        ├── README.md
+        ├── jest.config.js
+        ├── lib
+        │   └── index.ts        <span style="color:#75715e"># main function</span>
+        ├── package-lock.json
+        ├── package.json
+        ├── test
+        │   └── simple.test.ts  <span style="color:#75715e"># unit test</span>
+        ├── tile-spec.yaml      <span style="color:#75715e"># the tile definition</span>
+        └── tsconfig.json
+
+<span style="color:#ae81ff">4</span> directories, <span style="color:#ae81ff">8</span> files
+$ rm myeks/0.1.0/package-lock.json  <span style="color:#75715e"># remove the generated package-lock.json because it&#39;s out of date</span>
+$ cd myeks/0.1.0/
+$ npm install <span style="color:#75715e"># install dependencies</span>
+</code></pre></div></li>
+<li>
+<p>为了让我们的EKS集群有足够的权限，首先创建一个policy的配置描述脚本<code>lib/policy4eks.ts</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// lib/policy4eks.ts
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">cdk</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@aws-cdk/core&#39;</span>);
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ec2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@aws-cdk/aws-ec2&#39;</span>);
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">iam</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@aws-cdk/aws-iam&#39;</span>);
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">PolicyProps</span> { }
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NodePolicies</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">Construct</span> {
+
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">eksInlinePolicy</span><span style="color:#f92672">:</span> { [<span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span> }
+
+<span style="color:#66d9ef">constructor</span>(<span style="color:#a6e22e">scope</span>: <span style="color:#66d9ef">cdk.Construct</span>, <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">props</span>: <span style="color:#66d9ef">PolicyProps</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">scope</span>, <span style="color:#a6e22e">id</span>);
+
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">eksInlinePolicy</span> <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#34;Autoscaler4eks&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;autoscaling:DescribeAutoScalingGroups&#34;</span>,
+            <span style="color:#e6db74">&#34;autoscaling:DescribeAutoScalingInstances&#34;</span>,
+            <span style="color:#e6db74">&#34;autoscaling:DescribeLaunchConfigurations&#34;</span>,
+            <span style="color:#e6db74">&#34;autoscaling:DescribeTags&#34;</span>,
+            <span style="color:#e6db74">&#34;autoscaling:SetDesiredCapacity&#34;</span>,
+            <span style="color:#e6db74">&#34;autoscaling:TerminateInstanceInAutoScalingGroup&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeLaunchTemplateVersions&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;ALBIngress&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;acm:DescribeCertificate&#34;</span>,
+            <span style="color:#e6db74">&#34;acm:ListCertificates&#34;</span>,
+            <span style="color:#e6db74">&#34;acm:GetCertificate&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:AuthorizeSecurityGroupIngress&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:CreateSecurityGroup&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:CreateTags&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DeleteTags&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DeleteSecurityGroup&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeAccountAttributes&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeAddresses&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeInstances&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeInstanceStatus&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeInternetGateways&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeNetworkInterfaces&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeSecurityGroups&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeSubnets&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeTags&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeVpcs&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:ModifyInstanceAttribute&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:ModifyNetworkInterfaceAttribute&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:RevokeSecurityGroupIngress&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:AddListenerCertificates&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:AddTags&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:CreateListener&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:CreateLoadBalancer&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:CreateRule&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:CreateTargetGroup&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DeleteListener&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DeleteLoadBalancer&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DeleteRule&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DeleteTargetGroup&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DeregisterTargets&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeListenerCertificates&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeListeners&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeLoadBalancers&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeLoadBalancerAttributes&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeRules&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeSSLPolicies&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeTags&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeTargetGroups&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeTargetGroupAttributes&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:DescribeTargetHealth&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:ModifyListener&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:ModifyLoadBalancerAttributes&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:ModifyRule&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:ModifyTargetGroup&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:ModifyTargetGroupAttributes&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:RegisterTargets&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:RemoveListenerCertificates&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:RemoveTags&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:SetIpAddressType&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:SetSecurityGroups&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:SetSubnets&#34;</span>,
+            <span style="color:#e6db74">&#34;elasticloadbalancing:SetWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;iam:CreateServiceLinkedRole&#34;</span>,
+            <span style="color:#e6db74">&#34;iam:GetServerCertificate&#34;</span>,
+            <span style="color:#e6db74">&#34;iam:ListServerCertificates&#34;</span>,
+            <span style="color:#e6db74">&#34;waf-regional:GetWebACLForResource&#34;</span>,
+            <span style="color:#e6db74">&#34;waf-regional:GetWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;waf-regional:AssociateWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;waf-regional:DisassociateWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;tag:GetResources&#34;</span>,
+            <span style="color:#e6db74">&#34;tag:TagResources&#34;</span>,
+            <span style="color:#e6db74">&#34;waf:GetWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;wafv2:GetWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;wafv2:GetWebACLForResource&#34;</span>,
+            <span style="color:#e6db74">&#34;wafv2:AssociateWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;wafv2:DisassociateWebACL&#34;</span>,
+            <span style="color:#e6db74">&#34;shield:DescribeProtection&#34;</span>,
+            <span style="color:#e6db74">&#34;shield:GetSubscriptionState&#34;</span>,
+            <span style="color:#e6db74">&#34;shield:DeleteProtection&#34;</span>,
+            <span style="color:#e6db74">&#34;shield:CreateProtection&#34;</span>,
+            <span style="color:#e6db74">&#34;shield:DescribeSubscription&#34;</span>,
+            <span style="color:#e6db74">&#34;shield:ListProtections&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;AppMesh&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;appmesh:*&#34;</span>,
+            <span style="color:#e6db74">&#34;servicediscovery:CreateService&#34;</span>,
+            <span style="color:#e6db74">&#34;servicediscovery:GetService&#34;</span>,
+            <span style="color:#e6db74">&#34;servicediscovery:RegisterInstance&#34;</span>,
+            <span style="color:#e6db74">&#34;servicediscovery:DeregisterInstance&#34;</span>,
+            <span style="color:#e6db74">&#34;servicediscovery:ListInstances&#34;</span>,
+            <span style="color:#e6db74">&#34;servicediscovery:ListNamespaces&#34;</span>,
+            <span style="color:#e6db74">&#34;servicediscovery:ListServices&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:GetHealthCheck&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:CreateHealthCheck&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:UpdateHealthCheck&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:ChangeResourceRecordSets&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:DeleteHealthCheck&#34;</span>
+
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;CertManagerChangeSet&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;route53:ChangeResourceRecordSets&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;arn:aws:route53:::hostedzone/*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;CertManagerGetChange&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;route53:GetChange&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;arn:aws:route53:::change/*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;CertManagerHostedZone&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;route53:ListHostedZones&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:ListResourceRecordSets&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:ListHostedZonesByName&#34;</span>,
+            <span style="color:#e6db74">&#34;route53:ListTagsForResource&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;EBS&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;ec2:AttachVolume&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:CreateSnapshot&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:CreateTags&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:CreateVolume&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DeleteSnapshot&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DeleteTags&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DeleteVolume&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeAvailabilityZones&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeInstances&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeSnapshots&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeTags&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeVolumes&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeVolumesModifications&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DetachVolume&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:ModifyVolume&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;EFS&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;elasticfilesystem:*&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;EFSEC2&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;ec2:DescribeSubnets&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:CreateNetworkInterface&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeNetworkInterfaces&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DeleteNetworkInterface&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:ModifyNetworkInterfaceAttribute&#34;</span>,
+            <span style="color:#e6db74">&#34;ec2:DescribeNetworkInterfaceAttribute&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;FSX&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;fsx:*&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;ServiceLinkRole&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;iam:CreateServiceLinkedRole&#34;</span>,
+            <span style="color:#e6db74">&#34;iam:AttachRolePolicy&#34;</span>,
+            <span style="color:#e6db74">&#34;iam:PutRolePolicy&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    }),
+    <span style="color:#e6db74">&#34;XRay&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyDocument</span>({
+        <span style="color:#a6e22e">statements</span><span style="color:#f92672">:</span> [
+        <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">PolicyStatement</span>({
+            <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> [
+            <span style="color:#e6db74">&#34;xray:PutTraceSegments&#34;</span>,
+            <span style="color:#e6db74">&#34;xray:PutTelemetryRecords&#34;</span>,
+            <span style="color:#e6db74">&#34;xray:GetSamplingRules&#34;</span>,
+            <span style="color:#e6db74">&#34;xray:GetSamplingTargets&#34;</span>,
+            <span style="color:#e6db74">&#34;xray:GetSamplingStatisticSummaries&#34;</span>
+            ],
+            <span style="color:#a6e22e">resources</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*&#34;</span>],
+            <span style="color:#a6e22e">effect</span>: <span style="color:#66d9ef">iam.Effect.ALLOW</span>
+        }),
+        ]
+    })
+    }
+
+}
+}
+</code></pre></div></li>
+<li>
+<p>接着创建CDK组建。 CDK的组建核心是定义好输入属性和输出的值，以下是输入输出。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// inputs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">MyEKSProps</span> {
+  <span style="color:#a6e22e">vpc</span>: <span style="color:#66d9ef">ec2.Vpc</span>,
+  <span style="color:#a6e22e">vpcSubnets?</span>: <span style="color:#66d9ef">ec2.ISubnet</span>[],
+  <span style="color:#a6e22e">clusterName</span>: <span style="color:#66d9ef">string</span>,
+  <span style="color:#a6e22e">capacity?</span>: <span style="color:#66d9ef">number</span>,
+  <span style="color:#a6e22e">capacityInstance?</span>: <span style="color:#66d9ef">string</span>,
+  <span style="color:#a6e22e">clusterVersion?</span>: <span style="color:#66d9ef">string</span>,      <span style="color:#75715e">// EKS cluster version, like: 1.16, 1.17
+</span><span style="color:#75715e"></span>}
+<span style="color:#75715e">// outputs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyEKS</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">Construct</span> {
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">clusterName</span>: <span style="color:#66d9ef">string</span>;      <span style="color:#75715e">// The cluster name
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">clusterEndpoint</span>: <span style="color:#66d9ef">string</span>;  <span style="color:#75715e">// The endpoint URL for the Cluster
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">masterRoleARN</span>: <span style="color:#66d9ef">string</span>;    <span style="color:#75715e">// An IAM role that will be `system:masters` privileges on your cluster
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">clusterArn</span>: <span style="color:#66d9ef">string</span>;       <span style="color:#75715e">// The AWS generated ARN for the Cluster resource
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">capacity</span>: <span style="color:#66d9ef">number</span>;         <span style="color:#75715e">// Capacity
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">capacityInstance</span>: <span style="color:#66d9ef">string</span>; <span style="color:#75715e">// Instance type, like: t2.medium, m5.large
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>以下是<code>myeks</code>“牌”的完整代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// lib/index.ts
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">cdk</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-cdk/core&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">eks</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@aws-cdk/aws-eks&#39;</span>);
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ec2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@aws-cdk/aws-ec2&#39;</span>);
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">iam</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@aws-cdk/aws-iam&#39;</span>);
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NodePolicies</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./policy4eks&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ManagedPolicy</span>, <span style="color:#a6e22e">ServicePrincipal</span>, <span style="color:#a6e22e">PolicyDocument</span>, <span style="color:#a6e22e">PolicyStatement</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-cdk/aws-iam&#39;</span>;
+
+<span style="color:#75715e">/** Input parameters */</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">MyEKSProps</span> {
+  <span style="color:#a6e22e">vpc</span>: <span style="color:#66d9ef">ec2.Vpc</span>,
+  <span style="color:#a6e22e">vpcSubnets?</span>: <span style="color:#66d9ef">ec2.ISubnet</span>[],
+  <span style="color:#a6e22e">clusterName</span>: <span style="color:#66d9ef">string</span>,
+  <span style="color:#a6e22e">capacity?</span>: <span style="color:#66d9ef">number</span>,
+  <span style="color:#a6e22e">capacityInstance?</span>: <span style="color:#66d9ef">string</span>,
+  <span style="color:#a6e22e">clusterVersion?</span>: <span style="color:#66d9ef">string</span>,
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyEKS</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">Construct</span> {
+
+  <span style="color:#75715e">/** Directly exposed to other stack */</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">clusterName</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">clusterEndpoint</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">masterRoleARN</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">clusterArn</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">capacity</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">capacityInstance</span>: <span style="color:#66d9ef">string</span>;
+
+  <span style="color:#66d9ef">constructor</span>(<span style="color:#a6e22e">scope</span>: <span style="color:#66d9ef">cdk.Construct</span>, <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">props</span>: <span style="color:#66d9ef">MyEKSProps</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">scope</span>, <span style="color:#a6e22e">id</span>);
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eksRole</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">Role</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#39;EksClusterMasterRole&#39;</span>, {
+      <span style="color:#a6e22e">assumedBy</span>: <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">AccountRootPrincipal</span>(),
+      <span style="color:#a6e22e">managedPolicies</span><span style="color:#f92672">:</span> [
+        <span style="color:#a6e22e">ManagedPolicy</span>.<span style="color:#a6e22e">fromAwsManagedPolicyName</span>(<span style="color:#e6db74">&#34;AmazonEKSServicePolicy&#34;</span>),
+        <span style="color:#a6e22e">ManagedPolicy</span>.<span style="color:#a6e22e">fromAwsManagedPolicyName</span>(<span style="color:#e6db74">&#34;AmazonEKSClusterPolicy&#34;</span>),
+      ]
+    });
+
+    <span style="color:#75715e">// Instance type for node group
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">capacityInstance</span>: <span style="color:#66d9ef">ec2.InstanceType</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">capacityInstance</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">undefined</span>) {
+      <span style="color:#a6e22e">capacityInstance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ec2</span>.<span style="color:#a6e22e">InstanceType</span>.<span style="color:#a6e22e">of</span>(<span style="color:#a6e22e">ec2</span>.<span style="color:#a6e22e">InstanceClass</span>.<span style="color:#a6e22e">C5</span>, <span style="color:#a6e22e">ec2</span>.<span style="color:#a6e22e">InstanceSize</span>.<span style="color:#a6e22e">LARGE</span>);
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">capacityInstance</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ec2</span>.<span style="color:#a6e22e">InstanceType</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">capacityInstance</span>);
+    }
+
+    <span style="color:#75715e">// Prepared subnet for node group
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">vpcSubnets</span>: <span style="color:#66d9ef">ec2.SubnetSelection</span>[];
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">vpcSubnets</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">undefined</span>) {
+      <span style="color:#a6e22e">vpcSubnets</span> <span style="color:#f92672">=</span> [{ <span style="color:#a6e22e">subnets</span>: <span style="color:#66d9ef">props.vpc.publicSubnets</span> }, { <span style="color:#a6e22e">subnets</span>: <span style="color:#66d9ef">props.vpc.privateSubnets</span> }];
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">vpcSubnets</span> <span style="color:#f92672">=</span> [{ <span style="color:#a6e22e">subnets</span>: <span style="color:#66d9ef">props.vpcSubnets</span> }];
+    }
+    <span style="color:#75715e">// Innitial EKS cluster
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cluster</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">eks</span>.<span style="color:#a6e22e">Cluster</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;BasicEKSCluster&#34;</span>, {
+      <span style="color:#a6e22e">vpc</span>: <span style="color:#66d9ef">props.vpc</span>,
+      <span style="color:#a6e22e">vpcSubnets</span>: <span style="color:#66d9ef">vpcSubnets</span>,
+      <span style="color:#a6e22e">clusterName</span>: <span style="color:#66d9ef">props.clusterName</span>,
+      <span style="color:#a6e22e">defaultCapacity</span>: <span style="color:#66d9ef">0</span>,
+      <span style="color:#a6e22e">version</span>: <span style="color:#66d9ef">eks.KubernetesVersion.of</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">clusterVersion</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;1.16&#39;</span>),
+      <span style="color:#75715e">// Master role as initial permission to run Kubectl
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">mastersRole</span>: <span style="color:#66d9ef">eksRole</span>,
+    });
+
+    <span style="color:#75715e">/** managed nodegroup */</span>
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">nodegroupRole</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">Role</span>(<span style="color:#a6e22e">scope</span>, <span style="color:#e6db74">&#39;NodegroupRole&#39;</span>, {
+      <span style="color:#a6e22e">assumedBy</span>: <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">ServicePrincipal</span>(<span style="color:#e6db74">&#34;ec2.amazonaws.com&#34;</span>),
+      <span style="color:#a6e22e">managedPolicies</span><span style="color:#f92672">:</span> [
+        <span style="color:#a6e22e">ManagedPolicy</span>.<span style="color:#a6e22e">fromAwsManagedPolicyName</span>(<span style="color:#e6db74">&#34;AmazonEKSWorkerNodePolicy&#34;</span>),
+        <span style="color:#a6e22e">ManagedPolicy</span>.<span style="color:#a6e22e">fromAwsManagedPolicyName</span>(<span style="color:#e6db74">&#34;AmazonEKS_CNI_Policy&#34;</span>),
+        <span style="color:#a6e22e">ManagedPolicy</span>.<span style="color:#a6e22e">fromAwsManagedPolicyName</span>(<span style="color:#e6db74">&#34;AmazonEC2ContainerRegistryReadOnly&#34;</span>),
+      ],
+      <span style="color:#a6e22e">inlinePolicies</span>: <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">NodePolicies</span>(<span style="color:#a6e22e">scope</span>, <span style="color:#e6db74">&#34;inlinePolicies&#34;</span>, {}).<span style="color:#a6e22e">eksInlinePolicy</span>
+    });
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">managed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">addNodegroup</span>(<span style="color:#e6db74">&#34;managed-node&#34;</span>, {
+      <span style="color:#a6e22e">instanceType</span>: <span style="color:#66d9ef">capacityInstance</span>,
+      <span style="color:#a6e22e">minSize</span>: <span style="color:#66d9ef">Math.round</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">capacity</span><span style="color:#f92672">!</span> <span style="color:#960050;background-color:#1e0010">/ 2),</span>
+      <span style="color:#a6e22e">maxSize</span>: <span style="color:#66d9ef">props.capacity</span>,
+      <span style="color:#a6e22e">nodeRole</span>: <span style="color:#66d9ef">nodegroupRole</span>
+    });
+
+    <span style="color:#75715e">/** Added CF Output */</span>
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">CfnOutput</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;clusterName&#34;</span>, { <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">cluster.clusterName</span> })
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">CfnOutput</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;masterRoleARN&#34;</span>, { <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">eksRole.roleArn</span> })
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">CfnOutput</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;clusterEndpoint&#34;</span>, { <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">cluster.clusterEndpoint</span> })
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">CfnOutput</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;clusterArn&#34;</span>, { <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">cluster.clusterArn</span> })
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">CfnOutput</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;capacity&#34;</span>, { <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">String</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">capacity</span>) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;0&#34;</span> })
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">CfnOutput</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;capacityInstance&#34;</span>, { <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">capacityInstance.toString</span>() })
+
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">clusterName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">clusterName</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">masterRoleARN</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">eksRole</span>.<span style="color:#a6e22e">roleArn</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">clusterEndpoint</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">clusterEndpoint</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">clusterArn</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">clusterArn</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">capacity</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">capacity</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">capacityInstance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">capacityInstance</span>.<span style="color:#a6e22e">toString</span>()
+  }
+}
+</code></pre></div></li>
+<li>
+<p>一旦完成了基于CDK的牌的开发，我们可以通过一个简单的测试去验证集群的配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// test/myeks.test.ts
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">expect</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">expectCDK</span>, <span style="color:#a6e22e">haveResource</span>, <span style="color:#a6e22e">SynthUtils</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-cdk/assert&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">cdk</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@aws-cdk/core&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">MyEKS</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;../lib/index&#39;</span>);
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ec2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;@aws-cdk/aws-ec2&#39;</span>);
+
+<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;EKS Cluster Created&#39;</span>, () <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">App</span>();
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stack</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">cdk</span>.<span style="color:#a6e22e">Stack</span>(<span style="color:#a6e22e">app</span>, <span style="color:#e6db74">&#34;TestStack&#34;</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vpc</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ec2</span>.<span style="color:#a6e22e">Vpc</span>(<span style="color:#a6e22e">stack</span>, <span style="color:#e6db74">&#34;Vpc&#34;</span>);
+
+  <span style="color:#75715e">// WHEN
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyEKS</span>.<span style="color:#a6e22e">MyEKS</span>(<span style="color:#a6e22e">stack</span>, <span style="color:#e6db74">&#39;MyTestConstruct&#39;</span>, { <span style="color:#a6e22e">vpc</span>: <span style="color:#66d9ef">vpc</span>, <span style="color:#a6e22e">clusterName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;testCluster&#34;</span> });
+  <span style="color:#75715e">// THEN
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">expectCDK</span>(<span style="color:#a6e22e">stack</span>).<span style="color:#a6e22e">to</span>(<span style="color:#a6e22e">haveResource</span>(<span style="color:#e6db74">&#34;AWS::EKS::Nodegroup&#34;</span>));
+});
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ npm run test
+
+&gt; myeks@0.1.0 test ***
+&gt; jest
+
+PASS  test/myeks.test.ts
+✓ EKS Cluster Created <span style="color:#f92672">(</span>1441ms<span style="color:#f92672">)</span>
+
+Test Suites: <span style="color:#ae81ff">1</span> passed, <span style="color:#ae81ff">1</span> total
+Tests:       <span style="color:#ae81ff">1</span> passed, <span style="color:#ae81ff">1</span> total
+Snapshots:   <span style="color:#ae81ff">0</span> total
+Time:        4.341s, estimated 6s
+Ran all test suites.
+</code></pre></div></li>
+<li>
+<p>为了可以部署这张“牌”，还需要定义<code>tile-spec.yaml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># API version</span>
+<span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
+<span style="color:#75715e"># Kind of entity</span>
+<span style="color:#66d9ef">kind</span>: Tile
+<span style="color:#75715e"># Metadata</span>
+<span style="color:#66d9ef">metadata</span>:
+    <span style="color:#75715e"># Name of entity</span>
+    <span style="color:#66d9ef">name</span>: MyEKS
+    <span style="color:#75715e"># Category of entity</span>
+    <span style="color:#66d9ef">category</span>: ContainerProvider
+    <span style="color:#75715e"># Vendor</span>
+    <span style="color:#66d9ef">vendorService</span>: EKS
+    <span style="color:#75715e"># Version of entity</span>
+    <span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">0.0.5</span>
+<span style="color:#75715e"># Specification</span>
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#75715e"># Dependencies represent dependency with other Tile</span>
+  <span style="color:#66d9ef">dependencies</span>:
+      <span style="color:#75715e"># As a reference name</span>
+    - <span style="color:#66d9ef">name</span>: network
+      <span style="color:#75715e"># Tile name</span>
+      <span style="color:#66d9ef">tileReference</span>: Network0
+      <span style="color:#75715e"># Tile version</span>
+      <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">0.0.1</span>
+  <span style="color:#75715e"># Inputs are input parameters when lauching</span>
+  <span style="color:#66d9ef">inputs</span>:
+    <span style="color:#75715e"># String</span>
+    - <span style="color:#66d9ef">name</span>: cidr
+      <span style="color:#66d9ef">inputType</span>: String
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">true</span>
+      <span style="color:#66d9ef">override</span>:
+        <span style="color:#66d9ef">name</span>: network
+        <span style="color:#66d9ef">field</span>: cidr
+    <span style="color:#75715e"># CDKObject</span>
+    - <span style="color:#66d9ef">name</span>: vpc
+      <span style="color:#66d9ef">inputType</span>: CDKObject
+      <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#39;Refer to VPC object on Tile - Network0&#39;</span>
+      <span style="color:#66d9ef">dependencies</span>:
+          <span style="color:#75715e"># Reference name in Dependencies</span>
+        - <span style="color:#66d9ef">name</span>: network
+          <span style="color:#75715e"># Filed name in refered Tile</span>
+          <span style="color:#66d9ef">field</span>: baseVpc
+      <span style="color:#75715e"># Input is mandatory or not, true is mandatory and false is optional</span>
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#75715e"># CDKObject[]</span>
+    - <span style="color:#66d9ef">name</span>: vpcSubnets
+      <span style="color:#66d9ef">inputType</span>: CDKObject[]
+      <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#66d9ef">dependencies</span>:
+        - <span style="color:#66d9ef">name</span>: network
+          <span style="color:#66d9ef">field</span>: publicSubnet1
+        - <span style="color:#66d9ef">name</span>: network
+          <span style="color:#66d9ef">field</span>: publicSubnet2
+        - <span style="color:#66d9ef">name</span>: network
+          <span style="color:#66d9ef">field</span>: privateSubnet1
+        - <span style="color:#66d9ef">name</span>: network
+          <span style="color:#66d9ef">field</span>: privateSubnet2
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#75715e"># String</span>
+    - <span style="color:#66d9ef">name</span>: clusterName
+      <span style="color:#66d9ef">inputType</span>: String
+      <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#66d9ef">defaultValue</span>: default-eks-cluster
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#75715e"># Number/ default: 2</span>
+    - <span style="color:#66d9ef">name</span>: capacity
+      <span style="color:#66d9ef">inputType</span>: Number
+      <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#66d9ef">defaultValue</span>: <span style="color:#ae81ff">2</span>
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#75715e"># String/ default: &#39;c5.large&#39;</span>
+    - <span style="color:#66d9ef">name</span>: capacityInstance
+      <span style="color:#66d9ef">inputType</span>: String
+      <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#66d9ef">defaultValue</span>: <span style="color:#e6db74">&#39;c5.large&#39;</span>
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#75715e"># String/ default: &#39;1.15&#39;</span>
+    - <span style="color:#66d9ef">name</span>: clusterVersion
+      <span style="color:#66d9ef">inputType</span>: String
+      <span style="color:#66d9ef">description</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#66d9ef">defaultValue</span>: <span style="color:#e6db74">&#39;1.16&#39;</span>
+      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#75715e"># Ouptputs represnt output value after launched, for &#39;ContainerApplication&#39; might need leverage specific command to retrive output.</span>
+  <span style="color:#66d9ef">outputs</span>:
+    <span style="color:#75715e"># String</span>
+    - <span style="color:#66d9ef">name</span>: clusterName
+      <span style="color:#66d9ef">outputType</span>: String
+      <span style="color:#66d9ef">description</span>: AWS::EKS::Cluster.Name
+    <span style="color:#75715e"># String</span>
+    - <span style="color:#66d9ef">name</span>: clusterArn
+      <span style="color:#66d9ef">outputType</span>: String
+      <span style="color:#66d9ef">description</span>: AWS::EKS::Cluster.ARN
+    <span style="color:#75715e"># String</span>
+    - <span style="color:#66d9ef">name</span>: clusterEndpoint
+      <span style="color:#66d9ef">outputType</span>: String
+      <span style="color:#66d9ef">description</span>: AWS::EKS::Cluster.Endpoint
+    <span style="color:#75715e"># String</span>
+    - <span style="color:#66d9ef">name</span>: masterRoleARN
+      <span style="color:#66d9ef">outputType</span>: String
+      <span style="color:#66d9ef">description</span>: AWS::IAM::Role.ARN
+    <span style="color:#75715e"># String</span>
+    - <span style="color:#66d9ef">name</span>: capacityInstance
+      <span style="color:#66d9ef">outputType</span>: String
+      <span style="color:#66d9ef">description</span>: AWS::EKS::Cluster.capacityInstance
+    <span style="color:#75715e"># String/ default: &#39;1.15&#39;</span>
+    - <span style="color:#66d9ef">name</span>: capacity
+      <span style="color:#66d9ef">outputType</span>: String
+      <span style="color:#66d9ef">description</span>: AWS::EKS::Cluster.capacity
+
+  <span style="color:#75715e"># Notes are description list for addtional information.</span>
+  <span style="color:#66d9ef">notes</span>:
+    - <span style="color:#e6db74">&#34;Tag public subnets with &#39;kubernetes.io/role/elb=1&#39;&#34;</span>
+    - <span style="color:#e6db74">&#34;Tag priavte subnets with &#39;kubernetes.io/role/internal-elb=1&#39;&#34;</span>
+</code></pre></div><p>您可能会好奇为什么这张“牌”会依赖于<code>network</code>“牌”。原因是由于我们在之前的输入属性<code>MyEKSProps</code>中需要提供VPC的一些配置
+然后这些配置刚好可以利用现有的<code>network</code>“牌”</p>
+</li>
+<li>
+<p>最后，通过一个部署YAML<code>try-myeks.yaml</code>文件去部署整个EKS集群</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># try-myeks.yaml</span>
+<span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
+<span style="color:#66d9ef">kind</span>: Deployment
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: MyEKS
+  <span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">0.1.0</span>
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">template</span>:
+    <span style="color:#66d9ef">tiles</span>:
+      <span style="color:#66d9ef">MyEKS</span>:
+          <span style="color:#66d9ef">tileReference</span>: MyEKS
+          <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">0.1.0</span>
+          <span style="color:#66d9ef">inputs</span>:
+          - <span style="color:#66d9ef">name</span>: clusterName
+            <span style="color:#66d9ef">inputValue</span>: myeks-cluster
+          - <span style="color:#66d9ef">name</span>: capacity
+            <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">3</span>
+          - <span style="color:#66d9ef">name</span>: capacityInstance
+            <span style="color:#66d9ef">inputValue</span>: m5.large
+          - <span style="color:#66d9ef">name</span>: version
+            <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">1.17</span>
+  <span style="color:#66d9ef">summary</span>:
+    <span style="color:#66d9ef">description</span>:
+    <span style="color:#66d9ef">outputs</span>:
+    - <span style="color:#66d9ef">name</span>: EKS Cluster Name
+      <span style="color:#66d9ef">value</span>: $(MyEKS.outputs.clusterName)
+    - <span style="color:#66d9ef">name</span>: Master role arn for EKS Cluster
+      <span style="color:#66d9ef">value</span>: $(MyEKS.outputs.masterRoleARN)
+    - <span style="color:#66d9ef">name</span>: The API endpoint EKS Cluster
+      <span style="color:#66d9ef">value</span>: $(MyEKS.outputs.clusterEndpoint)
+    - <span style="color:#66d9ef">name</span>: Instance type of worker node
+      <span style="color:#66d9ef">value</span>: $(MyEKS.outputs.capacityInstance)
+    - <span style="color:#66d9ef">name</span>: Default capacity of worker node
+      <span style="color:#66d9ef">value</span>: $(MyEKS.outputs.capacity)
+
+    <span style="color:#66d9ef">notes</span>: []
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mctl deploy -f ./try-myeks.yaml
+</code></pre></div></li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/" title="EKS集群上部署Nginx"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/aws-solutions-assembler/zh/examples/eks-from-scratch/tiles/myeks/0.1.0/readme/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/aws-solutions-assembler/js/clipboard.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/perfect-scrollbar.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/perfect-scrollbar.jquery.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/jquery.sticky.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/featherlight.min.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/highlight.pack.js?1595930022"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/aws-solutions-assembler/js/modernizr.custom-3.6.0.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/learn.js?1595930022"></script>
+    <script src="/aws-solutions-assembler/js/hugo-learn.js?1595930022"></script>
+
+    <link href="/aws-solutions-assembler/mermaid/mermaid.css?1595930022" rel="stylesheet" />
+    <script src="/aws-solutions-assembler/mermaid/mermaid.js?1595930022"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
