@@ -4,22 +4,22 @@
 
 [English](README.md) | [中文](README_zh.md)
 
-## Description
+## 描述
 
 
-AWS Solutions Assembler is also known as [Mahjong](./docs/All-Concept.md), which has built-in mechanism to leverage pattern based abstracts to build up any solution. 
+AWS Solutions Assembler 的内部名称也叫 [麻将](./docs/All-Concept.md), 它内置的从用模型和抽象组件能够帮助快速的构建解决方案， 这些方案可以根据业务需要任意伸缩和调整。
 
-Builders can use [Mahjong](./docs/All-Concept.md) to share solutions with the best industry practice. Customers can quickly experience those solutions or build their own.
+解决方案的建设者可以利用 [麻将](./docs/All-Concept.md) 来分享符合业界标准和AWS最佳实践的方案。 客户可以快速使用和体验这些解决方，同时也可以利用抽象组件来构建符合业务求的个性化方案。
 
 
-## Prerequisite
+## 依赖环境
 
-- Install [Docker](https://docs.docker.com/desktop/#download-and-install)
-- Install [CDK](https://github.com/aws/aws-cdk)
-- [Setup AWS configuration and credential file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-- Download [mctl](https://github.com/awslabs/aws-solutions-assembler/releases)
+- 安装 [Docker](https://docs.docker.com/desktop/#download-and-install)
+- 安装 [CDK](https://github.com/aws/aws-cdk)
+- [配置AWS CLI 和 访问权限](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+- 下载 [mctl](https://github.com/awslabs/aws-solutions-assembler/releases)
 
-## Quick Start
+## 快速安装
 
 ```bash
 
@@ -33,18 +33,17 @@ open http://127.0.0.1:9090/toy
 
 ```
 
-## User Guide
+## 用户指南
 
 [English](https://awslabs.github.io/aws-solutions-assembler/en/getting-started/) | [中文](https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/)
 
+## 胡
 
-## Hu
-
-- Containerized microservices on EKS
+- 基于容器的微服务解决方案
 > Modernized microservices on EKS with built-in automated release pipeline, service mesh, log, metrics, tracing, secret management, and more, which's a one-stop solution for containerized microservices.
 
 
-## Develope your own
+## 自定义开发
 
 If you want to share your expertise or build your favorite things from scratch, following guide would be helpful.
 
@@ -52,17 +51,17 @@ If you want to share your expertise or build your favorite things from scratch, 
 - [How to build the Hu](./docs/How-to-Build-Hu.md) 
 - [All available Hu and Tile](./repo/README.md)
 
-## What's coming
+## 即将发布
 
 - [X] Data pipeline on EKS
 - [X] Serverless on EKS
 - [X] AI on EKS
 
 
-## Referenes
+## 引用
 - [Mahjong contributions](https://github.com/mahjong-contributions)
 
-## Security
+## 安全
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
