@@ -4,7 +4,6 @@ theme: hugo-theme-learn
 copyright: Everything is mine
 # enableGitInfo: true
 
-publishDir: ../public
 contentDir: ../docs
 staticDir:
   - ../docs
