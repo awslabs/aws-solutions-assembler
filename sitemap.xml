@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>https://wchaws.github.io/aws-solutions-assembler/en/sitemap.xml</loc>
-		
-	   	<lastmod>2020-07-27T16:23:31+08:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>https://wchaws.github.io/aws-solutions-assembler/zh/sitemap.xml</loc>
-		
-	   	<lastmod>2020-07-27T16:23:35+08:00</lastmod>
-		
-	</sitemap>
-	
-</sitemapindex>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://awslabs.github.io/aws-solutions-assembler/en/sitemap.xml</loc><lastmod>2020-07-27T16:23:31+08:00</lastmod></sitemap><sitemap><loc>https://awslabs.github.io/aws-solutions-assembler/zh/sitemap.xml</loc><lastmod>2020-07-27T16:23:35+08:00</lastmod></sitemap></sitemapindex>

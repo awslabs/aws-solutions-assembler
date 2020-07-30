@@ -1,717 +1,195 @@
-<!DOCTYPE html>
-<html lang="en" class="js csstransforms3d">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.74.3" />
-    <meta name="description" content="">
-
-
-    <link rel="icon" href="/aws-solutions-assembler/images/favicon.png" type="image/png">
-
-    <title>Nginx on EKS cluster :: English</title>
-
-    
-    <link href="/aws-solutions-assembler/css/nucleus.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/fontawesome-all.min.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/hybrid.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/featherlight.min.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/perfect-scrollbar.min.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/auto-complete.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/atom-one-dark-reasonable.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/theme.css?1595930022" rel="stylesheet">
-    <link href="/aws-solutions-assembler/css/hugo-theme.css?1595930022" rel="stylesheet">
-    
-    
-
-    <script src="/aws-solutions-assembler/js/jquery-3.3.1.min.js?1595930022"></script>
-
-    <style>
-      :root #header + #content > #left > #rlblock_left{
-          display:none !important;
-      }
-      
-    </style>
-    
-  </head>
-  <body class="" data-url="/aws-solutions-assembler/en/examples/nginx-on-eks/readme/">
-    <nav id="sidebar" class="">
-
-
-
-  <div id="header-wrapper">
-    <div id="header">
-      <img src="/aws-solutions-assembler/gopher.png" style="max-height: 40px;" />
-<span>AWS Solutions Assembler</span>
-
-
-    </div>
-    
-        <div class="searchbox">
-    <label for="search-by"><i class="fas fa-search"></i></label>
-    <input data-search-input id="search-by" type="search" placeholder="Search...">
-    <span data-search-clear=""><i class="fas fa-times"></i></span>
-</div>
-
-<script type="text/javascript" src="/aws-solutions-assembler/js/lunr.min.js?1595930022"></script>
-<script type="text/javascript" src="/aws-solutions-assembler/js/auto-complete.js?1595930022"></script>
-<script type="text/javascript">
-    
-        var baseurl = "https:\/\/wchaws.github.io\/aws-solutions-assembler\/\/en";
-    
-</script>
-<script type="text/javascript" src="/aws-solutions-assembler/js/search.js?1595930022"></script>
-
-    
-  </div>
-
-    <div class="highlightable">
-    <ul class="topics">
-
-        
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/aws-solutions-assembler/en/getting-started/" title="Getting Started" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/aws-solutions-assembler/en/getting-started/">
-          Getting Started
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/aws-solutions-assembler/en/getting-started/installation/" title="Installation" class="dd-item ">
-        <a href="/aws-solutions-assembler/en/getting-started/installation/">
-        Installation
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/aws-solutions-assembler/en/getting-started/build-your-own-tile/" title="Build Your Own Tile" class="dd-item ">
-        <a href="/aws-solutions-assembler/en/getting-started/build-your-own-tile/">
-        Build Your Own Tile
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/aws-solutions-assembler/en/getting-started/usage-of-hu/" title="Usage of Hu" class="dd-item ">
-        <a href="/aws-solutions-assembler/en/getting-started/usage-of-hu/">
-        Usage of Hu
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/aws-solutions-assembler/en/getting-started/simple-usage/" title="Simple Usage" class="dd-item ">
-        <a href="/aws-solutions-assembler/en/getting-started/simple-usage/">
-        Simple Usage
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/aws-solutions-assembler/en/design-principles/" title="Design Principles" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/aws-solutions-assembler/en/design-principles/">
-          Design Principles
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/aws-solutions-assembler/en/examples/" title="Examples" class="dd-item 
-        parent
-        
-        
-        ">
-      <a href="/aws-solutions-assembler/en/examples/">
-          Examples
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/" title="Simple EKS Cluster" class="dd-item ">
-        <a href="/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/">
-        Simple EKS Cluster
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/aws-solutions-assembler/en/examples/nginx-on-eks/readme/" title="Nginx on EKS cluster" class="dd-item active">
-        <a href="/aws-solutions-assembler/en/examples/nginx-on-eks/readme/">
-        Nginx on EKS cluster
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/aws-solutions-assembler/en/examples/eks-from-scratch/readme/" title="EKS cluster from scratch" class="dd-item ">
-        <a href="/aws-solutions-assembler/en/examples/eks-from-scratch/readme/">
-        EKS cluster from scratch
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/aws-solutions-assembler/en/spec/" title="Config Spec" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/aws-solutions-assembler/en/spec/">
-          Config Spec
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-         
-    </ul>
-
-    
-    
-
-    
-    <section id="prefooter">
-      <hr/>
-      <ul>
-      
-        <li>
-          <a class="padding">
-            <i class="fas fa-language fa-fw"></i>
-          <div class="select-style">
-            <select id="select-language" onchange="location = this.value;">
-          
-          
-          
-              
-              
-                  
-                    
-                    
-                      <option id="en" value="https://wchaws.github.io/aws-solutions-assembler/en/examples/nginx-on-eks/readme/" selected>English</option>
-                    
-                  
-              
-                  
-              
-          
-              
-              
-                  
-              
-                  
-                    
-                    
-                      <option id="zh" value="https://wchaws.github.io/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/">中文</option>
-                    
-                  
-              
-          
-        </select>
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
-          <g>
-            <g id="arrow-drop-down">
-              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
-            </g>
-          </g>
-        </svg>
-        </div>
-        </a>
-        </li>
-      
-      
-      
-      </ul>
-    </section>
-    
-    <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
-
-    </section>
-  </div>
-</nav>
-
-
-
-
-        <section id="body">
-        <div id="overlay"></div>
-        <div class="padding highlightable">
-              
-              <div>
-                <div id="top-bar">
-                
-                
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <span id="sidebar-toggle-span">
-                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                          <i class="fas fa-bars"></i>
-                        </a>
-                    </span>
-                  
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
-                  <span class="links">
-                 
-                 
-                    
-          
-          
-            
-            
-          
-          
-            
-            
-          
-          
-            <a href='/aws-solutions-assembler/en/'>Documentation</a> > <a href='/aws-solutions-assembler/en/examples/'>Examples</a> > Nginx on EKS cluster
-          
-        
-          
-        
-          
-        
-                 
-                  </span>
-                </div>
-                
-                    <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#steps">Steps</a></li>
-  </ul>
-</nav>
-    </div>
-</div>
-
-                
-              </div>
-            </div>
-            
-        <div id="head-tags">
-        
-        </div>
-        
-        <div id="body-inner">
-          
-            <h1>
-              
-              Nginx on EKS cluster
-            </h1>
-          
-
-        
-
-
-<p>This example will deploy EKS cluster first,
-then deploy a Nginx on that EKS cluster</p>
-<p>The architecture is as follow:</p>
-<p><img src="/aws-solutions-assembler/nginx-on-eks.svg" alt="simple eks architecture"></p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li><a href="https://docs.docker.com/desktop/#download-and-install">docker</a></li>
-<li><a href="https://github.com/aws/aws-cdk">cdk</a></li>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">aws cli v2</a></li>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html">setup aws configuration and credential file</a></li>
-<li><a href="https://github.com/awslabs/aws-solutions-assembler/releases">mctl</a></li>
-</ul>
-<h2 id="steps">Steps</h2>
-<ol>
-<li>
-<p>Make sure your aws cli is well configured, you will see something like below</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ aws configure list
+<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.74.3"><meta name=description content><link rel=icon href=/aws-solutions-assembler/images/favicon.png type=image/png><title>Nginx on EKS cluster :: English</title><link href=/aws-solutions-assembler/css/nucleus.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/fontawesome-all.min.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/hybrid.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/featherlight.min.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/perfect-scrollbar.min.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/auto-complete.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/atom-one-dark-reasonable.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/theme.css?1596074344 rel=stylesheet><link href=/aws-solutions-assembler/css/hugo-theme.css?1596074344 rel=stylesheet><script src=/aws-solutions-assembler/js/jquery-3.3.1.min.js?1596074344></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=/aws-solutions-assembler/en/examples/nginx-on-eks/readme/><nav id=sidebar><div id=header-wrapper><div id=header><img src=/aws-solutions-assembler/gopher.png style=max-height:40px>
+<span>AWS Solutions Assembler</span></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label><input data-search-input id=search-by type=search placeholder=Search...>
+<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=/aws-solutions-assembler/js/lunr.min.js?1596074344></script><script type=text/javascript src=/aws-solutions-assembler/js/auto-complete.js?1596074344></script><script type=text/javascript>var baseurl="https:\/\/awslabs.github.io\/aws-solutions-assembler\/\/en";</script><script type=text/javascript src=/aws-solutions-assembler/js/search.js?1596074344></script></div><div class=highlightable><ul class=topics><li data-nav-id=/aws-solutions-assembler/en/getting-started/ title="Getting Started" class=dd-item><a href=/aws-solutions-assembler/en/getting-started/>Getting Started</a><ul><li data-nav-id=/aws-solutions-assembler/en/getting-started/installation/ title=Installation class=dd-item><a href=/aws-solutions-assembler/en/getting-started/installation/>Installation</a></li><li data-nav-id=/aws-solutions-assembler/en/getting-started/build-your-own-tile/ title="Build Your Own Tile" class=dd-item><a href=/aws-solutions-assembler/en/getting-started/build-your-own-tile/>Build Your Own Tile</a></li><li data-nav-id=/aws-solutions-assembler/en/getting-started/usage-of-hu/ title="Usage of Hu" class=dd-item><a href=/aws-solutions-assembler/en/getting-started/usage-of-hu/>Usage of Hu</a></li><li data-nav-id=/aws-solutions-assembler/en/getting-started/simple-usage/ title="Simple Usage" class=dd-item><a href=/aws-solutions-assembler/en/getting-started/simple-usage/>Simple Usage</a></li></ul></li><li data-nav-id=/aws-solutions-assembler/en/design-principles/ title="Design Principles" class=dd-item><a href=/aws-solutions-assembler/en/design-principles/>Design Principles</a></li><li data-nav-id=/aws-solutions-assembler/en/examples/ title=Examples class="dd-item
+parent"><a href=/aws-solutions-assembler/en/examples/>Examples</a><ul><li data-nav-id=/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/ title="Simple EKS Cluster" class=dd-item><a href=/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/>Simple EKS Cluster</a></li><li data-nav-id=/aws-solutions-assembler/en/examples/nginx-on-eks/readme/ title="Nginx on EKS cluster" class="dd-item active"><a href=/aws-solutions-assembler/en/examples/nginx-on-eks/readme/>Nginx on EKS cluster</a></li><li data-nav-id=/aws-solutions-assembler/en/examples/eks-from-scratch/readme/ title="EKS cluster from scratch" class=dd-item><a href=/aws-solutions-assembler/en/examples/eks-from-scratch/readme/>EKS cluster from scratch</a></li></ul></li><li data-nav-id=/aws-solutions-assembler/en/spec/ title="Config Spec" class=dd-item><a href=/aws-solutions-assembler/en/spec/>Config Spec</a></li></ul><section id=prefooter><hr><ul><li><a class=padding><i class="fas fa-language fa-fw"></i><div class=select-style><select id=select-language onchange="location=this.value;">
+<option id=en value=https://awslabs.github.io/aws-solutions-assembler/en/examples/nginx-on-eks/readme/ selected>English</option>
+<option id=zh value=https://awslabs.github.io/aws-solutions-assembler/zh/examples/nginx-on-eks/readme/>中文</option></select><svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg></div></a></li></ul></section><section id=footer><p>Built with <a href=https://github.com/matcornic/hugo-theme-learn><i class="fas fa-heart"></i></a>from <a href=https://getgrav.org>Grav</a> and <a href=https://gohugo.io/>Hugo</a></p></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span><span id=toc-menu><i class="fas fa-list-alt"></i></span><span class=links><a href=/aws-solutions-assembler/en/>Documentation</a> > <a href=/aws-solutions-assembler/en/examples/>Examples</a> > Nginx on EKS cluster</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><a href=#prerequisites>Prerequisites</a></li><li><a href=#steps>Steps</a></li></ul></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Nginx on EKS cluster</h1><p>This example will deploy EKS cluster first,
+then deploy a Nginx on that EKS cluster</p><p>The architecture is as follow:</p><p><img src=/aws-solutions-assembler/nginx-on-eks.svg alt="simple eks architecture"></p><h2 id=prerequisites>Prerequisites</h2><ul><li><a href=https://docs.docker.com/desktop/#download-and-install>docker</a></li><li><a href=https://github.com/aws/aws-cdk>cdk</a></li><li><a href=https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>aws cli v2</a></li><li><a href=https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html>setup aws configuration and credential file</a></li><li><a href=https://github.com/awslabs/aws-solutions-assembler/releases>mctl</a></li></ul><h2 id=steps>Steps</h2><ol><li><p>Make sure your aws cli is well configured, you will see something like below</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ aws configure list
     Name                    Value             Type    Location
     ----                    -----             ----    --------
 profile                &lt;not set&gt;             None    None
 access_key     ****************ABCD  shared-credentials-file
 secret_key     ****************ABCD  shared-credentials-file
     region                us-west-2             env    AWS_DEFAULT_REGION
-</code></pre></div></li>
-<li>
-<p>Create a workspace for your local tile</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir -p $HOME/ws/local-tiles-repo
-</code></pre></div></li>
-<li>
-<p>Lanuch dice daemon in DEV mode if not existing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-v ~/.aws:/root/.aws <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-e M_MODE<span style="color:#f92672">=</span>dev <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-p 9090:9090 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest
-</code></pre></div></li>
-<li>
-<p>Write a Nginx tile build on top of eks</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd $HOME/ws/local-tiles-repo
+</code></pre></div></li><li><p>Create a workspace for your local tile</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ mkdir -p $HOME/ws/local-tiles-repo
+</code></pre></div></li><li><p>Lanuch dice daemon in DEV mode if not existing:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ docker run -it -d -v $HOME/ws/local-tiles-repo:/workspace/tiles-repo <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>-v ~/.aws:/root/.aws <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>-e M_MODE<span style=color:#f92672>=</span>dev <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>-p 9090:9090 <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest
+</code></pre></div></li><li><p>Write a Nginx tile build on top of eks</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ cd $HOME/ws/local-tiles-repo
 $ mkdir nginx/0.0.1
-</code></pre></div></li>
-<li>
-<p>Write nginx <code>nginx/0.0.1/tile-spec.yaml</code> as follow:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># API version</span>
-<span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
-<span style="color:#75715e"># Kind of entity</span>
-<span style="color:#66d9ef">kind</span>: Tile
-<span style="color:#75715e"># Metadata</span>
-<span style="color:#66d9ef">metadata</span>:
-    <span style="color:#75715e"># Name of entity</span>
-    <span style="color:#66d9ef">name</span>: nginx
-    <span style="color:#75715e"># Category of entity</span>
-    <span style="color:#66d9ef">category</span>: ContainerApplication
-    <span style="color:#75715e"># Version of entity</span>
-    <span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">0.0.1</span>
-<span style="color:#75715e"># Specification</span>
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#75715e"># Dependencies represent dependency with other Tile</span>
-  <span style="color:#66d9ef">dependencies</span>:
-    - <span style="color:#66d9ef">name</span>: eks
-      <span style="color:#75715e"># Tile name</span>
-      <span style="color:#66d9ef">tileReference</span>: Eks0
-      <span style="color:#75715e"># Tile version</span>
-      <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">0.0.5</span>
+</code></pre></div></li><li><p>Write nginx <code>nginx/0.0.1/tile-spec.yaml</code> as follow:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#75715e># API version</span>
+<span style=color:#66d9ef>apiVersion</span>: mahjong.io/v1alpha1
+<span style=color:#75715e># Kind of entity</span>
+<span style=color:#66d9ef>kind</span>: Tile
+<span style=color:#75715e># Metadata</span>
+<span style=color:#66d9ef>metadata</span>:
+    <span style=color:#75715e># Name of entity</span>
+    <span style=color:#66d9ef>name</span>: nginx
+    <span style=color:#75715e># Category of entity</span>
+    <span style=color:#66d9ef>category</span>: ContainerApplication
+    <span style=color:#75715e># Version of entity</span>
+    <span style=color:#66d9ef>version</span>: <span style=color:#ae81ff>0.0.1</span>
+<span style=color:#75715e># Specification</span>
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#75715e># Dependencies represent dependency with other Tile</span>
+  <span style=color:#66d9ef>dependencies</span>:
+    - <span style=color:#66d9ef>name</span>: eks
+      <span style=color:#75715e># Tile name</span>
+      <span style=color:#66d9ef>tileReference</span>: Eks0
+      <span style=color:#75715e># Tile version</span>
+      <span style=color:#66d9ef>tileVersion</span>: <span style=color:#ae81ff>0.0.5</span>
 
-  <span style="color:#66d9ef">inputs</span>:
-    - <span style="color:#66d9ef">name</span>: clusterName
-      <span style="color:#66d9ef">inputType</span>: String
-      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">true</span>
-      <span style="color:#66d9ef">override</span>:
-        <span style="color:#66d9ef">name</span>: eks
-        <span style="color:#66d9ef">field</span>: clusterName
-    - <span style="color:#66d9ef">name</span>: capacity
-      <span style="color:#66d9ef">inputType</span>: Number
-      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
-      <span style="color:#66d9ef">override</span>:
-        <span style="color:#66d9ef">name</span>: eks
-        <span style="color:#66d9ef">field</span>: capacity
-      <span style="color:#66d9ef">defaultValue</span>: <span style="color:#ae81ff">2</span>
-    - <span style="color:#66d9ef">name</span>: capacityInstance
-      <span style="color:#66d9ef">inputType</span>: String
-      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
-      <span style="color:#66d9ef">override</span>:
-        <span style="color:#66d9ef">name</span>: eks
-        <span style="color:#66d9ef">field</span>: capacityInstance
-      <span style="color:#66d9ef">defaultValue</span>: c5.xlarge
-    - <span style="color:#66d9ef">name</span>: version
-      <span style="color:#66d9ef">inputType</span>: String
-      <span style="color:#66d9ef">require</span>: <span style="color:#66d9ef">false</span>
-      <span style="color:#66d9ef">override</span>:
-        <span style="color:#66d9ef">name</span>: eks
-        <span style="color:#66d9ef">field</span>: version
-      <span style="color:#66d9ef">defaultValue</span>: <span style="color:#ae81ff">1.15</span>
+  <span style=color:#66d9ef>inputs</span>:
+    - <span style=color:#66d9ef>name</span>: clusterName
+      <span style=color:#66d9ef>inputType</span>: String
+      <span style=color:#66d9ef>require</span>: <span style=color:#66d9ef>true</span>
+      <span style=color:#66d9ef>override</span>:
+        <span style=color:#66d9ef>name</span>: eks
+        <span style=color:#66d9ef>field</span>: clusterName
+    - <span style=color:#66d9ef>name</span>: capacity
+      <span style=color:#66d9ef>inputType</span>: Number
+      <span style=color:#66d9ef>require</span>: <span style=color:#66d9ef>false</span>
+      <span style=color:#66d9ef>override</span>:
+        <span style=color:#66d9ef>name</span>: eks
+        <span style=color:#66d9ef>field</span>: capacity
+      <span style=color:#66d9ef>defaultValue</span>: <span style=color:#ae81ff>2</span>
+    - <span style=color:#66d9ef>name</span>: capacityInstance
+      <span style=color:#66d9ef>inputType</span>: String
+      <span style=color:#66d9ef>require</span>: <span style=color:#66d9ef>false</span>
+      <span style=color:#66d9ef>override</span>:
+        <span style=color:#66d9ef>name</span>: eks
+        <span style=color:#66d9ef>field</span>: capacityInstance
+      <span style=color:#66d9ef>defaultValue</span>: c5.xlarge
+    - <span style=color:#66d9ef>name</span>: version
+      <span style=color:#66d9ef>inputType</span>: String
+      <span style=color:#66d9ef>require</span>: <span style=color:#66d9ef>false</span>
+      <span style=color:#66d9ef>override</span>:
+        <span style=color:#66d9ef>name</span>: eks
+        <span style=color:#66d9ef>field</span>: version
+      <span style=color:#66d9ef>defaultValue</span>: <span style=color:#ae81ff>1.15</span>
 
-  <span style="color:#75715e">#aws eks --region &lt;region&gt; update-kubeconfig --name &lt;cluster&gt; --role-arn &lt;master role arn&gt; --kubeconfig &lt;config&gt;</span>
-  <span style="color:#66d9ef">manifests</span>:
-    <span style="color:#75715e"># Type of manifest</span>
-    <span style="color:#66d9ef">manifestType</span>: K8s
-    <span style="color:#66d9ef">namespace</span>: default
-    <span style="color:#75715e"># manifest list</span>
-    <span style="color:#66d9ef">files</span>:
+  <span style=color:#75715e>#aws eks --region &lt;region&gt; update-kubeconfig --name &lt;cluster&gt; --role-arn &lt;master role arn&gt; --kubeconfig &lt;config&gt;</span>
+  <span style=color:#66d9ef>manifests</span>:
+    <span style=color:#75715e># Type of manifest</span>
+    <span style=color:#66d9ef>manifestType</span>: K8s
+    <span style=color:#66d9ef>namespace</span>: default
+    <span style=color:#75715e># manifest list</span>
+    <span style=color:#66d9ef>files</span>:
       - nginx-on-k8s.yml
 
-  <span style="color:#75715e"># Ouptputs represnt output value after launched, for &#39;ContainerApplication&#39; might need leverage specific command to retrive output.</span>
-  <span style="color:#66d9ef">outputs</span>:
-    <span style="color:#75715e"># String</span>
-    - <span style="color:#66d9ef">name</span>: nginxEndpoint
-      <span style="color:#66d9ef">outputType</span>: String
-      <span style="color:#66d9ef">defaultValueCommand</span>: kubectl get svc nginx-service -o jsonpath=<span style="color:#e6db74">&#39;{.status..hostname}&#39;</span>
-      <span style="color:#66d9ef">description</span>: Custom::String
+  <span style=color:#75715e># Ouptputs represnt output value after launched, for &#39;ContainerApplication&#39; might need leverage specific command to retrive output.</span>
+  <span style=color:#66d9ef>outputs</span>:
+    <span style=color:#75715e># String</span>
+    - <span style=color:#66d9ef>name</span>: nginxEndpoint
+      <span style=color:#66d9ef>outputType</span>: String
+      <span style=color:#66d9ef>defaultValueCommand</span>: kubectl get svc nginx-service -o jsonpath=<span style=color:#e6db74>&#39;{.status..hostname}&#39;</span>
+      <span style=color:#66d9ef>description</span>: Custom::String
 
-  <span style="color:#66d9ef">notes</span>: []
-</code></pre></div></li>
-<li>
-<p>Write a <code>nginx/0.0.1/lib/nginx-on-k8s.yml</code> for nginx deployment</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: apps/v1 <span style="color:#75715e"># for versions before 1.9.0 use apps/v1beta2</span>
-<span style="color:#66d9ef">kind</span>: Deployment
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: mahjong-nginx-deployment
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">matchLabels</span>:
-      <span style="color:#66d9ef">app</span>: nginx
-  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">2</span> <span style="color:#75715e"># tells deployment to run 2 pods matching the template</span>
-  <span style="color:#66d9ef">template</span>:
-    <span style="color:#66d9ef">metadata</span>:
-      <span style="color:#66d9ef">labels</span>:
-        <span style="color:#66d9ef">app</span>: nginx
-    <span style="color:#66d9ef">spec</span>:
-      <span style="color:#66d9ef">containers</span>:
-      - <span style="color:#66d9ef">name</span>: nginx
-        <span style="color:#66d9ef">image</span>: nginx:<span style="color:#ae81ff">1.14.2</span>
-        <span style="color:#66d9ef">ports</span>:
-        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">80</span>
+  <span style=color:#66d9ef>notes</span>: []
+</code></pre></div></li><li><p>Write a <code>nginx/0.0.1/lib/nginx-on-k8s.yml</code> for nginx deployment</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: apps/v1 <span style=color:#75715e># for versions before 1.9.0 use apps/v1beta2</span>
+<span style=color:#66d9ef>kind</span>: Deployment
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: mahjong-nginx-deployment
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: nginx
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>2</span> <span style=color:#75715e># tells deployment to run 2 pods matching the template</span>
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: nginx
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+      - <span style=color:#66d9ef>name</span>: nginx
+        <span style=color:#66d9ef>image</span>: nginx:<span style=color:#ae81ff>1.14.2</span>
+        <span style=color:#66d9ef>ports</span>:
+        - <span style=color:#66d9ef>containerPort</span>: <span style=color:#ae81ff>80</span>
 ---
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: Service
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: nginx-service
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">app</span>: nginx
-  <span style="color:#66d9ef">ports</span>:
-    - <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">80</span>
-      <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">80</span>
-  <span style="color:#66d9ef">type</span>: LoadBalancer
-</code></pre></div></li>
-<li>
-<p>After you finished the nginx tile your folder will look like this</p>
-<pre><code>nginx
+<span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>kind</span>: Service
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: nginx-service
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>app</span>: nginx
+  <span style=color:#66d9ef>ports</span>:
+    - <span style=color:#66d9ef>port</span>: <span style=color:#ae81ff>80</span>
+      <span style=color:#66d9ef>targetPort</span>: <span style=color:#ae81ff>80</span>
+  <span style=color:#66d9ef>type</span>: LoadBalancer
+</code></pre></div></li><li><p>After you finished the nginx tile your folder will look like this</p><pre><code>nginx
 └── 0.0.1
     ├── lib
     │   └── nginx-on-k8s.yml
     └── tile-spec.yaml
-</code></pre></li>
-<li>
-<p>Create a deployment YAML config file <code>nginx-on-eks.yaml</code> to deploy your nginx tile</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: mahjong.io/v1alpha1
-<span style="color:#66d9ef">kind</span>: Deployment
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: nginx
-  <span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">0.1.0</span>
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">template</span>:
-    <span style="color:#66d9ef">tiles</span>:
-      <span style="color:#66d9ef">tileNginx</span>:
-        <span style="color:#66d9ef">tileReference</span>: nginx
-        <span style="color:#66d9ef">tileVersion</span>: <span style="color:#ae81ff">0.0.1</span>
-        <span style="color:#66d9ef">inputs</span>:
-          - <span style="color:#66d9ef">name</span>: clusterName
-            <span style="color:#66d9ef">inputValue</span>: nginx-on-eks
-          - <span style="color:#66d9ef">name</span>: capacity
-            <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">3</span>
-          - <span style="color:#66d9ef">name</span>: capacityInstance
-            <span style="color:#66d9ef">inputValue</span>: m5.large
-          - <span style="color:#66d9ef">name</span>: version
-            <span style="color:#66d9ef">inputValue</span>: <span style="color:#ae81ff">1.16</span>
+</code></pre></li><li><p>Create a deployment YAML config file <code>nginx-on-eks.yaml</code> to deploy your nginx tile</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: mahjong.io/v1alpha1
+<span style=color:#66d9ef>kind</span>: Deployment
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: nginx
+  <span style=color:#66d9ef>version</span>: <span style=color:#ae81ff>0.1.0</span>
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>tiles</span>:
+      <span style=color:#66d9ef>tileNginx</span>:
+        <span style=color:#66d9ef>tileReference</span>: nginx
+        <span style=color:#66d9ef>tileVersion</span>: <span style=color:#ae81ff>0.0.1</span>
+        <span style=color:#66d9ef>inputs</span>:
+          - <span style=color:#66d9ef>name</span>: clusterName
+            <span style=color:#66d9ef>inputValue</span>: nginx-on-eks
+          - <span style=color:#66d9ef>name</span>: capacity
+            <span style=color:#66d9ef>inputValue</span>: <span style=color:#ae81ff>3</span>
+          - <span style=color:#66d9ef>name</span>: capacityInstance
+            <span style=color:#66d9ef>inputValue</span>: m5.large
+          - <span style=color:#66d9ef>name</span>: version
+            <span style=color:#66d9ef>inputValue</span>: <span style=color:#ae81ff>1.16</span>
 
-  <span style="color:#66d9ef">summary</span>:
-    <span style="color:#66d9ef">description</span>:
-    <span style="color:#66d9ef">outputs</span>:
-      - <span style="color:#66d9ef">name</span>: Nginx Endpoint
-        <span style="color:#66d9ef">value</span>: $(tileNginx.outputs.nginxEndpoint)
+  <span style=color:#66d9ef>summary</span>:
+    <span style=color:#66d9ef>description</span>:
+    <span style=color:#66d9ef>outputs</span>:
+      - <span style=color:#66d9ef>name</span>: Nginx Endpoint
+        <span style=color:#66d9ef>value</span>: $(tileNginx.outputs.nginxEndpoint)
 
-    <span style="color:#66d9ef">notes</span>: []
-</code></pre></div></li>
-<li>
-<p>Bootstrap CDK: <code>cdk bootstrap aws://&lt;your aws account&gt;/&lt;aws region&gt;</code>. For example:</p>
-<pre><code>cdk bootstrap aws://638198787577/us-east-2
-</code></pre>
-<div class="notices note" ><p>This step only need to process once</p>
-</div>
-
-</li>
-<li>
-<p>Deploy to AWS: <code>mctl deploy -f ./nginx-on-eks.yaml</code>. If everything works fine you will get this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mctl deploy -f ./nginx-on-eks.yaml
+    <span style=color:#66d9ef>notes</span>: []
+</code></pre></div></li><li><p>Bootstrap CDK: <code>cdk bootstrap aws://&lt;your aws account>/&lt;aws region></code>. For example:</p><pre><code>cdk bootstrap aws://638198787577/us-east-2
+</code></pre><div class="notices note"><p>This step only need to process once</p></div></li><li><p>Deploy to AWS: <code>mctl deploy -f ./nginx-on-eks.yaml</code>. If everything works fine you will get this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ mctl deploy -f ./nginx-on-eks.yaml
 
 ...
 
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export KUBECONFIG<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx/kube.config
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + KUBECONFIG<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx/kube.config
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export WORK_HOME<span style="color:#f92672">=</span>/workspace/nginx
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + WORK_HOME<span style="color:#f92672">=</span>/workspace/nginx
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export TILE_HOME<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + TILE_HOME<span style="color:#f92672">=</span>/workspace/nginx/lib/nginx
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + export NAMESPACE<span style="color:#f92672">=</span>default
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + NAMESPACE<span style="color:#f92672">=</span>default
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + cd /workspace/nginx
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + kubectl apply -f /workspace/nginx/lib/nginx/lib/nginx-on-k8s.yml -n default
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  deployment.apps/mahjong-nginx-deployment unchanged
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  service/nginx-service unchanged
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + sleep <span style="color:#ae81ff">10</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  ++ kubectl get svc nginx-service -o <span style="color:#e6db74">&#39;jsonpath={.status..hostname}&#39;</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  + echo <span style="color:#e6db74">&#39;{&#34;nginxEndpoint=a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com&#34;}&#39;</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Extract outputs: <span style="color:#f92672">[</span>nginxEndpoint<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>  Nginx Endpoint <span style="color:#f92672">=</span> a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>ℹ<span style="color:#f92672">]</span>
-</code></pre></div></li>
-<li>
-<p>Check yout nginx</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + export KUBECONFIG<span style=color:#f92672>=</span>/workspace/nginx/lib/nginx/kube.config
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + KUBECONFIG<span style=color:#f92672>=</span>/workspace/nginx/lib/nginx/kube.config
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + export WORK_HOME<span style=color:#f92672>=</span>/workspace/nginx
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + WORK_HOME<span style=color:#f92672>=</span>/workspace/nginx
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + export TILE_HOME<span style=color:#f92672>=</span>/workspace/nginx/lib/nginx
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + TILE_HOME<span style=color:#f92672>=</span>/workspace/nginx/lib/nginx
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + export NAMESPACE<span style=color:#f92672>=</span>default
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + NAMESPACE<span style=color:#f92672>=</span>default
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + cd /workspace/nginx
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + kubectl apply -f /workspace/nginx/lib/nginx/lib/nginx-on-k8s.yml -n default
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  deployment.apps/mahjong-nginx-deployment unchanged
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  service/nginx-service unchanged
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + sleep <span style=color:#ae81ff>10</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  ++ kubectl get svc nginx-service -o <span style=color:#e6db74>&#39;jsonpath={.status..hostname}&#39;</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  + echo <span style=color:#e6db74>&#39;{&#34;nginxEndpoint=a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com&#34;}&#39;</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  Extract outputs: <span style=color:#f92672>[</span>nginxEndpoint<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com<span style=color:#f92672>]</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>  Nginx Endpoint <span style=color:#f92672>=</span> a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>
+<span style=color:#f92672>[</span>ℹ<span style=color:#f92672>]</span>
+</code></pre></div></li><li><p>Check yout nginx</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ curl a3d984b0d065e46feafcc5d9b944b0e7-1722932499.us-east-2.elb.amazonaws.com
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;Welcome to nginx!&lt;/title&gt;
 &lt;style&gt;
-    body <span style="color:#f92672">{</span>
+    body <span style=color:#f92672>{</span>
         width: 35em;
-        margin: <span style="color:#ae81ff">0</span> auto;
+        margin: <span style=color:#ae81ff>0</span> auto;
         font-family: Tahoma, Verdana, Arial, sans-serif;
-    <span style="color:#f92672">}</span>
+    <span style=color:#f92672>}</span>
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -720,274 +198,11 @@ $ mkdir nginx/0.0.1
 working. Further configuration is required.&lt;/p&gt;
 
 &lt;p&gt;For online documentation and support please refer to
-&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.org/&#34;</span>&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+&lt;a href<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://nginx.org/&#34;</span>&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
 Commercial support is available at
-&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.com/&#34;</span>&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+&lt;a href<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://nginx.com/&#34;</span>&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Thank you <span style="color:#66d9ef">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thank you <span style=color:#66d9ef>for</span> using nginx.&lt;/em&gt;&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></div></li>
-</ol>
-
-
-<footer class="footline">
-	
-</footer>
-
-        
-        </div> 
-        
-
-      </div>
-
-    <div id="navigation">
-        
-        
-        
-        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-        
-        
-
-
-	 
-	 
-		
-			<a class="nav nav-prev" href="/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/" title="Simple EKS Cluster"> <i class="fa fa-chevron-left"></i></a>
-		
-		
-			<a class="nav nav-next" href="/aws-solutions-assembler/en/examples/eks-from-scratch/readme/" title="EKS cluster from scratch" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
-		
-	
-    </div>
-
-    </section>
-    
-    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
-      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
-    </div>
-    <script src="/aws-solutions-assembler/js/clipboard.min.js?1595930022"></script>
-    <script src="/aws-solutions-assembler/js/perfect-scrollbar.min.js?1595930022"></script>
-    <script src="/aws-solutions-assembler/js/perfect-scrollbar.jquery.min.js?1595930022"></script>
-    <script src="/aws-solutions-assembler/js/jquery.sticky.js?1595930022"></script>
-    <script src="/aws-solutions-assembler/js/featherlight.min.js?1595930022"></script>
-    <script src="/aws-solutions-assembler/js/highlight.pack.js?1595930022"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-solutions-assembler/js/modernizr.custom-3.6.0.js?1595930022"></script>
-    <script src="/aws-solutions-assembler/js/learn.js?1595930022"></script>
-    <script src="/aws-solutions-assembler/js/hugo-learn.js?1595930022"></script>
-
-    <link href="/aws-solutions-assembler/mermaid/mermaid.css?1595930022" rel="stylesheet" />
-    <script src="/aws-solutions-assembler/mermaid/mermaid.js?1595930022"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-    </script>
-    
-
-  </body>
-</html>
-
+</code></pre></div></li></ol><footer class=footline></footer></div></div><div id=navigation><a class="nav nav-prev" href=/aws-solutions-assembler/en/examples/simple-eks-cluster/readme/ title="Simple EKS Cluster"><i class="fa fa-chevron-left"></i></a><a class="nav nav-next" href=/aws-solutions-assembler/en/examples/eks-from-scratch/readme/ title="EKS cluster from scratch" style=margin-right:0><i class="fa fa-chevron-right"></i></a></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/aws-solutions-assembler/js/clipboard.min.js?1596074344></script><script src=/aws-solutions-assembler/js/perfect-scrollbar.min.js?1596074344></script><script src=/aws-solutions-assembler/js/perfect-scrollbar.jquery.min.js?1596074344></script><script src=/aws-solutions-assembler/js/jquery.sticky.js?1596074344></script><script src=/aws-solutions-assembler/js/featherlight.min.js?1596074344></script><script src=/aws-solutions-assembler/js/highlight.pack.js?1596074344></script><script>hljs.initHighlightingOnLoad();</script><script src=/aws-solutions-assembler/js/modernizr.custom-3.6.0.js?1596074344></script><script src=/aws-solutions-assembler/js/learn.js?1596074344></script><script src=/aws-solutions-assembler/js/hugo-learn.js?1596074344></script><link href=/aws-solutions-assembler/mermaid/mermaid.css?1596074344 rel=stylesheet><script src=/aws-solutions-assembler/mermaid/mermaid.js?1596074344></script><script>mermaid.initialize({startOnLoad:true});</script></body></html>
