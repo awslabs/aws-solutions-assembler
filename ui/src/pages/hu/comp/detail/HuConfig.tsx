@@ -80,7 +80,7 @@ const HuConfig: React.FC<HuConfigType> = (props: any) => {
     if (!changeFromChild) {
       getHuYamlInfo();
     }
-  }, []);
+  }, [changeFromChild, getHuYamlInfo]);
 
   // Websocket Area Start
   const [resMsg, setResMsg] = useState("");
@@ -270,7 +270,7 @@ const HuConfig: React.FC<HuConfigType> = (props: any) => {
           <div className={Classes.DIALOG_BODY}>
             <p>
               {isDry ? (
-                <strong>This is Dry Run Terminal.{name}</strong>
+                <strong>This is Dry Run Terminal.</strong>
               ) : (
                 <strong>This is Run Terminal.</strong>
               )}
