@@ -1,4 +1,6 @@
 *.js
+!i18n.js
+!config-overrides.js
 !jest.config.js
 !dice/toy/index.js
 !dice/toy/jquery-1.4.3.min.js
@@ -93,3 +95,4 @@ role.arn
 **/demo2.yaml
 **/demo3.yaml
 **/demo4.yaml
+yarn.lock
