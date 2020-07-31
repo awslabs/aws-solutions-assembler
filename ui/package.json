@@ -62,6 +62,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
+    "test:nowatch": "CI=true react-app-rewired test",
     "eject": "react-app-rewired eject",
     "test:coverage": "yarn test --watchAll false --coverage",
     "lint": "tsc --noEmit && eslint '*/**/*.{ts,tsx}'",
