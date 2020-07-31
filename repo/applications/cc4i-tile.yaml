@@ -9,36 +9,6 @@ tiles:
     version: 1.5.0
     author: cc4i
     email: builder@aws.com
-  - name: app-tile
-    decsription: |
-      Initial tile - app-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/app-tile/README.md.tp
-    version: README.md.tp
-    author: cc4i
-    email: builder@aws.com
-  - name: app-tile
-    decsription: |
-      Initial tile - app-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/app-tile/kustomize
-    version: kustomize
-    author: cc4i
-    email: builder@aws.com
-  - name: app-tile
-    decsription: |
-      Initial tile - app-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/app-tile/tile-spec.yaml.tp
-    version: tile-spec.yaml.tp
-    author: cc4i
-    email: builder@aws.com
   - name: application-startup
     decsription: |
       Initial tile - application-startup
@@ -79,16 +49,6 @@ tiles:
     version: 1.6.1
     author: cc4i
     email: builder@aws.com
-  - name: argocd-with-existing-eks
-    decsription: |
-      Initial tile - argocd-with-existing-eks
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/argocd-with-existing-eks/1.6.1x
-    version: 1.6.1x
-    author: cc4i
-    email: builder@aws.com
   - name: argocd0
     decsription: |
       Initial tile - argocd0
@@ -109,16 +69,6 @@ tiles:
     version: 2.07.2
     author: cc4i
     email: builder@aws.com
-  - name: aws-aurora-mysql
-    decsription: |
-      Initial tile - aws-aurora-mysql
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/aws-aurora-mysql/2.07.2x
-    version: 2.07.2x
-    author: cc4i
-    email: builder@aws.com
   - name: aws-elasticache-redis
     decsription: |
       Initial tile - aws-elasticache-redis
@@ -127,16 +77,6 @@ tiles:
     branch: master
     folder: tile/aws-elasticache-redis/5.0.6
     version: 5.0.6
-    author: cc4i
-    email: builder@aws.com
-  - name: aws-elasticache-redis
-    decsription: |
-      Initial tile - aws-elasticache-redis
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/aws-elasticache-redis/5.0.6x
-    version: 5.0.6x
     author: cc4i
     email: builder@aws.com
   - name: aws-elasticsearch
@@ -167,86 +107,6 @@ tiles:
     branch: master
     folder: tile/aws-kms-keygenerator/0.1.0
     version: 0.1.0
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/README.md.tp
-    version: README.md.tp
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/jest.config.js
-    version: jest.config.js
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/lib
-    version: lib
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/package-lock.json.tp
-    version: package-lock.json.tp
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/package.json.tp
-    version: package.json.tp
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/test
-    version: test
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/tile-spec.yaml.tp
-    version: tile-spec.yaml.tp
-    author: cc4i
-    email: builder@aws.com
-  - name: cdk-tile
-    decsription: |
-      Initial tile - cdk-tile
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/cdk-tile/tsconfig.json
-    version: tsconfig.json
     author: cc4i
     email: builder@aws.com
   - name: efs
@@ -329,16 +189,6 @@ tiles:
     version: 0.7.1
     author: cc4i
     email: builder@aws.com
-  - name: go-bumblebee-jazz
-    decsription: |
-      Initial tile - go-bumblebee-jazz
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/go-bumblebee-jazz/0.7.1x
-    version: 0.7.1x
-    author: cc4i
-    email: builder@aws.com
   - name: go-bumblebee-only
     decsription: |
       Initial tile - go-bumblebee-only
@@ -399,16 +249,6 @@ tiles:
     version: 2.8.1
     author: cc4i
     email: builder@aws.com
-  - name: mahjong
-    decsription: |
-      Initial tile - mahjong
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/mahjong/latest
-    version: latest
-    author: cc4i
-    email: builder@aws.com
   - name: mysql-k8s
     decsription: |
       Initial tile - mysql-k8s
@@ -447,96 +287,6 @@ tiles:
     branch: master
     folder: tile/sealedsecret-with-existing-eks/0.1.0
     version: 0.1.0
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/README.md
-    version: README.md
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/bin
-    version: bin
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/cdk.json
-    version: cdk.json
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/jest.config.js
-    version: jest.config.js
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/lib
-    version: lib
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/package-lock.json
-    version: package-lock.json
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/package.json
-    version: package.json
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/test
-    version: test
-    author: cc4i
-    email: builder@aws.com
-  - name: super
-    decsription: |
-      Initial tile - super
-    repository: https://github.com/mahjong-contributions/mahjong-constuct.git
-    tag: 0.1.0
-    branch: master
-    folder: tile/super/tsconfig.json
-    version: tsconfig.json
     author: cc4i
     email: builder@aws.com
   - name: traefik
