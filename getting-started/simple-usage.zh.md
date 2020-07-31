@@ -101,100 +101,110 @@ weight: 20
 ### 验证EKS
 
 一旦完成以上步骤后便可以检查您部署好的集群`mahjong-cluster101`
-        - 从部署日志中找到EKS集群的Master role
 
-        例如：
+- 从部署日志中找到EKS集群的Master role
 
-```shell
-        arn:aws:iam::638198787577:role/Eks0StacktileEks0005-Eks0EksClusterMasterRole76926-D9OV6NASDYGC
-```
+    例如：
 
-- 用以下命令创建保存k8s的登陆配置`aws --region <region-code> eks update-kubeconfig --name <cluster_name> --role-arn arn:aws:iam::<aws_account_id>:role/<role_name>`.
+    ```shell
+    arn:aws:iam::638198787577:role/Eks0StacktileEks0005-Eks0EksClusterMasterRole76926-D9OV6NASDYGC
+    ```
 
-        例如：
+- 用以下命令创建保存k8s的登陆配置`aws --region <region-code> eks update-kubeconfig --name <cluster_name> --role-arn arn:aws:iam::<aws_account_id>:role/<role_name>`
 
-```
-        aws --region us-east-2 eks update-kubeconfig--name mahjong-cluster101 --role-arn arn:aws:iam::638198787577:role/Eks0StacktileEks0005-Eks0EksClusterMasterRole76926-D9OV6NASDYGC
-```
+    例如：
+
+    ```
+    aws --region us-east-2 eks update-kubeconfig--name mahjong-cluster101 --role-arn arn:aws:iam::638198787577:role/Eks0StacktileEks0005-Eks0EksClusterMasterRole76926-D9OV6NASDYGC
+    ```
 
 - 安装eksctl
-```shell
-        curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-        sudo mv /tmp/eksctl /usr/local/bin
-```
+
+    ```shell
+    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+    sudo mv /tmp/eksctl /usr/local/bin
+    ```
 
 - 安装kubectl
-```shell
-        curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl"
-        chmod +x ./kubectl
-        sudo mv ./kubectl /usr/local/bin/kubectl
-        kubectl version --client
-```
+
+    ```shell
+    curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl"
+    chmod +x ./kubectl
+    sudo mv ./kubectl /usr/local/bin/kubectl
+    kubectl version --client
+    ```
+
 - 检查您的集群
 
-```shell
-        $ kubectl get svc
-        NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-        kubernetes   ClusterIP   172.20.0.1   <none>        443/TCP   4h41m
-```
-以上，您通过麻将部署了aws eks集群，他享有aws最佳实践，包括安全性，稳定性，可靠性等优良设计
+    ```shell
+    $ kubectl get svc
+    NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+    kubernetes   ClusterIP   172.20.0.1   <none>        443/TCP   4h41m
+    ```
 
+以上，您通过麻将部署了aws eks集群，他享有aws最佳实践，包括安全性，稳定性，可靠性等优良设计
 
 ### 使用EKS
 
 部署eks应用
 
-
 - 编辑文件 2048.k8s.yaml
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: my2048-service
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    app: my2048-k8s
-  type: LoadBalancer
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my2048-deployment
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: my2048-k8s
-  template:
+    ```yaml
+    apiVersion: v1
+    kind: Service
     metadata:
-      labels:
-        app: my2048-k8s
+    name: my2048-service
     spec:
-      containers:
-        - image: alexwhen/docker-2048
-          name: "my2048"
-          ports:
-            - containerPort: 80
-```
+    ports:
+        - port: 80
+        targetPort: 80
+    selector:
+        app: my2048-k8s
+    type: LoadBalancer
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: my2048-deployment
+    spec:
+    replicas: 2
+    selector:
+        matchLabels:
+        app: my2048-k8s
+    template:
+        metadata:
+        labels:
+            app: my2048-k8s
+        spec:
+        containers:
+            - image: alexwhen/docker-2048
+            name: "my2048"
+            ports:
+                - containerPort: 80
+    ```
 
 - 运行部署命令
-```shell
-kubectl apply -f 2048.k8s.yaml
-```
+
+    ```shell
+    kubectl apply -f 2048.k8s.yaml
+    ```
+
 - 查看服务信息
-```shell
-kubectl get service/my2048-service
-```
-我们将看到如下输出
-```shell
-NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
-my2048-service LoadBalancer 172.20.88.7 a6ba48df2f1774376a8e065336c8bd44-1753238188.us-east-1.elb.amazonaws.com 80:31276/TCP 4d20h
-```
+
+    ```shell
+    kubectl get service/my2048-service
+    ```
+
+    我们将看到如下输出
+
+    ```shell
+    NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+    my2048-service LoadBalancer 172.20.88.7 a6ba48df2f1774376a8e065336c8bd44-1753238188.us-east-1.elb.amazonaws.com 80:31276/TCP 4d20h
+    ```
+
 - 访问服务
+
     在浏览器打开应用的endpoint地址，你可以看到2048的游戏页面。enjoy~
 
-![2048]({{< param "rootUrl" >}}/2048.png)
+    ![2048]({{< param "rootUrl" >}}/2048.png)
