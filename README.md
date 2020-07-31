@@ -7,9 +7,9 @@
 ## Description
 
 
-AWS Solutions Assembler is also known as [Mahjong](./docs/All-Concept.md), which has built-in mechanism to leverage pattern based abstracts to build up any solution. 
+AWS Solutions Assembler is also known as [Mahjong](./docs/All-Concept.md), which has built-in mechanism to leverage pattern based abstracts to build up any solution at any scale. 
 
-Builders can use [Mahjong](./docs/All-Concept.md) to share solutions with the best industry practice. Customers can quickly experience those solutions or build their own.
+Builders can use [Mahjong](./docs/All-Concept.md) to share solutions with the standard practice. Customers can quickly experience those solutions or build their own.
 
 
 ## Prerequisite
