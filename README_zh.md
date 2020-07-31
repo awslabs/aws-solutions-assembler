@@ -27,9 +27,7 @@ AWS Solutions Assembler 的内部名称也叫 [麻将](./docs/All-Concept.md), �
 docker run -d -v ~/.aws:/root/.aws -p 9090:9090 docker.pkg.github.com/awslabs/aws-solutions-assembler/dice:latest
 
 # 2. Kick start browser for first trial (On Darwin)
-open http://127.0.0.1:9090/toy
-
-# 3. Paste the solution and send to provision, for example: https://github.com/mahjong-contributions/mahjong-constuct/blob/master/hu/eks-simple/0.1.0/eks-simple.yaml
+open http://127.0.0.1:9090/
 
 ```
 

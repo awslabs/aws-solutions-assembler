@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.14.0] - 2020-07-30
+### Added
+- Integrate new UI for operational convenience, access http://localhost:9090/ after launch dice
+- Add fresh Chinese/English documents to guide you step by step
+
 
 ## [0.13.0] - 2020-07-24
 ### Added
