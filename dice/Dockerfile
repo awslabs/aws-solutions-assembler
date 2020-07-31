@@ -41,7 +41,17 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
         -o /go/bin/probe
 
 
-# STEP 3 build release package
+# Step 3 prepare ui
+FROM node:13.12.0-alpine AS uibuilder
+
+WORKDIR /opt/app
+COPY ./ui/. ./
+RUN npm install
+RUN npm run test:nowatch
+RUN npm run build
+
+
+# Step 4 build release package
 FROM alpine:3.11
 
 ARG BUILT
@@ -125,6 +135,9 @@ COPY --from=probebuilder /go/bin/probe /usr/local/bin/probe
 # Copy static files
 COPY ./toy /workspace/toy
 COPY ./schema /workspace/schema
+# Copy new ui files
+COPY --from=uibuilder /opt/app/build /workspace/ui
+
 
 WORKDIR /workspace
 

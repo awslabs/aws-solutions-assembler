@@ -136,5 +136,8 @@ func Router(ctx context.Context) *gin.Engine {
 	// '/toy' is a page for quick testing
 	r.Use(static.Serve("/toy", static.LocalFile("./toy", true)))
 
+	// '/toy' is a page for quick testing
+	r.Use(static.Serve("/", static.LocalFile("./ui", true)))
+
 	return r
 }

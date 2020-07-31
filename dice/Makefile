@@ -59,6 +59,7 @@ pre-commit: lint-local test
 # Build the docker image
 docker-build:
 	cp -r ../probe .
+	cp -r ../ui .
 	docker build \
 		--build-arg VERSION=${VERSION} \
 		--build-arg GIT_COMMIT_ID=${GIT_COMMIT_ID} \
