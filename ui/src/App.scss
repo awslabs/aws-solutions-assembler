@@ -1,0 +1,51 @@
+
+// $base-margin: 10px 15px;
+$border-bottom: 1px solid rgba(0,0,0,.3);
+$bread-padding: 10px 10px 10px 20px;
+$content-padding: 15px 20px;
+
+.app-loading {
+  margin: 200px auto 0;
+  color:#00BFFF;
+  font-size: 16px;
+  text-align: center;
+}
+
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+
+.page-tile {
+  font-size: 18px;
+  font-weight: bold;
+  padding:5px 0 0px 20px;
+}
+
+.no-data {
+  padding: 20px;
+  text-align: center;
+  color: rgba($color: #ffffff, $alpha: 0.5)
+}
+
+body {
+  background-color: #30404d;
+}
+
+.breadcrumbs {
+  // margin: $base-margin;
+  text-transform: capitalize;
+  padding: $bread-padding;
+  border-bottom: $border-bottom;
+}
+
+.basic-form {
+  // margin: $base-margin;
+  margin-top: -10px;
+  width: 400px;
+}
+
+.mahjong-content {
+  padding: $content-padding;
+}

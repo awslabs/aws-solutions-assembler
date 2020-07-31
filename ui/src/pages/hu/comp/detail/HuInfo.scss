@@ -1,0 +1,48 @@
+.basic-info {
+  .icon {
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    .image {
+      width: 70%;
+    }
+  }
+  .name {
+    text-transform: capitalize;
+    font-size: 24px;
+    letter-spacing: -1px;
+    font-weight: bold;
+  }
+  .version {
+    padding: 5px;
+    text-align: center;
+  }
+  .desc {
+    color: #aaa;
+    text-align: left;
+    // text-align: justify;
+    // padding: 0 20px;
+    // text-indent: 2em;
+    padding: 5px;
+    textarea {
+      resize: none;
+      border: 0;
+      color: #aaa;
+      width: 100%;
+      background: transparent;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .basic-info {
+    .icon {
+      padding: 0 10px;
+      .image {
+        width: 30%;
+      }
+    }
+  }
+
+}

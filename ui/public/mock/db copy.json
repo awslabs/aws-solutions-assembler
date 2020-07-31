@@ -1,0 +1,22 @@
+{
+  "getHuList": {
+    "data": [
+      { "id": "S001", "name": "Service Mesh", "author": "AWS" },
+      { "id": "S002", "name": "Another Service Mesh", "author": "Proto" }
+    ],
+    "status": 200
+  },
+  "getTileList": {
+    "data": [
+      { "id": "S001", "version":"v1.0.1", "name": "istio", "desc": "Open Source Service Management System" },
+      { "id": "S002", "version":"v2.1.1", "name": "EKS", "desc": "Amazon Elastic Kubernetes Service (Amazon EKS) " },
+      { "id": "S003", "version":"v5.0.1", "name": "Tile One", "desc": "Amazon Elastic Tile One description, what is it?" },
+      { "id": "S004", "version":"v0.0.1", "name": "Another Tile", "desc": "This Another AWS Tile Desc" }
+    ],
+    "status": 200
+  },
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}
