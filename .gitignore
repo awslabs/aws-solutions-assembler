@@ -96,3 +96,4 @@ role.arn
 **/demo3.yaml
 **/demo4.yaml
 yarn.lock
+**/build
