@@ -1,0 +1,37 @@
+{
+  "title": "AWS Solutions Assembler",
+  "madeWith": "Made with",
+  "docs": {
+    "name": "Docs",
+    "search": "Search Docs"
+  },
+  "hu": {
+    "pageName": "Hu List",
+    "btn": {
+      "detail": "View Detail"
+    }
+  },
+  "tile": {
+    "nodepend": "No Dependency.",
+    "listDependency": "Dependencies",
+    "listTitle": "Tile Items",
+    "tab": {
+      "user": "User Mode",
+      "dev": "Developer Mode"
+    },
+    "btn": {
+      "close": "Close",
+      "back": "Back To Hu List",
+      "dryRun": "Dry Run",
+      "run": "Run"
+    }
+  },
+  "run": {
+    "runTips": "Are you sure you want to confim run this Hu, It is will take a few minutes. Please be patient.",
+    "isRuningTips": "This Hu is in a running process, do you want to show the running terminal?",
+    "btn":{
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    }
+  }
+}

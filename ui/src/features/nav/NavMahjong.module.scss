@@ -1,0 +1,36 @@
+.applogo {
+  height: 10vmin;
+  pointer-events: none;
+  fill: red;
+  width: 40px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .applogo {
+    animation: applogofloat infinite 0.5s alternate;
+  }
+}
+
+@keyframes applogofloat {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hide-when-small {
+    display: none;
+  }
+}
+
+.protoLogo {
+  height: 30px;
+}
+
+.madeBy {
+  font-size: 10px;
+}

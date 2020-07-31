@@ -1,0 +1,38 @@
+{
+  "title": "AWS Solutions Assembler",
+  "madeWith": "开发",
+  "docs": {
+    "name": "文档",
+    "search": "搜索文档"
+  },
+  "hu": {
+    "pageName": "胡 列表页面",
+    "btn": {
+      "detail": "查看详情"
+    }
+  },
+  "tile": {
+    "nodepend": "暂无其他依赖的牌.",
+    "listDependency": "依赖列表",
+    "listTitle": "牌列表",
+    "tab": {
+      "user": "用户模式",
+      "dev": "开发者模式"
+    },
+    "btn": {
+      "close": "关闭",
+      "back": "返回",
+      "dryRun": "模拟运行",
+      "run": "运行"
+    }
+  },
+  "run": {
+    "runTips": "你确定要开始执行这个胡吗？执行需要一定的时间，请您耐心等待.",
+    "isRuningTips": "这个胡正在运行中，你想要打开终端窗口查看日志吗?",
+    "btn":{
+      "confirm": "确定",
+      "cancel": "取消"
+    }
+  }
+}
+

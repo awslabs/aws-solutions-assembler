@@ -1,0 +1,36 @@
+.hu-run-buttons {
+  padding: 20px 0;
+  text-align: right;
+  button {
+    margin-left: 10px;
+  }
+}
+
+
+.form-content {
+  padding: 10px;
+  border:1px solid rgba($color: #000000, $alpha: 0.3);
+  .tile-name {
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom:1px solid rgba($color: #000000, $alpha: 0.2);
+  }
+  .tile-params {
+    padding:2px 0 2px 20px;
+  }
+}
+
+
+.run-dialog {
+  width: 1140px;
+  background: rgb(49, 67, 80);
+  color: #eee;
+  .desc {
+    color: #ccc;
+  }
+}
+
+.terminal {
+  height: 550px;
+}
