@@ -5,6 +5,7 @@
 !dice/toy/index.js
 !dice/toy/jquery-1.4.3.min.js
 *.d.ts
+!ui/src/declaration.d.ts
 node_modules
 
 # CDK asset staging directory
@@ -82,6 +83,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Testing stuff
+dice/ui
 dice/testdata/
 dice/testdata/*
 mctl/m
@@ -96,4 +99,6 @@ role.arn
 **/demo3.yaml
 **/demo4.yaml
 yarn.lock
+
+# Building output from npm
 **/build
