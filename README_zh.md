@@ -33,7 +33,7 @@ open http://127.0.0.1:9090/
 
 ## 用户指南
 
-进一步了解AWS Solutions Assembler，可以参考[完整文档](https://wchaws.github.io/aws-solutions-assembler/zh/getting-started/)
+进一步了解AWS Solutions Assembler，可以参考[完整文档](https://awslabs.github.io/aws-solutions-assembler/zh/)
 
 ## 胡
 
