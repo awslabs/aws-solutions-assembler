@@ -23,7 +23,7 @@
     "@types/redux-mock-store": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "axios-hooks": "^2.1.0",
     "classnames": "^2.2.6",
     "debug": "^4.1.1",
